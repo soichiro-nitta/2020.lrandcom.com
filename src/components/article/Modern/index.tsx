@@ -57,8 +57,8 @@ const StyledComponent = styled(Component)`
   }
   > .pager {
     position: absolute;
-    bottom: 60px;
-    left: 60px;
+    bottom: 7.5rem;
+    left: 7.5rem;
   }
 `
 

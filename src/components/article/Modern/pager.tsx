@@ -37,6 +37,7 @@ const StyledComponent = styled(Component)`
   align-items: center;
   font-size: 1.3rem;
   letter-spacing: 0.4rem;
+  transform: skew(-10deg);
   > .prev,
   > .next {
     display: flex;
@@ -44,19 +45,19 @@ const StyledComponent = styled(Component)`
   }
   > * > .left {
     font-size: 2rem;
-    transform: skew(-15deg);
   }
   > * > span {
     display: inline-block;
-    margin-left: 40px;
+    margin-left: 6.5rem;
   }
   > .num {
-    margin-left: 40px;
+    margin-left: 6.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
   }
   > * > .right {
-    margin-left: 40px;
+    margin-left: 6.5rem;
     font-size: 2rem;
-    transform: skew(-15deg);
   }
 `
 

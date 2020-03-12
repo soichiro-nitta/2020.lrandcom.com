@@ -29,7 +29,7 @@ export default createGlobalStyle`
     background: black;
     line-height: 1;
     letter-spacing: 0;
-    font-family: 'Noto Sans JP';
+    font-family: din-condensed, Noto Sans JP, sans-serif;
     /* background: black; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -13,8 +13,9 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   font-size: 1.3rem;
+  font-weight: bold;
   line-height: 1;
-  letter-spacing: 0.4rem;
+  letter-spacing: 0.5rem;
   opacity: 0.5;
 `
 

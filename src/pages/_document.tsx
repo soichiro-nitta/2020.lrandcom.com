@@ -7,9 +7,10 @@ class MyDocument extends Document {
       <Html lang="ja">
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap"
           />
+          <link rel="stylesheet" href="https://use.typekit.net/ubu5lwf.css" />
         </Head>
         <body>
           <Main />

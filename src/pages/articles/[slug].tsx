@@ -69,13 +69,13 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   > .slug {
     position: absolute;
-    top: 60px;
+    top: 7.5rem;
     left: 0;
   }
   > .back {
     position: absolute;
-    top: 60px;
-    left: 60px;
+    top: 7.5rem;
+    left: 7.5rem;
   }
 `
 

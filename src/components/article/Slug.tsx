@@ -9,17 +9,18 @@ type ContainerProps = {
 type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
-  <div className={props.className}>/{props.slug}</div>
+  <div className={props.className}>/{props.slug.toUpperCase()}</div>
 )
 
 const StyledComponent = styled(Component)`
   ${styles.mixins.flexCenter}
   margin: auto;
   width: 100%;
-  height: 20px;
+  height: 2rem;
   font-size: 1.4rem;
-  letter-spacing: 0.4rem;
-  transform: skew(-15deg);
+  font-weight: bold;
+  letter-spacing: 1rem;
+  transform: skew(-10deg);
 `
 
 const Container: React.FC<ContainerProps> = props => {

@@ -14,7 +14,7 @@ const Component: React.FC<ComponentProps> = props => (
     <Link href="/articles">
       <a>
         <FontAwesomeIcon className="left" icon={config.article.back.icon} />
-        {config.article.back.text}
+        <span>{config.article.back.text}</span>
       </a>
     </Link>
   </div>
@@ -23,15 +23,22 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   display: flex;
   align-items: center;
-  font-size: 1.3rem;
+  height: 2rem;
   letter-spacing: 0.4rem;
-  > * > .left {
-    margin-right: 40px;
-    font-size: 2rem;
-    transform: skew(-15deg);
-  }
+  font-size: 1.3rem;
+  transform: skew(-10deg);
   > a {
     display: inline-block;
+    height: 100%;
+  }
+  > * > .left {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  > * > span {
+    margin-left: 6.5rem;
+    line-height: 2rem;
+    vertical-align: bottom;
   }
 `
 
