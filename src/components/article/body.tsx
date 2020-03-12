@@ -36,12 +36,13 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   > .text {
-    ${styles.mixins.lhCrop(1.8)}
+    ${styles.mixins.lhCrop(1.6)}
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
     white-space: pre-wrap;
     font-weight: 400;
     font-style: normal;
+    opacity: 0.65;
   }
   > .break {
     width: 100%;

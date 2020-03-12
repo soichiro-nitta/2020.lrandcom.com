@@ -26,7 +26,7 @@ export default createGlobalStyle`
     width: 100%;
     height: 100%;
     color: white;
-    background: black;
+    background: #060606;
     line-height: 1;
     letter-spacing: 0;
     font-family: din-condensed, Noto Sans JP, sans-serif;

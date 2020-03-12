@@ -14,7 +14,7 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   ${styles.mixins.absoluteCenter}
   background: linear-gradient(48.1519deg, rgb(0, 0, 0) 3.83696%, rgb(34, 34, 34) 73.2572%);
-  opacity: 0.7;
+  opacity: 0.8;
 `
 
 const Container: React.FC<ContainerProps> = props => {

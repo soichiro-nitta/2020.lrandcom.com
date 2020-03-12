@@ -18,7 +18,7 @@ const StyledComponent = styled(Component)`
   position: fixed;
   top: 7.1rem;
   right: 7.5rem;
-  width: 7rem;
+  width: 6rem;
   height: 2.75rem;
   transform: skew(-10deg);
   > .bo1 {
