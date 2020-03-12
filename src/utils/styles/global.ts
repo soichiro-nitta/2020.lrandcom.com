@@ -26,7 +26,8 @@ export default createGlobalStyle`
     width: 100%;
     height: 100%;
     color: white;
-    background: #060606;
+    /* background: #060606; */
+    background: linear-gradient(48.1519deg, rgb(0, 0, 0) 3.83696%, rgb(24, 24, 24) 73.2572%);
     line-height: 1;
     letter-spacing: 0;
     font-family: din-condensed, Noto Sans JP, sans-serif;
