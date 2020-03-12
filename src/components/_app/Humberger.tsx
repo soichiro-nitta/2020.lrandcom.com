@@ -16,27 +16,27 @@ const Component: React.FC<Props> = props => (
 
 const StyledComponent = styled(Component)`
   position: fixed;
-  top: 6.8rem;
+  top: 7.1rem;
   right: 7.5rem;
   width: 7rem;
-  height: 3.5rem;
+  height: 2.75rem;
   transform: skew(-10deg);
   > .bo1 {
     width: 100%;
-    height: 0.3rem;
+    height: 0.25rem;
     background: white;
     opacity: 0.5;
   }
   > .bo2 {
-    margin-top: 1.3rem;
+    margin-top: 1rem;
     width: 100%;
-    height: 0.3rem;
+    height: 0.25rem;
     background: white;
   }
   > .bo3 {
-    margin-top: 1.3rem;
+    margin-top: 1rem;
     width: 100%;
-    height: 0.3rem;
+    height: 0.25rem;
     background: white;
     opacity: 0.5;
   }
