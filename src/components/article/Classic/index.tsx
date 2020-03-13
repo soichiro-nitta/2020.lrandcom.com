@@ -44,7 +44,7 @@ const Component: React.FC<ComponentProps> = props => (
 )
 
 const StyledComponent = styled(Component)`
-  margin: 25rem auto;
+  margin: 23rem auto;
   width: 75%;
   > .page {
     margin-top: 6rem;

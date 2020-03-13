@@ -15,8 +15,6 @@ const Component: React.FC<ComponentProps> = props => (
 )
 
 const StyledComponent = styled(Component)`
-  width: 6rem;
-  height: 2.75rem;
   transform: skew(-6deg);
   > .bo1 {
     width: 100%;

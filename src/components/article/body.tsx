@@ -50,9 +50,8 @@ const StyledComponent = styled(Component)`
   }
   > .mask {
     width: 100%;
-    height: 25vw;
+    height: 23vw;
     overflow: hidden;
-    border-radius: 1rem;
   }
   > * > img {
     width: 100%;

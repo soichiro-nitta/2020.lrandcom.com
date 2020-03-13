@@ -17,9 +17,6 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   ${styles.mixins.flexCenter}
-  margin: auto;
-  width: 100%;
-  height: 2rem;
   font-size: 2rem;
   font-family: din-condensed;
   letter-spacing: 0.5rem;
