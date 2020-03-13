@@ -40,8 +40,6 @@ const StyledComponent = styled(Component)`
     font-size: 1.4rem;
     letter-spacing: 0.1rem;
     white-space: pre-wrap;
-    font-weight: 400;
-    font-style: normal;
     opacity: 0.65;
   }
   > .break {

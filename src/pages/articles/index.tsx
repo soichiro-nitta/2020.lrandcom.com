@@ -4,6 +4,9 @@ import Link from 'next/link'
 import { getBlogLink, getDateStr, postIsReady } from '../../lib/blog-helpers'
 import { textBlock } from '../../lib/notion/renderers'
 import getBlogIndex from '../../lib/notion/getBlogIndex'
+import { useDispatch } from 'react-redux'
+import { setSlug, setUpperLeft } from '~/store/header'
+import styles from '~/utils/styles'
 
 type PostsTypes = {
   id: string
@@ -42,18 +45,25 @@ const Component: React.FC<Props> = props => (
 )
 
 const StyledComponent = styled(Component)`
-  margin: 0 auto;
-  padding: 60px;
-  width: 75%;
-  color: gray;
+  margin: 22rem auto;
+  width: 60%;
+  overflow: hidden;
   font-size: 1.4rem;
   line-height: 2;
+  letter-spacing: 0.1rem;
+  white-space: pre-wrap;
+  font-weight: 400;
+  font-style: normal;
+  opacity: 0.65;
   > div {
     margin-bottom: 60px;
   }
 `
 
 const Container: React.FC<ContainerProps> = props => {
+  const dispatch = useDispatch()
+  dispatch(setSlug('ARTICLES'))
+  dispatch(setUpperLeft({ type: 'logo', to: '/', text: '' }))
   return <StyledComponent className="articles" {...props} />
 }
 
