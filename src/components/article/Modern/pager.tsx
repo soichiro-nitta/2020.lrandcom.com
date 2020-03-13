@@ -52,8 +52,11 @@ const StyledComponent = styled(Component)`
   }
   > .num {
     margin-left: 6.5rem;
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-family: din-condensed;
+    line-height: 1;
+    letter-spacing: 0.5rem;
+    transform: scaleY(0.7);
   }
   > * > .right {
     margin-left: 6.5rem;

@@ -21,6 +21,7 @@ const StyledComponent = styled(Component)`
   width: 100%;
   height: 2rem;
   font-size: 2rem;
+  font-family: din-condensed;
   letter-spacing: 0.5rem;
   transform: scaleY(0.7) skew(-5deg);
 `
