@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { StateTypes } from '~/store'
 import { setName } from '~/store/user'
+import { setSlug } from '~/store/slug'
 
 type ContainerProps = {}
 type Props = {
@@ -35,6 +36,8 @@ const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setName('aaa'))
   const name = useSelector((state: StateTypes) => state.user.name)
+
+  dispatch(setSlug('LEADING & COMPANY'))
 
   const [flag, setFlag] = React.useState(false)
   const handleClick = React.useCallback(() => {

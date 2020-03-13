@@ -5,7 +5,7 @@ type State = {
 }
 
 const initialState = {
-  slug: 'LEADING & COMPANY'
+  slug: ''
 }
 
 const slice = createSlice({
