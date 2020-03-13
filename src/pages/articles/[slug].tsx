@@ -6,8 +6,9 @@ import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Modern from '~/components/article/Modern'
 import Classic from '~/components/article/Classic'
-import Slug from '~/components/article/Slug'
 import Back from '~/components/article/Back'
+import { useDispatch } from 'react-redux'
+import { setSlug } from '~/store/slug'
 
 type PageTypes = {
   title: string
@@ -61,7 +62,6 @@ const Component: React.FC<ComponentProps> = props => (
     {(props.display === 'Modern' && (
       <Modern className="modern" pages={props.pages} date={props.date} />
     )) || <Classic className="classic" pages={props.pages} date={props.date} />}
-    <Slug className="slug" slug={props.slug} />
     <Back className="back" />
   </div>
 )
@@ -82,6 +82,9 @@ const StyledComponent = styled(Component)`
 const Container: React.FC<ContainerProps> = props => {
   useRouter() // ないとSSR時の挙動がおかしくなる
 
+  const dispatch = useDispatch()
+  dispatch(setSlug(props.slug))
+
   if (props.redirect) {
     React.useEffect(() => {
       location.href = props.redirect
@@ -89,7 +92,7 @@ const Container: React.FC<ContainerProps> = props => {
     return <>Not Found</>
   }
 
-  return <StyledComponent className="blog" {...props} />
+  return <StyledComponent className="article" {...props} />
 }
 
 export default Container
