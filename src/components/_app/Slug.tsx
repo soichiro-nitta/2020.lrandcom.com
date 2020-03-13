@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import styles from '~/utils/styles'
+import { useSelector } from 'react-redux'
+import { StateTypes } from '~/store'
 
 type ContainerProps = {
   className: string
-  slug: string
 }
-type ComponentProps = {} & ContainerProps
+type ComponentProps = {
+  slug: string
+} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>/{props.slug.toUpperCase()}</div>
@@ -24,7 +27,8 @@ const StyledComponent = styled(Component)`
 `
 
 const Container: React.FC<ContainerProps> = props => {
-  return <StyledComponent {...props} />
+  const slug = useSelector((state: StateTypes) => state.slug.slug)
+  return <StyledComponent slug={slug} {...props} />
 }
 
 export default Container
