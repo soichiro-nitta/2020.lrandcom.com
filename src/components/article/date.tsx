@@ -12,10 +12,11 @@ const Component: React.FC<ComponentProps> = props => (
 )
 
 const StyledComponent = styled(Component)`
-  font-size: 1.3rem;
-  font-weight: bold;
+  margin: -0.3rem 0;
+  font-size: 2rem;
   line-height: 1;
   letter-spacing: 0.5rem;
+  transform: scaleY(0.7) skew(-5deg);
   opacity: 0.65;
 `
 
