@@ -26,7 +26,7 @@ const StyledComponent = styled(Component)`
   height: 2rem;
   letter-spacing: 0.4rem;
   font-size: 1.3rem;
-  transform: skew(-10deg);
+  transform: skew(-6deg);
   > a {
     display: inline-block;
     height: 100%;

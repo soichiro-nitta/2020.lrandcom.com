@@ -17,7 +17,7 @@ const StyledComponent = styled(Component)`
   font-weight: bold;
   ${styles.mixins.lhCrop(1.8)}
   letter-spacing: 0.2rem;
-  transform: skew(-10deg);
+  transform: skew(-6deg);
 `
 
 const Container: React.FC<ContainerProps> = props => {

@@ -37,7 +37,7 @@ const StyledComponent = styled(Component)`
   align-items: center;
   font-size: 1.3rem;
   letter-spacing: 0.4rem;
-  transform: skew(-10deg);
+  transform: skew(-6deg);
   > .prev,
   > .next {
     display: flex;
