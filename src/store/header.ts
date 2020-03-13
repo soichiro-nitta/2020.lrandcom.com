@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type UpperLeft = {
-  type: 'logo' | 'back'
-  to?: string
-  text?: string
+  type: string
+  to: string
+  text: string
 }
 type State = {
   upperLeft: UpperLeft
@@ -12,7 +12,9 @@ type State = {
 
 const initialState = {
   upperLeft: {
-    type: 'logo'
+    type: 'logo',
+    to: '',
+    text: ''
   },
   slug: ''
 }

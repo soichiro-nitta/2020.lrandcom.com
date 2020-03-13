@@ -17,7 +17,7 @@ const StyledComponent = styled(Component)``
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setSlug('LEADING & COMPANY'))
-  dispatch(setUpperLeft({ type: 'logo' }))
+  dispatch(setUpperLeft({ type: 'logo', to: '/', text: '' }))
 
   return <StyledComponent {...props} className="index" />
 }

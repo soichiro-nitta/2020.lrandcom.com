@@ -23,11 +23,15 @@ const Component: React.FC<ComponentProps> = props => (
         <div className="page">
           <props.Component {...props.pageProps} />
         </div>
-        <header>
-          <UpperLeft className="upperLeft" />
+        <div className="slugWrapper">
           <Slug className="slug" />
+        </div>
+        <div className="upperLeftWrapper">
+          <UpperLeft className="upperLeft" />
+        </div>
+        <div className="humbergerWrapper">
           <Humberger className="humberger" />
-        </header>
+        </div>
       </div>
     </Provider>
   </>
@@ -53,17 +57,32 @@ const StyledComponent = styled(Component)`
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
-  > header {
+  > .upperLeftWrapper {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 6rem;
-    right: 0;
-    left: 0;
-    margin: auto;
-    width: calc(100% - 12rem);
-    z-index: ${styles.zIndex.header};
+    left: 6rem;
+    height: 3.5rem;
+  }
+  > .slugWrapper {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 6rem;
+    width: 100%;
+    height: 3.5rem;
+  }
+  > * > .slug {
+    margin: 0 auto;
+  }
+  > .humbergerWrapper {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    height: 3.5rem;
   }
   > * > .humberger {
     width: 5rem;

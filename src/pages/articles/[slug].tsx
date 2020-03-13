@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import Modern from '~/components/article/Modern'
 import Classic from '~/components/article/Classic'
 import { useDispatch } from 'react-redux'
-import { setSlug } from '~/store/header'
+import { setSlug, setUpperLeft } from '~/store/header'
 
 type PageTypes = {
   title: string
@@ -71,6 +71,9 @@ const Container: React.FC<ContainerProps> = props => {
 
   const dispatch = useDispatch()
   dispatch(setSlug(`/${props.slug.toUpperCase()}`))
+  dispatch(
+    setUpperLeft({ type: 'back', to: '/articles', text: 'Back to articles' })
+  )
 
   if (props.redirect) {
     React.useEffect(() => {
