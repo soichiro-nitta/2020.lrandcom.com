@@ -1,13 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import user from './user'
-// import cartReducer from './cart'
+import slug from './slug'
 import article from './article'
 
 const reducer = combineReducers({
   user,
-  article
-  // cart: cartReducer,
+  article,
+  slug
 })
 
 export type StateTypes = ReturnType<typeof reducer>
