@@ -1,23 +1,35 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+type UpperLeft = {
+  type: 'logo' | 'back'
+  to?: string
+  text?: string
+}
 type State = {
+  upperLeft: UpperLeft
   slug: string
 }
 
 const initialState = {
+  upperLeft: {
+    type: 'logo'
+  },
   slug: ''
 }
 
 const slice = createSlice({
-  name: 'slug',
+  name: 'header',
   initialState,
   reducers: {
+    setUpperLeft: (state: State, action: PayloadAction<UpperLeft>): State => {
+      return { ...state, upperLeft: action.payload }
+    },
     setSlug: (state: State, action: PayloadAction<string>): State => {
       return { ...state, slug: action.payload }
     }
   }
 })
 
-export const { setSlug } = slice.actions
+export const { setSlug, setUpperLeft } = slice.actions
 
 export default slice.reducer

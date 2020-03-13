@@ -1,13 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import user from './user'
-import slug from './slug'
+import header from './header'
 import article from './article'
 
 const reducer = combineReducers({
-  user,
   article,
-  slug
+  header
 })
 
 export type StateTypes = ReturnType<typeof reducer>

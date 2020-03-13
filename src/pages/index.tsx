@@ -1,56 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector, useDispatch } from 'react-redux'
-import { StateTypes } from '~/store'
-import { setName } from '~/store/user'
-import { setSlug } from '~/store/slug'
+import { useDispatch } from 'react-redux'
+import { setSlug, setUpperLeft } from '~/store/header'
 
 type ContainerProps = {}
-type Props = {
-  flag: boolean
+type ComponentProps = {
   className: string
-  handleClick: () => void
 } & ContainerProps
 
-const Component: React.FC<Props> = props => {
-  return (
-    <div className={props.className}>
-      test
-      <button className="btn" onClick={props.handleClick}>
-        {props.flag ? 'click me' : 'CLICK ME'}
-      </button>
-    </div>
-  )
-}
+const Component: React.FC<ComponentProps> = props => (
+  <div className={props.className}>top page</div>
+)
 
-const StyledComponent = styled(Component)`
-  color: blue;
-  .btn {
-    color: yellow;
-  }
-  > button {
-    color: blue;
-  }
-`
+const StyledComponent = styled(Component)``
+
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
-  dispatch(setName('aaa'))
-  const name = useSelector((state: StateTypes) => state.user.name)
-
   dispatch(setSlug('LEADING & COMPANY'))
+  dispatch(setUpperLeft({ type: 'logo' }))
 
-  const [flag, setFlag] = React.useState(false)
-  const handleClick = React.useCallback(() => {
-    setFlag(!flag)
-  }, [flag])
-  return (
-    <StyledComponent
-      {...props}
-      flag={flag}
-      className="test"
-      handleClick={handleClick}
-    />
-  )
+  return <StyledComponent {...props} className="index" />
 }
 
 export default Container

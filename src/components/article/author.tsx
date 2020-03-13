@@ -57,7 +57,7 @@ const StyledComponent = styled(Component)`
   }
   > .name {
     margin-left: 3rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     line-height: 1;
     letter-spacing: 0.4rem;
   }

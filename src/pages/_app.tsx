@@ -6,6 +6,7 @@ import styles, { GlobalStyle } from '~/utils/styles'
 import Humberger from '~/components/_app/Humberger'
 import Slug from '~/components/_app/Slug'
 import Background from '~/components/_app/Background'
+import UpperLeft from '~/components/_app/UpperLeft'
 import styled from 'styled-components'
 
 type ContainerProps = AppProps
@@ -22,8 +23,11 @@ const Component: React.FC<ComponentProps> = props => (
         <div className="page">
           <props.Component {...props.pageProps} />
         </div>
-        <Slug className="slug" />
-        <Humberger className="humberger" />
+        <header>
+          <UpperLeft className="upperLeft" />
+          <Slug className="slug" />
+          <Humberger className="humberger" />
+        </header>
       </div>
     </Provider>
   </>
@@ -37,7 +41,6 @@ const StyledComponent = styled(Component)`
     top: 0;
     width: 100%;
     height: 100%;
-    z-index: ${styles.zIndex.background};
   }
   > .page {
     position: fixed;
@@ -50,21 +53,21 @@ const StyledComponent = styled(Component)`
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
-  > .slug {
+  > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
-    top: 7.5rem;
+    top: 6rem;
+    right: 0;
     left: 0;
-    width: 100%;
-    height: 2rem;
-    z-index: ${styles.zIndex.slug};
+    margin: auto;
+    width: calc(100% - 12rem);
+    z-index: ${styles.zIndex.header};
   }
-  > .humberger {
-    position: fixed;
-    top: 7.13rem;
-    right: 7.5rem;
-    width: 6rem;
-    height: 2.75rem;
-    z-index: ${styles.zIndex.humberger};
+  > * > .humberger {
+    width: 5rem;
+    height: 2rem;
   }
 `
 

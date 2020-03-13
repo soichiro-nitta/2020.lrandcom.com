@@ -6,10 +6,8 @@ import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Modern from '~/components/article/Modern'
 import Classic from '~/components/article/Classic'
-import Back from '~/components/article/Back'
 import { useDispatch } from 'react-redux'
-import { setSlug } from '~/store/slug'
-import styles from '~/utils/styles'
+import { setSlug } from '~/store/header'
 
 type PageTypes = {
   title: string
@@ -63,18 +61,10 @@ const Component: React.FC<ComponentProps> = props => (
     {(props.display === 'Modern' && (
       <Modern className="modern" pages={props.pages} date={props.date} />
     )) || <Classic className="classic" pages={props.pages} date={props.date} />}
-    <Back className="back" />
   </div>
 )
 
-const StyledComponent = styled(Component)`
-  > .back {
-    position: fixed;
-    top: 7.5rem;
-    left: 7.5rem;
-    z-index: ${styles.zIndex.back};
-  }
-`
+const StyledComponent = styled(Component)``
 
 const Container: React.FC<ContainerProps> = props => {
   useRouter() // ないとSSR時の挙動がおかしくなる
