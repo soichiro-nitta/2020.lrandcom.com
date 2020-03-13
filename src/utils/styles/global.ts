@@ -40,15 +40,6 @@ export default createGlobalStyle`
     width: 100%;
     height: 100%;
   }
-  #page {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
   h1,
   h2,
   h3 {

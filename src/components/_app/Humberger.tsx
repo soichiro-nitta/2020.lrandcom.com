@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-type ContainerProps = {}
-type Props = {
+type ContainerProps = {
   className: string
-} & ContainerProps
+}
+type ComponentProps = {} & ContainerProps
 
-const Component: React.FC<Props> = props => (
+const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="bo1" />
     <div className="bo2" />
@@ -15,9 +15,6 @@ const Component: React.FC<Props> = props => (
 )
 
 const StyledComponent = styled(Component)`
-  position: fixed;
-  top: 7.1rem;
-  right: 7.5rem;
   width: 6rem;
   height: 2.75rem;
   transform: skew(-10deg);
@@ -43,7 +40,7 @@ const StyledComponent = styled(Component)`
 `
 
 const Container: React.FC<ContainerProps> = props => {
-  return <StyledComponent className="humberger" {...props} />
+  return <StyledComponent {...props} />
 }
 
 export default Container
