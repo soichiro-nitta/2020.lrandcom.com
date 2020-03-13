@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import store from '~/store'
 import { AppProps } from 'next/app'
-import { GlobalStyle } from '~/utils/styles'
+import styles, { GlobalStyle } from '~/utils/styles'
 import Humberger from '~/components/_app/Humberger'
 import Slug from '~/components/_app/Slug'
 import styled from 'styled-components'
@@ -43,11 +43,13 @@ const StyledComponent = styled(Component)`
     position: fixed;
     top: 7.5rem;
     left: 0;
+    z-index: ${styles.zIndex.slug};
   }
   > .humberger {
     position: fixed;
-    top: 7.1rem;
+    top: 7.13rem;
     right: 7.5rem;
+    z-index: ${styles.zIndex.humberger};
   }
 `
 

@@ -9,6 +9,7 @@ import Classic from '~/components/article/Classic'
 import Back from '~/components/article/Back'
 import { useDispatch } from 'react-redux'
 import { setSlug } from '~/store/slug'
+import styles from '~/utils/styles'
 
 type PageTypes = {
   title: string
@@ -68,9 +69,10 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   > .back {
-    position: absolute;
+    position: fixed;
     top: 7.5rem;
     left: 7.5rem;
+    z-index: ${styles.zIndex.back};
   }
 `
 
@@ -78,7 +80,7 @@ const Container: React.FC<ContainerProps> = props => {
   useRouter() // ないとSSR時の挙動がおかしくなる
 
   const dispatch = useDispatch()
-  dispatch(setSlug(props.slug))
+  dispatch(setSlug(`/${props.slug.toUpperCase()}`))
 
   if (props.redirect) {
     React.useEffect(() => {
