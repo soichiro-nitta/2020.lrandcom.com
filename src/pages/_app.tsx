@@ -85,8 +85,8 @@ const StyledComponent = styled(Component)`
     height: 3.5rem;
   }
   > * > .humberger {
-    width: 5rem;
-    height: 2rem;
+    width: 4rem;
+    height: 1.65rem;
   }
 `
 

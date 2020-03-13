@@ -6,39 +6,46 @@ import config from '~/utils/config'
 
 type ContainerProps = {
   className: string
+  to: string
+  text: string
 }
 type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <Link href="/articles">
+    <Link href={props.to}>
       <a>
         <FontAwesomeIcon className="left" icon={config.article.back.icon} />
-        <span>{config.article.back.text}</span>
+        <div className="circle" />
+        <div className="circle" />
+        <span>{props.text}</span>
       </a>
     </Link>
   </div>
 )
 
 const StyledComponent = styled(Component)`
-  display: flex;
-  align-items: center;
-  height: 2rem;
-  letter-spacing: 0.4rem;
-  font-size: 1.3rem;
-  transform: skew(-6deg);
   > a {
-    display: inline-block;
-    height: 100%;
+    display: flex;
+    align-items: center;
   }
   > * > .left {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 2rem;
   }
+  > * > .circle {
+    margin-left: 0.3rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
   > * > span {
-    margin-left: 6.5rem;
-    line-height: 2rem;
-    vertical-align: bottom;
+    margin-left: 4rem;
+    line-height: 1;
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
   }
 `
 

@@ -20,13 +20,17 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="prev" onClick={props.prev}>
       <FontAwesomeIcon className="left" icon={config.article.prev.icon} />
-      <span>{config.article.prev.text}</span>
+      <div className="prevCircle" />
+      <div className="prevCircle" />
+      <span className="prevText">{config.article.prev.text}</span>
     </div>
     <div className="num">
       {props.currentNum} / {props.total}
     </div>
     <div className="next" onClick={props.next}>
-      <span>{config.article.next.text}</span>
+      <span className="nextText">{config.article.next.text}</span>
+      <div className="nextCircle1" />
+      <div className="nextCircle2" />
       <FontAwesomeIcon className="right" icon={config.article.next.icon} />
     </div>
   </div>
@@ -35,23 +39,31 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   display: flex;
   align-items: center;
-  font-size: 1.3rem;
-  letter-spacing: 0.4rem;
-  transform: skew(-6deg);
   > .prev,
   > .next {
     display: flex;
     align-items: center;
   }
   > * > .left {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
   }
-  > * > span {
-    display: inline-block;
-    margin-left: 6.5rem;
+  > * > .prevCircle {
+    margin-left: 0.3rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  > * > .prevText {
+    margin-left: 4rem;
+    line-height: 1;
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
   }
   > .num {
-    margin-left: 6.5rem;
+    margin-left: 4rem;
     font-size: 2rem;
     font-family: din-condensed;
     line-height: 1;
@@ -59,8 +71,30 @@ const StyledComponent = styled(Component)`
     transform: scaleY(0.7);
   }
   > * > .right {
-    margin-left: 6.5rem;
+    margin-left: 0.3rem;
     font-size: 2rem;
+  }
+  > * > .nextCircle1 {
+    margin-left: 4rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  > * > .nextCircle2 {
+    margin-left: 0.3rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  > * > .nextText {
+    margin-left: 4rem;
+    line-height: 1;
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
   }
 `
 

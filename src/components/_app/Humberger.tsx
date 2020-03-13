@@ -18,20 +18,20 @@ const StyledComponent = styled(Component)`
   transform: skew(-6deg);
   > .bo1 {
     width: 100%;
-    height: 0.2rem;
+    height: 0.15rem;
     background: white;
     opacity: 0.5;
   }
   > .bo2 {
-    margin-top: 0.7rem;
+    margin-top: 0.6rem;
     width: 100%;
-    height: 0.2rem;
+    height: 0.15rem;
     background: white;
   }
   > .bo3 {
-    margin-top: 0.7rem;
+    margin-top: 0.6rem;
     width: 100%;
-    height: 0.2rem;
+    height: 0.15rem;
     background: white;
     opacity: 0.5;
   }

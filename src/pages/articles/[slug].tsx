@@ -72,7 +72,7 @@ const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setSlug(`/${props.slug.toUpperCase()}`))
   dispatch(
-    setUpperLeft({ type: 'back', to: '/articles', text: 'Back to articles' })
+    setUpperLeft({ type: 'back', to: '/articles', text: '記事一覧に戻る' })
   )
 
   if (props.redirect) {

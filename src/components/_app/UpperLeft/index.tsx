@@ -17,7 +17,7 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     {(props.type === 'logo' && <Logo className="logo" />) || (
-      <Back className="back" />
+      <Back className="back" to={props.to} text={props.text} />
     )}
   </div>
 )

@@ -1,4 +1,4 @@
-import { faBackward, faForward } from '@fortawesome/pro-duotone-svg-icons'
+import { faAngleLeft, faAngleRight } from '@fortawesome/pro-duotone-svg-icons'
 import {
   faFacebookSquare,
   faTwitter,
@@ -19,8 +19,7 @@ export default {
   },
   article: {
     back: {
-      text: '記事一覧に戻る',
-      icon: faBackward
+      icon: faAngleLeft
     },
     author: {
       name: '著者：夏目 力',
@@ -34,11 +33,11 @@ export default {
     },
     prev: {
       text: '前へ',
-      icon: faBackward
+      icon: faAngleLeft
     },
     next: {
       text: '次へ',
-      icon: faForward
+      icon: faAngleRight
     }
   }
 }
