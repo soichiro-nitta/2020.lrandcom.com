@@ -5,7 +5,7 @@ import { AppProps } from 'next/app'
 import styles, { GlobalStyle } from '~/utils/styles'
 import Humberger from '~/components/_app/Humberger'
 import Slug from '~/components/_app/Slug'
-import Background from '~/components/_app/Background'
+import Noise from '~/components/base/Noise'
 import UpperLeft from '~/components/_app/UpperLeft'
 import styled from 'styled-components'
 
@@ -19,7 +19,7 @@ const Component: React.FC<ComponentProps> = props => (
     <GlobalStyle />
     <Provider store={store}>
       <div className={props.className}>
-        <Background className="background" />
+        <Noise className="noise" />
         <div className="page">
           <props.Component {...props.pageProps} />
         </div>
@@ -40,7 +40,7 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   width: 100%;
   height: 100%;
-  > .background {
+  > .noise {
     position: fixed;
     top: 0;
     width: 100%;
