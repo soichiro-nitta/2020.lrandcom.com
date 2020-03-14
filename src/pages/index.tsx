@@ -12,6 +12,7 @@ type ComponentProps = {
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
+    <div className="line" />
     <section>
       <div className="video">
         <video
@@ -37,6 +38,16 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   height: 100%;
+  > .line {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 1px;
+    background: white;
+    opacity: 0.1;
+  }
   > section {
     ${styles.mixins.flexCenter};
     position: relative;
