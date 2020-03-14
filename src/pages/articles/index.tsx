@@ -63,7 +63,7 @@ const StyledComponent = styled(Component)`
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setSlug('ARTICLES'))
-  dispatch(setUpperLeft({ type: 'back', to: '/', text: 'トップページに戻る' }))
+  dispatch(setUpperLeft({ type: 'back', to: '/', text: 'ホームに戻る' }))
   return <StyledComponent className="articles" {...props} />
 }
 
