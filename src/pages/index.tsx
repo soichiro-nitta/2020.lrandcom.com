@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { setSlug, setUpperLeft } from '~/store/header'
 import styles from '~/utils/styles'
-import Noise from '~/components/base/Noise'
+import Copy from '~/components/index/Copy'
+import Section from '~/components/index/Section'
+import config from '~/utils/config'
 
 type ContainerProps = {}
 type ComponentProps = {
@@ -13,28 +15,27 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="line" />
-    <section>
-      <div className="video">
-        <video
-          src="https://lrandcom.kagoyacloud.com/static/index/pc.mp4"
-          preload="none"
-          autoPlay
-          muted
-          playsInline
-          loop
-        />
-        <Noise className="noise" />
-      </div>
-      <div className="copy">
-        <span>
-          もっとクリエイティブなマーケティングの
-          <br />
-          やり方があるはずだ。
-        </span>
-      </div>
-    </section>
-    <section>section2</section>
-    <section>section3</section>
+    <Copy className="copy" />
+    <Section
+      className="section"
+      title={config.index.writing.title}
+      body={config.index.writing.body}
+      src={config.index.writing.src}
+    />
+    <Section
+      className="section"
+      title={config.index.website.title}
+      body={config.index.website.body}
+      src={config.index.website.src}
+    />
+    <Section
+      className="section"
+      title={config.index.film.title}
+      body={config.index.film.body}
+      src={config.index.film.src}
+    />
+    {/* <Section className="section" />
+    <Section className="section" /> */}
   </div>
 )
 
@@ -51,44 +52,15 @@ const StyledComponent = styled(Component)`
     background: white;
     opacity: 0.1;
   }
-  > section {
+  > .copy {
     flex: 0 0 100vw;
-    ${styles.mixins.flexCenter};
-    position: relative;
     width: 100vw;
     height: 100%;
   }
-  > * > .video {
-    position: relative;
-    width: 75rem;
-    height: 37.5rem;
-  }
-  > * > * > video {
-    width: 100%;
+  > .section {
+    flex: 0 0 100vw;
+    width: 100vw;
     height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-  }
-  > * > * > .noise {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  > * > .copy {
-    ${styles.mixins.lhCrop(1.7)};
-    ${styles.mixins.flexCenter};
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 4.5rem;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    transform: skew(-5deg);
-    text-decoration: underline;
   }
 `
 
