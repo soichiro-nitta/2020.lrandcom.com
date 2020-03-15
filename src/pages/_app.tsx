@@ -20,7 +20,7 @@ const Component: React.FC<ComponentProps> = props => (
     <Provider store={store}>
       <div className={props.className}>
         <Noise className="noise" />
-        <div className="page">
+        <div id="page">
           <props.Component {...props.pageProps} />
         </div>
         <div className="slugWrapper">
@@ -46,14 +46,15 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 100%;
   }
-  > .page {
+  > #page {
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: scroll;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    /* overflow: hidden; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { setSlug, setUpperLeft } from '~/store/header'
@@ -33,10 +33,13 @@ const Component: React.FC<ComponentProps> = props => (
         </span>
       </div>
     </section>
+    <section>section2</section>
+    <section>section3</section>
   </div>
 )
 
 const StyledComponent = styled(Component)`
+  display: flex;
   height: 100%;
   > .line {
     position: fixed;
@@ -49,6 +52,7 @@ const StyledComponent = styled(Component)`
     opacity: 0.1;
   }
   > section {
+    flex: 0 0 100vw;
     ${styles.mixins.flexCenter};
     position: relative;
     width: 100vw;
@@ -93,7 +97,18 @@ const Container: React.FC<ContainerProps> = props => {
   dispatch(setSlug('LEADING & COMPANY'))
   dispatch(setUpperLeft({ type: 'logo', to: '/', text: '' }))
 
-  return <StyledComponent {...props} className="index" />
+  useEffect(() => {
+    const page = document.getElementById('page')
+    const onwheel = (e): void => {
+      page.scrollLeft += e.deltaY
+    }
+    window.addEventListener('wheel', onwheel)
+    return (): void => {
+      window.removeEventListener('wheel', onwheel)
+    }
+  }, [])
+
+  return <StyledComponent className="index" {...props} />
 }
 
 export default Container
