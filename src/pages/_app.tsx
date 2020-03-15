@@ -7,6 +7,7 @@ import Humberger from '~/components/_app/Humberger'
 import Slug from '~/components/_app/Slug'
 import Noise from '~/components/base/Noise'
 import UpperLeft from '~/components/_app/UpperLeft'
+import LowerLeft from '~/components/_app/LowerLeft'
 import styled from 'styled-components'
 
 type ContainerProps = AppProps
@@ -31,6 +32,9 @@ const Component: React.FC<ComponentProps> = props => (
         </div>
         <div className="humbergerWrapper">
           <Humberger className="humberger" />
+        </div>
+        <div className="lowerLeftWrapper">
+          <LowerLeft className="lowerLeft" />
         </div>
       </div>
     </Provider>
@@ -94,6 +98,14 @@ const StyledComponent = styled(Component)`
   > * > .humberger {
     width: 4rem;
     height: 1.65rem;
+  }
+  > .lowerLeftWrapper {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 6rem;
+    left: 6rem;
+    height: 3.5rem;
   }
 `
 

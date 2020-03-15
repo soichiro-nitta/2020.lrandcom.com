@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { setSlug, setUpperLeft } from '~/store/header'
 import styles from '~/utils/styles'
+import Line from '~/components/index/Line'
 import Copy from '~/components/index/Copy'
 import Section from '~/components/index/Section'
 import config from '~/utils/config'
@@ -14,7 +15,7 @@ type ComponentProps = {
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <div className="line" />
+    <Line className="line" />
     <Copy className="copy" />
     <Section
       className="section"
@@ -49,8 +50,6 @@ const StyledComponent = styled(Component)`
     margin: auto;
     width: 100%;
     height: 1px;
-    background: white;
-    opacity: 0.1;
   }
   > .copy {
     flex: 0 0 100vw;
