@@ -57,6 +57,12 @@ const StyledComponent = styled(Component)`
     /* overflow: hidden; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -ms-overflow-style: none; /* IE, Edge 対応 */
+    scrollbar-width: none; /* Firefox 対応 */
+  }
+  > #page:-webkit-scrollbar {
+    /* Chrome, Safari 対応 */
+    display: none;
   }
   > .upperLeftWrapper {
     display: flex;
