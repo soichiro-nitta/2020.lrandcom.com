@@ -1,4 +1,8 @@
-import { faAngleLeft, faAngleRight } from '@fortawesome/pro-duotone-svg-icons'
+import {
+  faAngleLeft,
+  faAngleRight,
+  faCircle
+} from '@fortawesome/pro-duotone-svg-icons'
 import {
   faFacebookSquare,
   faTwitter,
@@ -7,6 +11,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 export default {
+  icons: {
+    arrowLeft: faAngleLeft,
+    arrowRight: faAngleRight,
+    circle: faCircle
+  },
   url: {
     facebook: {
       natsume: 'https://www.facebook.com/chikara4',
@@ -40,9 +49,6 @@ Youtubeに載せるのであれば、最初の5秒でどうインパクトをつ
     }
   },
   article: {
-    back: {
-      icon: faAngleLeft
-    },
     author: {
       name: '著者：夏目 力',
       src: '/natsume.jpg',

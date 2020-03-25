@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import config from '~/utils/config'
+import ArrowLeft from '~/components/base/ArrowLeft'
 
 type ContainerProps = {
   className: string
@@ -15,9 +14,7 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <Link href={props.to}>
       <a>
-        <FontAwesomeIcon className="left" icon={config.article.back.icon} />
-        <div className="circle" />
-        <div className="circle" />
+        <ArrowLeft className="arrowLeft" />
         <span>{props.text}</span>
       </a>
     </Link>
@@ -28,18 +25,6 @@ const StyledComponent = styled(Component)`
   > a {
     display: flex;
     align-items: center;
-  }
-  > * > .left {
-    font-size: 1.8rem;
-    line-height: 2rem;
-  }
-  > * > .circle {
-    margin-left: 0.3rem;
-    width: 0.3rem;
-    height: 0.3rem;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.5;
   }
   > * > span {
     margin-left: 4rem;

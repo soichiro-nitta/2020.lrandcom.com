@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { StateTypes } from '~/store'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import config from '~/utils/config'
+import ArrowRight from '~/components/base/ArrowRight'
 // import Logo from './logo'
 // import Back from './back'
 
@@ -25,9 +24,7 @@ const Component: React.FC<ComponentProps> = props => (
     <Link href="/articles">
       <a>
         <span>記事を読む</span>
-        <div className="circle" />
-        <div className="circle" />
-        <FontAwesomeIcon className="right" icon={config.article.next.icon} />
+        <ArrowRight className="arrowRight" />
       </a>
     </Link>
   </div>
