@@ -42,7 +42,7 @@ const StyledComponent = styled(Component)`
     width: 37.5vw;
     height: 18.75;
     background: #1f1f1f;
-    border: 1px solid #171717;
+    border: 1px solid #181818;
   }
   > .body > span {
     font-size: 1.4rem;
