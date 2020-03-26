@@ -16,33 +16,34 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <Line className="line" />
-    <Copy className="section" />
-    <Section
-      className="section"
-      title={config.index.writing.title}
-      body={config.index.writing.body}
-      src={config.index.writing.src}
-    />
-    <Section
-      className="section"
-      title={config.index.website.title}
-      body={config.index.website.body}
-      src={config.index.website.src}
-    />
-    <Section
-      className="section"
-      title={config.index.film.title}
-      body={config.index.film.body}
-      src={config.index.film.src}
-    />
-    <OurClient className="section" />
-    {/* <Section className="section" />
+    <div className="contents">
+      <Copy className="section" />
+      <Section
+        className="section"
+        title={config.index.writing.title}
+        body={config.index.writing.body}
+        src={config.index.writing.src}
+      />
+      <Section
+        className="section"
+        title={config.index.website.title}
+        body={config.index.website.body}
+        src={config.index.website.src}
+      />
+      <Section
+        className="section"
+        title={config.index.film.title}
+        body={config.index.film.body}
+        src={config.index.film.src}
+      />
+      <OurClient className="section" />
+      {/* <Section className="section" />
     <Section className="section" /> */}
+    </div>
   </div>
 )
 
 const StyledComponent = styled(Component)`
-  display: flex;
   height: 100%;
   > .line {
     position: fixed;
@@ -52,7 +53,14 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 1px;
   }
-  > .section {
+  > .contents {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+  > * > .section {
     flex: 0 0 100vw;
     width: 100vw;
     height: 100%;
