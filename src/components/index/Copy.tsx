@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Noise from '~/components/base/Noise'
 import styles from '~/utils/styles'
 import Title from '~/components/index/title'
-import IncludeBr from '~/components/base/IncludeBr'
 import config from '~/utils/config'
 
 type ContainerProps = {
