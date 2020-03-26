@@ -27,6 +27,8 @@ export default {
       'https://www.youtube.com/channel/UCJkz6NUHgsNHoe_qmw_A_OA?sub_confirmation=1'
   },
   index: {
+    copy: `もっとクリエイティブなマーケティングの
+やり方があるはずだ`,
     writing: {
       title: '記事制作',
       body: `クオリティーの高いWEBコンテンツは、新しい顧客を引き付ける磁石の役割を果たします。経済がどんどん拡大して行く時代は、とにかく大量の広告が新しい顧客との接点になっていた。しかし、経済が徐々に縮小していく時代は、創造性の高いクリエティブなコンテンツが新しい顧客との接点になっていくことは間違いありません。

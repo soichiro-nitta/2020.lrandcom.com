@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Noise from '~/components/base/Noise'
 import styles from '~/utils/styles'
 import Title from '~/components/index/title'
+import IncludeBr from '~/components/base/IncludeBr'
+import config from '~/utils/config'
 
 type ContainerProps = {
   className: string
@@ -27,13 +29,14 @@ const Component: React.FC<ComponentProps> = props => (
       />
       <Noise className="noise" />
     </div>
-
     <Title className="title">
-      <span>
-        もっとクリエイティブなマーケティングの
-        <br />
-        やり方があるはずだ。
-      </span>
+      <div>
+        {config.index.copy.split('\n').map((sentence, index) => (
+          <React.Fragment key={index}>
+            <div>{sentence}</div>
+          </React.Fragment>
+        ))}
+      </div>
     </Title>
   </div>
 )
