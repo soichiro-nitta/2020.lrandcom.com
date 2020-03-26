@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import styles from '~/utils/styles'
+import Title from '~/components/index/title'
 
 type ContainerProps = {
   className: string
@@ -14,7 +15,7 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="inner">
       <div className="contents">
-        <div className="title">{props.title}</div>
+        <Title className="title">{props.title}</Title>
         <div className="body">
           {props.body.split('\n').map((sentence, index) => (
             <React.Fragment key={index}>
@@ -41,14 +42,6 @@ const StyledComponent = styled(Component)`
   }
   > * > .contents {
     width: 30vw;
-  }
-  > * > * > .title {
-    ${styles.mixins.lhCrop(1.7)};
-    font-size: 4.5rem;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    transform: skew(-5deg);
-    text-decoration: underline;
   }
   > * > * > .body {
     margin-top: 4.5rem;

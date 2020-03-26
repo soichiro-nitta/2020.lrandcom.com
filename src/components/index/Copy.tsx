@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Noise from '~/components/base/Noise'
 import styles from '~/utils/styles'
+import Title from '~/components/index/title'
 
 type ContainerProps = {
   className: string
@@ -26,13 +27,14 @@ const Component: React.FC<ComponentProps> = props => (
       />
       <Noise className="noise" />
     </div>
-    <div className="text">
+
+    <Title className="title">
       <span>
         もっとクリエイティブなマーケティングの
         <br />
         やり方があるはずだ。
       </span>
-    </div>
+    </Title>
   </div>
 )
 
@@ -58,19 +60,13 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 100%;
   }
-  > .text {
-    ${styles.mixins.lhCrop(1.7)};
+  > .title {
     ${styles.mixins.flexCenter};
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
     text-align: center;
-    font-size: 4.5rem;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    transform: skew(-5deg);
-    text-decoration: underline;
   }
 `
 

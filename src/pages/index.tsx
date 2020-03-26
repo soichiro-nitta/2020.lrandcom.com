@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { setSlug, setUpperLeft } from '~/store/header'
-import styles from '~/utils/styles'
 import Line from '~/components/index/Line'
 import Copy from '~/components/index/Copy'
 import Section from '~/components/index/Section'
+import OurClient from '~/components/index/OurClient'
 import config from '~/utils/config'
 
 type ContainerProps = {}
@@ -16,7 +16,7 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <Line className="line" />
-    <Copy className="copy" />
+    <Copy className="section" />
     <Section
       className="section"
       title={config.index.writing.title}
@@ -35,6 +35,7 @@ const Component: React.FC<ComponentProps> = props => (
       body={config.index.film.body}
       src={config.index.film.src}
     />
+    <OurClient className="section" />
     {/* <Section className="section" />
     <Section className="section" /> */}
   </div>
@@ -50,11 +51,6 @@ const StyledComponent = styled(Component)`
     margin: auto;
     width: 100%;
     height: 1px;
-  }
-  > .copy {
-    flex: 0 0 100vw;
-    width: 100vw;
-    height: 100%;
   }
   > .section {
     flex: 0 0 100vw;
