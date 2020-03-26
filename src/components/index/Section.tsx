@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import styles from '~/utils/styles'
 import Title from '~/components/index/title'
+import IncludeBr from '~/components/base/IncludeBr'
 
 type ContainerProps = {
   className: string
@@ -16,14 +17,7 @@ const Component: React.FC<ComponentProps> = props => (
     <div className="inner">
       <div className="contents">
         <Title className="title">{props.title}</Title>
-        <div className="body">
-          {props.body.split('\n').map((sentence, index) => (
-            <React.Fragment key={index}>
-              <div>{sentence}</div>
-              <br />
-            </React.Fragment>
-          ))}
-        </div>
+        <IncludeBr className="body" text={props.body} />
       </div>
       <div className="video">
         <video src={props.src} preload="none" autoPlay muted playsInline loop />
