@@ -6,7 +6,7 @@ import Line from '~/components/index/Line'
 import Copy from '~/components/index/Copy'
 import Section from '~/components/index/Section'
 import OurClient from '~/components/index/OurClient'
-import Company from '~/components/index/Contact'
+import Contact from '~/components/index/Contact'
 import config from '~/utils/config'
 
 type ContainerProps = {}
@@ -38,7 +38,7 @@ const Component: React.FC<ComponentProps> = props => (
         src={config.index.film.src}
       />
       <OurClient className="section" />
-      <Company className="section" />
+      <Contact className="section" />
       {/* <Section className="section" />
     <Section className="section" /> */}
     </div>
