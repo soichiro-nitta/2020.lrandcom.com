@@ -37,6 +37,13 @@ const Component: React.FC<ComponentProps> = props => (
         case 'break':
           return <div className="break" key={index} />
           break
+        case 'quote':
+          return (
+            <div className="quote" key={index}>
+              {block.value}
+            </div>
+          )
+          break
         case 'image':
           return (
             <div className="mask" key={index}>
@@ -57,9 +64,21 @@ const StyledComponent = styled(Component)`
     white-space: pre-wrap;
     opacity: 0.65;
   }
+  > .text a {
+    text-decoration: underline;
+  }
   > .break {
     width: 100%;
     height: 3rem;
+  }
+  > .quote {
+    ${styles.mixins.lhCrop(1.6)}
+    padding: 0.3rem 2rem;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    white-space: pre-wrap;
+    border-left: 0.2rem solid white;
+    opacity: 0.65;
   }
   > .mask {
     width: 100%;

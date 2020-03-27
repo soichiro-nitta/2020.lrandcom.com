@@ -162,6 +162,12 @@ export const unstable_getStaticProps = async ({
         }
         break
       }
+      case 'quote': {
+        page.body.push({
+          type: 'quote',
+          value: block.value.properties.title[0][0]
+        })
+      }
     }
     if (index === blocks.length - 1) pages.push(page)
   })
