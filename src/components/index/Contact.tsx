@@ -4,34 +4,32 @@ import styles from '~/utils/styles'
 import Title from '~/components/index/title'
 import config from '~/utils/config'
 import Description from '~/components/index/description'
+import Card from '~/components/index/card'
 
 type ContainerProps = {
   className: string
 }
-type ComponentProps = {
-  client: string[]
-  last: number
-} & ContainerProps
+type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="head">
       <Title className="title">{config.index.contact.title}</Title>
       <Description className="description">
-        {config.index.contact.notes}
+        {config.index.contact.description}
       </Description>
+      <a href="mailto:hello@lrandcom.com">HELLO@LRANDCOM.COM</a>
     </div>
-    <div className="body">
-      社名：リーディング＆カンパニー株式会社（Leading & Company Inc.）
-      <br />
-      設立：2014年2月
-      <br />
-      本社所在地： 東京都渋谷区東1-1-37 大希青山ビル 3階
-      <br />
-      代表取締役：夏目 力
-      <br />
-      事業内容：Webコンテンツの制作、Webサイト制作、動画制作
-    </div>
+    <Card className="card">
+      {config.index.contact.outline.map((row, index) => (
+        <React.Fragment key={index}>
+          <dl>
+            <dt>{row.head}：</dt>
+            <dd>{row.data}</dd>
+          </dl>
+        </React.Fragment>
+      ))}
+    </Card>
   </div>
 )
 
@@ -43,34 +41,37 @@ const StyledComponent = styled(Component)`
   > * > .description {
     margin-top: 4.5rem;
   }
-  > .body {
-    ${styles.mixins.lhCrop(3)};
+  > * > a {
+    ${styles.mixins.logoStyle}
+    display: block;
+    margin-top: 4.5rem;
+    text-decoration: underline;
+  }
+  > .card {
+    ${styles.mixins.lhCrop(2)};
     margin-left: 7.5vw;
-    padding: 5rem;
     width: 37.5vw;
-    height: 18.75;
-    background: #1f1f1f;
-    border: 1px solid #181818;
   }
-  > .body > span {
-    font-size: 1.4rem;
-    letter-spacing: 0.1rem;
-  }
-  > .body > .companyName {
-    letter-spacing: 0.1rem;
-    font-weight: bold;
+  > * > dl {
+    display: flex;
+    justify-content: space-between;
     opacity: 0.65;
   }
-  > .body > .slash {
-    letter-spacing: 0.5rem;
+  > * > dl:not(:first-child) {
+    margin-top: 3rem;
+  }
+  > * > * > dt {
+    width: 12rem;
     opacity: 0.3;
+    letter-spacing: 0.5rem;
+  }
+  > * > * > dd {
+    width: 27.5rem;
   }
 `
 
 const Container: React.FC<ContainerProps> = props => {
-  const client = config.index.ourClient.client
-  const last = client.length - 1
-  return <StyledComponent client={client} last={last} {...props} />
+  return <StyledComponent {...props} />
 }
 
 export default Container

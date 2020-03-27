@@ -42,10 +42,10 @@ export default createGlobalStyle`
   }
   h1,
   h2,
-  h3 {
-    margin: 0;
-  }
-  p {
+  h3,
+  p,
+  dl,
+  dd {
     margin: 0;
   }
   a {

@@ -1,4 +1,10 @@
 export default {
+  logoStyle: `
+    font-size: 2rem;
+    font-family: din-condensed;
+    letter-spacing: 0.5rem;
+    transform: scaleY(0.7) skew(-5deg);
+  `,
   relative: `
     position: relative;
     width: 100%;
