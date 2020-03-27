@@ -70,12 +70,10 @@ const StyledComponent = styled(Component)`
     margin-top: 3rem;
   }
   > * > * > dt {
-    width: 12rem;
     opacity: 0.3;
-    letter-spacing: 0.5rem;
   }
   > * > * > dd {
-    width: 28rem;
+    width: 30rem;
   }
 `
 
