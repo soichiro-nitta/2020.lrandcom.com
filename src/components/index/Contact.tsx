@@ -75,7 +75,7 @@ const StyledComponent = styled(Component)`
     letter-spacing: 0.5rem;
   }
   > * > * > dd {
-    width: 27.5rem;
+    width: 28rem;
   }
 `
 
