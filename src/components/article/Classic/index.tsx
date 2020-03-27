@@ -9,7 +9,7 @@ import styles from '~/utils/styles'
 type PageTypes = {
   title: string
   image: string
-  body: { type: string; value: string }[]
+  body: { type: string; value: string[][] | string }[]
 }
 type ContainerProps = {
   className: string

@@ -12,7 +12,7 @@ import { setSlug, setUpperLeft } from '~/store/header'
 type PageTypes = {
   title: string
   image: string
-  body: { type: string; value: string }[]
+  body: { type: string; value: string[][] | string }[]
 }
 type BlockTypes = {
   role: string
@@ -152,7 +152,7 @@ export const unstable_getStaticProps = async ({
         if (block.value.properties) {
           page.body.push({
             type: 'text',
-            value: `${block.value.properties.title[0][0]}\n`
+            value: block.value.properties.title
           })
         } else {
           page.body.push({

@@ -9,7 +9,7 @@ import Date from '~/components/article/date'
 type ContainerProps = {
   className: string
   title: string
-  body: { type: string; value: string }[]
+  body: { type: string; value: string[][] | string }[]
   date: string
   index: number
 }
