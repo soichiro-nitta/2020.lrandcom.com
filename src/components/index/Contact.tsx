@@ -5,6 +5,7 @@ import Title from '~/components/index/title'
 import config from '~/utils/config'
 import Description from '~/components/index/description'
 import Card from '~/components/index/card'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type ContainerProps = {
   className: string
@@ -18,7 +19,10 @@ const Component: React.FC<ComponentProps> = props => (
       <Description className="description">
         {config.index.contact.description}
       </Description>
-      <a href="mailto:hello@lrandcom.com">HELLO@LRANDCOM.COM</a>
+      <a href="mailto:hello@lrandcom.com">
+        <FontAwesomeIcon icon={config.icons.mail} />{' '}
+        <span>HELLO@LRANDCOM.COM</span>
+      </a>
     </div>
     <Card className="card">
       {config.index.contact.outline.map((row, index) => (
@@ -42,10 +46,15 @@ const StyledComponent = styled(Component)`
     margin-top: 4.5rem;
   }
   > * > a {
-    ${styles.mixins.logoStyle}
-    display: block;
+    display: flex;
+    align-items: center;
     margin-top: 4.5rem;
-    text-decoration: underline;
+    font-size: 1.75rem;
+  }
+  > * > a > span {
+    ${styles.mixins.logoStyle}
+    margin-left: 2rem;
+    display: inline-block;
   }
   > .card {
     ${styles.mixins.lhCrop(2)};
