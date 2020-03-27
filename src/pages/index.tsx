@@ -6,6 +6,7 @@ import Line from '~/components/index/Line'
 import Copy from '~/components/index/Copy'
 import Section from '~/components/index/Section'
 import OurClient from '~/components/index/OurClient'
+import Company from '~/components/index/Contact'
 import config from '~/utils/config'
 
 type ContainerProps = {}
@@ -21,22 +22,23 @@ const Component: React.FC<ComponentProps> = props => (
       <Section
         className="section"
         title={config.index.writing.title}
-        body={config.index.writing.body}
+        description={config.index.writing.description}
         src={config.index.writing.src}
       />
       <Section
         className="section"
         title={config.index.website.title}
-        body={config.index.website.body}
+        description={config.index.website.description}
         src={config.index.website.src}
       />
       <Section
         className="section"
         title={config.index.film.title}
-        body={config.index.film.body}
+        description={config.index.film.description}
         src={config.index.film.src}
       />
       <OurClient className="section" />
+      <Company className="section" />
       {/* <Section className="section" />
     <Section className="section" /> */}
     </div>
@@ -64,6 +66,17 @@ const StyledComponent = styled(Component)`
     flex: 0 0 100vw;
     width: 100vw;
     height: 100%;
+  }
+  > * > * > * > .video {
+    position: relative;
+    width: 37.5vw;
+    height: 18.75;
+  }
+  > * > * > * > * > video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
   }
 `
 

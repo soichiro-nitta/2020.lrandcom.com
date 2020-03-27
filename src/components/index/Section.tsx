@@ -7,7 +7,7 @@ import IncludeBr from '~/components/base/IncludeBr'
 type ContainerProps = {
   className: string
   title: string
-  body: string
+  description: string
   src: string
 }
 type ComponentProps = {} & ContainerProps
@@ -17,7 +17,7 @@ const Component: React.FC<ComponentProps> = props => (
     <div className="inner">
       <div className="contents">
         <Title className="title">{props.title}</Title>
-        <IncludeBr className="body" text={props.body} />
+        <IncludeBr className="description" text={props.description} />
       </div>
       <div className="video">
         <video src={props.src} preload="none" autoPlay muted playsInline loop />
@@ -37,7 +37,7 @@ const StyledComponent = styled(Component)`
   > * > .contents {
     width: 30vw;
   }
-  > * > * > .body {
+  > * > * > .description {
     margin-top: 4.5rem;
     ${styles.mixins.lhCrop(1.6)}
     font-size: 1.4rem;
