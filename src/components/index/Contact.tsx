@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import styles from '~/utils/styles'
 import Title from '~/components/index/title'
 import config from '~/utils/config'
+import Description from '~/components/index/description'
 
 type ContainerProps = {
   className: string
@@ -16,7 +17,9 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="head">
       <Title className="title">{config.index.contact.title}</Title>
-      <div className="notes">{config.index.contact.notes}</div>
+      <Description className="description">
+        {config.index.contact.notes}
+      </Description>
     </div>
     <div className="body">
       社名：リーディング＆カンパニー株式会社（Leading & Company Inc.）
@@ -34,16 +37,11 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   ${styles.mixins.flexCenter};
-  > * > .notes {
-    ${styles.mixins.lhCrop(1.6)}
-    margin-top: 4.5rem;
-    font-size: 1.4rem;
-    letter-spacing: 0.1rem;
-    white-space: pre-wrap;
-    opacity: 0.65;
-  }
   > .head {
     width: 30vw;
+  }
+  > * > .description {
+    margin-top: 4.5rem;
   }
   > .body {
     ${styles.mixins.lhCrop(3)};

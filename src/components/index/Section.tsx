@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import styles from '~/utils/styles'
 import Title from '~/components/index/title'
-import IncludeBr from '~/components/base/IncludeBr'
+import Description from '~/components/index/description'
 
 type ContainerProps = {
   className: string
@@ -17,7 +17,7 @@ const Component: React.FC<ComponentProps> = props => (
     <div className="inner">
       <div className="contents">
         <Title className="title">{props.title}</Title>
-        <IncludeBr className="description" text={props.description} />
+        <Description className="description">{props.description}</Description>
       </div>
       <div className="video">
         <video src={props.src} preload="none" autoPlay muted playsInline loop />
@@ -39,11 +39,6 @@ const StyledComponent = styled(Component)`
   }
   > * > * > .description {
     margin-top: 4.5rem;
-    ${styles.mixins.lhCrop(1.6)}
-    font-size: 1.4rem;
-    letter-spacing: 0.1rem;
-    white-space: pre-wrap;
-    opacity: 0.65;
   }
   > * > .video {
     position: relative;
