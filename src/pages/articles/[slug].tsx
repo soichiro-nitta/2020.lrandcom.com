@@ -48,6 +48,7 @@ type ContainerProps = {
   slug: string
   display: 'Modern' | 'Chic' | 'Classic'
   date: string
+  thumbnail: string
 }
 type ComponentProps = {
   className: string
@@ -63,7 +64,12 @@ const _article = (props): React.ReactElement => {
       break
     case 'Classic':
       return (
-        <Classic pages={props.pages} date={props.date} className="classic" />
+        <Classic
+          pages={props.pages}
+          date={props.date}
+          thumbnail={props.thumbnail}
+          className="classic"
+        />
       )
       break
     default:
@@ -111,6 +117,7 @@ export const unstable_getStaticProps = async ({
     day: '2-digit',
     year: 'numeric'
   })
+  let thumbnail = ''
 
   if (!post) {
     console.error(`Failed to find post for slug: ${slug}`)
@@ -119,7 +126,8 @@ export const unstable_getStaticProps = async ({
         redirect: '/articles',
         slug,
         display,
-        date
+        date,
+        thumbnail
       },
       revalidate: 5
     }
@@ -134,10 +142,9 @@ export const unstable_getStaticProps = async ({
     image: '',
     body: []
   }
+  const last = blocks.length - 1
+  page.title = post.Page
   blocks.forEach((block, index) => {
-    if (index === 0) {
-      page.title = post.Page
-    }
     switch (block.value.type) {
       case 'sub_header': {
         pages.push(page)
@@ -150,6 +157,7 @@ export const unstable_getStaticProps = async ({
           block.value.format.display_source
         )}&blockId=${block.value.id}`
 
+        if (index === 0) thumbnail = value
         if (display === 'Modern') {
           page.image = value
         } else {
@@ -181,7 +189,7 @@ export const unstable_getStaticProps = async ({
         })
       }
     }
-    if (index === blocks.length - 1) pages.push(page)
+    if (index === last) pages.push(page)
   })
 
   return {
@@ -189,7 +197,8 @@ export const unstable_getStaticProps = async ({
       pages,
       slug,
       date,
-      display
+      display,
+      thumbnail
     },
     revalidate: 10 // 再ビルドに必要
   }
