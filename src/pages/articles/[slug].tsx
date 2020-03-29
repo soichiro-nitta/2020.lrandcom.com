@@ -5,15 +5,12 @@ import { getBlogLink } from '~/lib/blog-helpers'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Modern from '~/components/article/Modern'
+import Chic from '~/components/article/Chic'
 import Classic from '~/components/article/Classic'
 import { useDispatch } from 'react-redux'
 import { setSlug, setUpperLeft } from '~/store/header'
+import { PageTypes } from '~/types'
 
-type PageTypes = {
-  title: string
-  image: string
-  body: { type: string; value: string[][] | string }[]
-}
 type BlockTypes = {
   role: string
   value: {
@@ -49,19 +46,34 @@ type ContainerProps = {
   pages?: PageTypes[]
   redirect?: string
   slug: string
-  display: 'Modern' | 'Classic'
+  display: 'Modern' | 'Chic' | 'Classic'
   date: string
 }
 type ComponentProps = {
   className: string
 } & ContainerProps
 
+const _article = (props): React.ReactElement => {
+  switch (props.display) {
+    case 'Modern':
+      return <Modern className="modern" pages={props.pages} date={props.date} />
+      break
+    case 'Chic':
+      return <Chic className="chic" pages={props.pages} date={props.date} />
+      break
+    case 'Classic':
+      return (
+        <Classic pages={props.pages} date={props.date} className="classic" />
+      )
+      break
+    default:
+      console.error('Displayが正しくありません')
+      break
+  }
+}
+
 const Component: React.FC<ComponentProps> = props => (
-  <div className={props.className}>
-    {(props.display === 'Modern' && (
-      <Modern className="modern" pages={props.pages} date={props.date} />
-    )) || <Classic className="classic" pages={props.pages} date={props.date} />}
-  </div>
+  <div className={props.className}>{_article(props)}</div>
 )
 
 const StyledComponent = styled(Component)``
@@ -101,7 +113,7 @@ export const unstable_getStaticProps = async ({
   })
 
   if (!post) {
-    console.log(`Failed to find post for slug: ${slug}`)
+    console.error(`Failed to find post for slug: ${slug}`)
     return {
       props: {
         redirect: '/articles',
@@ -116,7 +128,7 @@ export const unstable_getStaticProps = async ({
   const postData: { blocks: BlockTypes[] } = await getPageData(post.id)
   const blocks = postData.blocks
 
-  const pages = []
+  const pages: PageTypes[] = []
   let page: PageTypes = {
     title: '',
     image: '',

@@ -66,6 +66,7 @@ const StyledComponent = styled(Component)`
     flex: 0 0 100vw;
     width: 100vw;
     height: 100%;
+    scroll-snap-align: start;
   }
   > * > * > * > .video {
     position: relative;

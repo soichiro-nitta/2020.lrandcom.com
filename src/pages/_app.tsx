@@ -57,6 +57,7 @@ const StyledComponent = styled(Component)`
     height: 100%;
     overflow-x: scroll;
     overflow-y: scroll;
+    /* scroll-snap-type: both; */
     -webkit-overflow-scrolling: touch;
     /* overflow: hidden; */
     -webkit-backface-visibility: hidden;

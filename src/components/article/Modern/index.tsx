@@ -10,12 +10,8 @@ import Filter from './filter'
 import Content from './content'
 import functions from '~/utils/functions'
 import useEffectAsync from '~/hooks/useEffectAsync'
+import { PageTypes } from '~/types'
 
-type PageTypes = {
-  title: string
-  image: string
-  body: { type: string; value: string[][] | string }[]
-}
 type ContainerProps = {
   className: string
   pages: PageTypes[]

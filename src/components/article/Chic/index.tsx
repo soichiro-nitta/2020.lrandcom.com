@@ -4,7 +4,6 @@ import Title from '~/components/article/title'
 import Body from '~/components/article/body'
 import Author from '~/components/article/author'
 import Date from '~/components/article/date'
-import styles from '~/utils/styles'
 import { PageTypes } from '~/types'
 
 type ContainerProps = {
@@ -16,21 +15,22 @@ type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    Classic
     {props.pages.map((page, index) => {
       return (
         <div className="page" key={index}>
-          <div className="left">
-            <Title className="title" title={page.title} />
-          </div>
-          <div className="right">
-            {index === 0 && (
-              <>
-                <Date className="date" date={props.date} />
-                <Author className="author" />
-              </>
-            )}
-            <Body className="body" body={page.body} />
+          <div className="inner">
+            <div className="left">
+              <Title className="title" title={page.title} />
+            </div>
+            <div className="right">
+              {index === 0 && (
+                <>
+                  <Date className="date" date={props.date} />
+                  <Author className="author" />
+                </>
+              )}
+              <Body className="body" body={page.body} />
+            </div>
           </div>
         </div>
       )
@@ -43,6 +43,11 @@ const StyledComponent = styled(Component)`
   width: 75%;
   > .page {
     margin-top: 6rem;
+  }
+  > * > .inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
   > * > * > .left {
     width: 30%;
