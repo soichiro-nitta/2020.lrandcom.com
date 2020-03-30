@@ -11,9 +11,10 @@ type ContainerProps = {
   className: string
   pages: PageTypes[]
   date: string
-  thumbnail: string
 }
-type ComponentProps = {} & ContainerProps
+type ComponentProps = {
+  thumbnail: string
+} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
@@ -30,7 +31,10 @@ const Component: React.FC<ComponentProps> = props => (
               <Author className="author" />
             </>
           )}
-          <Body className="body" body={page.body} />
+          <div className="contents">
+            {index !== 0 && <Title className="title" title={page.title} />}
+            <Body className="body" body={page.body} />
+          </div>
         </div>
       )
     })}
@@ -38,6 +42,8 @@ const Component: React.FC<ComponentProps> = props => (
 )
 
 const StyledComponent = styled(Component)`
+  margin: 20rem auto;
+  width: 65rem;
   > * > .thumbnail {
     ${styles.mixins.absoluteCenter};
     width: calc(100% - 22rem);
@@ -49,23 +55,25 @@ const StyledComponent = styled(Component)`
     object-fit: cover;
     opacity: 0.5;
   }
-  > * > * > .title {
-    ${styles.mixins.absoluteCenter};
+  > * > .date {
+    margin-top: 3rem;
   }
-  > * > * > * > .author {
+  > * > .author {
     margin-top: 3rem;
     margin-bottom: 3rem;
   }
 `
 
 const Container: React.FC<ContainerProps> = props => {
+  let thumbnail = ''
   const body = props.pages[0].body
-  if (body[0].type === 'image') {
-    // 1まいめの画像を除去
+  const block = body[0]
+  if (block.type === 'image') {
+    thumbnail = block.value as string
     body.shift()
   }
 
-  return <StyledComponent {...props} />
+  return <StyledComponent thumbnail={thumbnail} {...props} />
 }
 
 export default Container
