@@ -4,56 +4,11 @@ import styles from '~/utils/styles'
 
 type ContainerProps = {
   className: string
-  body: { type: string; value: string[][] | string }[]
 }
 type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
-  <div className={props.className}>
-    {props.body.map((block, index) => {
-      switch (block.type) {
-        case 'text': {
-          const value = block.value as string[][]
-          return (
-            <div className="text" key={index}>
-              {value.map((sentence, index) => {
-                if (sentence.length === 1) {
-                  return sentence[0]
-                } else {
-                  const tagName = sentence[1][0][0]
-                  if (tagName === 'a') {
-                    return React.createElement(
-                      tagName,
-                      { href: sentence[1][0][1], target: '_blank', key: index },
-                      sentence[0]
-                    )
-                  }
-                }
-              })}
-            </div>
-          )
-          break
-        }
-        case 'break':
-          return <div className="break" key={index} />
-          break
-        case 'quote':
-          return (
-            <div className="quote" key={index}>
-              {block.value}
-            </div>
-          )
-          break
-        case 'image':
-          return (
-            <div className="mask" key={index}>
-              <img src={block.value as string} />
-            </div>
-          )
-          break
-      }
-    })}
-  </div>
+  <div className={props.className}>{props.children}</div>
 )
 
 const StyledComponent = styled(Component)`

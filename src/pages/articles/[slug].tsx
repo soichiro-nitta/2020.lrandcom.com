@@ -1,7 +1,7 @@
 import React from 'react'
 import getPageData from '~/lib/notion/getPageData'
 import getBlogIndex from '~/lib/notion/getBlogIndex'
-import { getBlogLink } from '~/lib/blog-helpers'
+import { getBlogLink, getImagePath } from '~/lib/blog-helpers'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Modern from '~/components/article/Modern'
@@ -9,45 +9,16 @@ import Chic from '~/components/article/Chic'
 import Classic from '~/components/article/Classic'
 import { useDispatch } from 'react-redux'
 import { setSlug, setUpperLeft } from '~/store/header'
-import { PageTypes } from '~/types'
+import { BlockTypes } from '~/types'
 
-type BlockTypes = {
-  role: string
-  value: {
-    id: string
-    version: number
-    type: string
-    properties: {
-      title: string[][]
-      source: string[][]
-      language: string[][]
-    }
-    format?: {
-      block_width: number
-      display_source: string
-      block_full_width: boolean
-      block_page_width: boolean
-      block_aspect_ratio: number
-      block_preserve_scale: boolean
-    }
-    created_time: number
-    last_edited_time: number
-    parent_id: string
-    parent_table: string
-    alive: boolean
-    file_ids: string[]
-    created_by_table: string
-    created_by_id: string
-    last_edited_by_table: string
-    last_edited_by_id: string
-  }
-}
 type ContainerProps = {
-  pages?: PageTypes[]
-  redirect?: string
   slug: string
-  display: 'Modern' | 'Chic' | 'Classic'
-  date: string
+  redirect?: string
+  display?: 'Modern' | 'Chic' | 'Classic'
+  date?: string
+  blocks?: BlockTypes[]
+  title?: string
+  thumbnail?: string
 }
 type ComponentProps = {
   className: string
@@ -56,16 +27,23 @@ type ComponentProps = {
 const _article = (props): React.ReactElement => {
   switch (props.display) {
     case 'Modern':
-      return <Modern className="modern" pages={props.pages} date={props.date} />
-      break
-    case 'Chic':
-      return <Chic className="chic" pages={props.pages} date={props.date} />
-      break
-    case 'Classic':
       return (
-        <Classic pages={props.pages} date={props.date} className="classic" />
+        <Modern
+          className="modern"
+          date={props.date}
+          blocks={props.blocks}
+          title={props.title}
+        />
       )
       break
+    // case 'Chic':
+    //   return <Chic className="chic" pages={props.pages} date={props.date} />
+    //   break
+    // case 'Classic':
+    //   return (
+    //     <Classic pages={props.pages} date={props.date} className="classic" />
+    //   )
+    //   break
     default:
       console.error('Displayが正しくありません')
       break
@@ -105,90 +83,40 @@ export const unstable_getStaticProps = async ({
 }): Promise<{ props: ContainerProps; revalidate: number }> => {
   const postsTable = await getBlogIndex()
   const post = postsTable[slug]
+
+  if (!post) {
+    console.error(`Failed to find post for slug: ${slug}`)
+    return {
+      props: {
+        slug,
+        redirect: '/articles'
+      },
+      revalidate: 5
+    }
+  }
+
   const display = post.Display
   const date = new Date(post.Date).toLocaleString('en-US', {
     month: 'long',
     day: '2-digit',
     year: 'numeric'
   })
-
-  if (!post) {
-    console.error(`Failed to find post for slug: ${slug}`)
-    return {
-      props: {
-        redirect: '/articles',
-        slug,
-        display,
-        date
-      },
-      revalidate: 5
-    }
-  }
-
-  const postData: { blocks: BlockTypes[] } = await getPageData(post.id)
-  const blocks = postData.blocks
-
-  const pages: PageTypes[] = []
-  let page: PageTypes = {
-    title: post.Page,
-    image: '',
-    body: []
-  }
-
-  const last = blocks.length - 1
-  blocks.forEach((block, index) => {
-    switch (block.value.type) {
-      case 'sub_header': {
-        pages.push(page)
-        page = { title: '', image: '', body: [] }
-        page.title = block.value.properties.title[0][0]
-        break
-      }
-      case 'image': {
-        const value = `/api/asset?assetUrl=${encodeURIComponent(
-          block.value.format.display_source
-        )}&blockId=${block.value.id}`
-
-        if (display === 'Modern') {
-          page.image = value
-        } else {
-          page.body.push({
-            type: 'image',
-            value
-          })
-        }
-        break
-      }
-      case 'text': {
-        if (block.value.properties) {
-          page.body.push({
-            type: 'text',
-            value: block.value.properties.title
-          })
-        } else {
-          page.body.push({
-            type: 'break',
-            value: ''
-          })
-        }
-        break
-      }
-      case 'quote': {
-        page.body.push({
-          type: 'quote',
-          value: block.value.properties.title[0][0]
-        })
-      }
-    }
-    if (index === last) pages.push(page)
-  })
+  const title = post.Page
+  const data = await getPageData(post.id)
+  const blocks: BlockTypes[] = data.blocks
+  const thumbnail =
+    blocks[0].value.type === 'image'
+      ? getImagePath(blocks[0].value.format.display_source, blocks[0].value.id)
+      : ''
 
   return {
     props: {
-      pages,
       slug,
       date,
-      display
+      display,
+      blocks,
+      title,
+      thumbnail
     },
     revalidate: 10 // 再ビルドに必要
   }

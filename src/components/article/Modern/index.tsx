@@ -8,17 +8,25 @@ import usePrevious from '~/hooks/usePrevious'
 import Background from './background'
 import Filter from './filter'
 import Content from './content'
-import functions from '~/utils/functions'
+import { functions } from '~/utils/functions'
 import useEffectAsync from '~/hooks/useEffectAsync'
-import { PageTypes } from '~/types'
+import { BlockTypes } from '~/types'
+import { textBlock } from '~/lib/notion/renderers'
 
+type PageTypes = {
+  title: string
+  image: string
+  body: React.ReactElement[]
+}
 type ContainerProps = {
   className: string
-  pages: PageTypes[]
   date: string
+  blocks: BlockTypes[]
+  title: string
 }
 type ComponentProps = {
   pagesRef: React.MutableRefObject<HTMLDivElement>[]
+  pages: PageTypes[]
 } & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
@@ -58,17 +66,63 @@ const StyledComponent = styled(Component)`
   }
 `
 
+const _createPages = (title: string, blocks: BlockTypes[]): PageTypes[] => {
+  const pages: PageTypes[] = []
+  let page: PageTypes = {
+    title,
+    image: '',
+    body: []
+  }
+  const last = blocks.length - 1
+  blocks.forEach((block, index) => {
+    switch (block.value.type) {
+      case 'sub_header': {
+        pages.push(page)
+        page = { title: '', image: '', body: [] }
+        page.title = block.value.properties.title[0][0]
+        break
+      }
+      case 'image': {
+        page.image = `/api/asset?assetUrl=${encodeURIComponent(
+          block.value.format.display_source
+        )}&blockId=${block.value.id}`
+        break
+      }
+      case 'text': {
+        if (block.value.properties) {
+          page.body.push(
+            <div className="text">
+              {textBlock(block.value.properties.title, true, block.value.id)}
+            </div>
+          )
+        } else {
+          page.body.push(<div className="break" />)
+        }
+        break
+      }
+      case 'quote': {
+        page.body.push(
+          <div className="quote">
+            {textBlock(block.value.properties.title, true, block.value.id)}
+          </div>
+        )
+      }
+    }
+    if (index === last) pages.push(page)
+  })
+  return pages
+}
+
 const Container: React.FC<ContainerProps> = props => {
+  const pages = _createPages(props.title, props.blocks)
   const currentNum = useSelector(
     (state: StateTypes) => state.article.currentNum
   )
   const beforeNum = usePrevious(currentNum)
-
   const pagesRef = []
-  props.pages.forEach(() => {
+  pages.forEach(() => {
     pagesRef.push(useRef<HTMLDivElement>(null))
   })
-
   useEffectAsync({
     effect: async () => {
       animations.set(pagesRef[currentNum - 1].current, { display: 'block' })
@@ -81,8 +135,7 @@ const Container: React.FC<ContainerProps> = props => {
     },
     deps: [currentNum]
   })
-
-  return <StyledComponent pagesRef={pagesRef} {...props} />
+  return <StyledComponent pages={pages} pagesRef={pagesRef} {...props} />
 }
 
 export default Container

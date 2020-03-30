@@ -9,7 +9,7 @@ import Date from '~/components/article/date'
 type ContainerProps = {
   className: string
   title: string
-  body: { type: string; value: string[][] | string }[]
+  body: React.ReactElement[]
   date: string
   index: number
 }
@@ -28,7 +28,11 @@ const Component: React.FC<ComponentProps> = props => (
             <Author className="author" />
           </>
         )}
-        <Body className="body" body={props.body} />
+        <Body className="body">
+          {props.body.map((blockElement, index) => {
+            return <React.Fragment key={index}>{blockElement}</React.Fragment>
+          })}
+        </Body>
       </div>
     </div>
   </div>
