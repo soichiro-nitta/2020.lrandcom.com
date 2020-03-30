@@ -28,3 +28,7 @@ export const normalizeSlug = slug => {
   }
   return startingSlash || endingSlash ? normalizeSlug(slug) : slug
 }
+
+export const getImagePath = (source: string, blockId: string): string => {
+  return `/api/asset?assetUrl=${encodeURIComponent(source)}&blockId=${blockId}`
+}
