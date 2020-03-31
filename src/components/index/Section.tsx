@@ -21,7 +21,7 @@ const Component: React.FC<ComponentProps> = props => (
       <div className="contents">
         <Heading1 className="title">{props.title}</Heading1>
         <Description className="description">{props.description}</Description>
-        <Button className="button">{props.button}</Button>
+        {props.button && <Button className="button">{props.button}</Button>}
       </div>
       <div className="video">
         <video src={props.src} preload="none" autoPlay muted playsInline loop />
