@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import styles from '~/utils/styles'
-import Title from '~/components/index/title'
+import { styles } from '~/utils/styles'
+import Heading1 from '~/components/base/Heading1'
 import config from '~/utils/config'
 import Description from '~/components/index/description'
 import Card from '~/components/index/card'
@@ -17,7 +17,7 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="head">
-      <Title className="title">{config.index.ourClient.title}</Title>
+      <Heading1 className="title">{config.index.ourClient.title}</Heading1>
       <Description className="description">
         {config.index.ourClient.description}
       </Description>

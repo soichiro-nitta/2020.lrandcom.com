@@ -26,34 +26,43 @@ type ComponentProps = {
 
 const _renderArticle = (props): React.ReactElement => {
   switch (props.display) {
-    case 'Modern':
+    case 'Modern': {
       return (
         <Modern
           className="modern"
+          title={props.title}
           date={props.date}
           blocks={props.blocks}
-          title={props.title}
         />
       )
       break
-    case 'Chic':
+    }
+    case 'Chic': {
       return (
         <Chic
           className="chic"
-          blocks={props.blocks}
-          date={props.date}
           title={props.title}
+          date={props.date}
+          blocks={props.blocks}
         />
       )
       break
-    // case 'Classic':
-    //   return (
-    //     <Classic pages={props.pages} date={props.date} className="classic" />
-    //   )
-    //   break
-    default:
+    }
+    case 'Classic': {
+      return (
+        <Classic
+          className="classic"
+          title={props.title}
+          date={props.date}
+          blocks={props.blocks}
+        />
+      )
+      break
+    }
+    default: {
       console.error('Displayが正しくありません')
       break
+    }
   }
 }
 

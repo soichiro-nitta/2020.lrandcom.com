@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import styles from '~/utils/styles'
+import { styles } from '~/utils/styles'
 import { BlockTypes } from '~/types'
 import { textBlock } from '~/lib/notion/renderers'
 import { getImagePath } from '~/lib/blog-helpers'
+import Heading2 from '~/components/base/Heading2'
 
 type ContainerProps = {
   className: string
@@ -43,6 +44,11 @@ const _renderBlock = (block: BlockTypes): React.ReactElement => {
           <img src={path} />
         </div>
       )
+      break
+    }
+    case 'sub_header': {
+      const text = block.value.properties.title[0][0]
+      return <Heading2 className="subHeader">{text}</Heading2>
       break
     }
   }

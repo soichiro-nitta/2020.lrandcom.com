@@ -2,7 +2,8 @@ import {
   faAngleLeft,
   faAngleRight,
   faCircle,
-  faPaperPlane
+  faPaperPlane,
+  faAngleDown
 } from '@fortawesome/pro-duotone-svg-icons'
 import {
   faFacebookSquare,
@@ -15,6 +16,7 @@ export default {
   icons: {
     arrowLeft: faAngleLeft,
     arrowRight: faAngleRight,
+    arrowDown: faAngleDown,
     circle: faCircle,
     mail: faPaperPlane
   },

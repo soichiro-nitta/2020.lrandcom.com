@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Title from '~/components/article/title'
+import Heading2 from '~/components/base/Heading2'
 import Blocks from '~/components/article/blocks'
 import Author from '~/components/article/author'
 import Date from '~/components/article/date'
@@ -27,7 +27,7 @@ const Component: React.FC<ComponentProps> = props => (
         <div className="page" key={index}>
           <div className="inner">
             <div className="left">
-              <Title className="title" title={section.title} />
+              <Heading2 className="heading2">{section.title}</Heading2>
             </div>
             <div className="right">
               {index === 0 && (
@@ -80,15 +80,16 @@ const _createSections = (
   const last = blocks.length - 1
   blocks.forEach((block, index) => {
     switch (block.value.type) {
-      case 'sub_header':
+      case 'sub_header': {
         sections.push(section)
         section = { title: '', blocks: [] }
         section.title = block.value.properties.title[0][0]
         break
-
-      default:
+      }
+      default: {
         section.blocks.push(block)
         break
+      }
     }
     if (index === last) sections.push(section)
   })

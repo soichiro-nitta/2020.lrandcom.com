@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import styles from '~/utils/styles'
-import Title from '~/components/index/title'
+import { styles } from '~/utils/styles'
+import Heading1 from '~/components/base/Heading1'
 import Description from '~/components/index/description'
 
 type ContainerProps = {
@@ -16,7 +16,7 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="inner">
       <div className="contents">
-        <Title className="title">{props.title}</Title>
+        <Heading1 className="title">{props.title}</Heading1>
         <Description className="description">{props.description}</Description>
       </div>
       <div className="video">

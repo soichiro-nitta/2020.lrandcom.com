@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Noise from '~/components/base/Noise'
-import styles from '~/utils/styles'
-import Title from '~/components/index/title'
+import { styles } from '~/utils/styles'
 import config from '~/utils/config'
+import Heading1 from '~/components/base/Heading1'
 
 type ContainerProps = {
   className: string
@@ -28,7 +28,7 @@ const Component: React.FC<ComponentProps> = props => (
       />
       <Noise className="noise" />
     </div>
-    <Title className="title">
+    <Heading1 className="title">
       <div>
         {config.index.copy.split('\n').map((sentence, index) => (
           <React.Fragment key={index}>
@@ -36,7 +36,7 @@ const Component: React.FC<ComponentProps> = props => (
           </React.Fragment>
         ))}
       </div>
-    </Title>
+    </Heading1>
   </div>
 )
 

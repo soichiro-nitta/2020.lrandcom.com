@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import styles from '~/utils/styles'
-import Title from '~/components/article/title'
+import { styles } from '~/utils/styles'
+import Heading2 from '~/components/base/Heading2'
 import Blocks from '~/components/article/blocks'
 import Author from '~/components/article/author'
 import Date from '~/components/article/date'
@@ -20,7 +20,7 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="inner">
       <div className="left">
-        <Title className="title" title={props.title} />
+        <Heading2 className="heading2">{props.title}</Heading2>
       </div>
       <div className="right">
         {props.index === 0 && (

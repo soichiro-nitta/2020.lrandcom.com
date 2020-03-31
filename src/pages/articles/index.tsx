@@ -6,7 +6,7 @@ import { textBlock } from '../../lib/notion/renderers'
 import getBlogIndex from '../../lib/notion/getBlogIndex'
 import { useDispatch } from 'react-redux'
 import { setSlug, setUpperLeft } from '~/store/header'
-import styles from '~/utils/styles'
+import { styles } from '~/utils/styles'
 
 type PostsTypes = {
   id: string

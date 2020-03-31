@@ -4,23 +4,19 @@ import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
-  src: string
 }
 type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
-  <div className={props.className}>
-    <img src={props.src} decoding="async" />
-  </div>
+  <div className={props.className}>{props.children}</div>
 )
 
 const StyledComponent = styled(Component)`
-  ${styles.mixins.absoluteCenter}
-  > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  font-size: 2rem;
+  font-weight: bold;
+  ${styles.mixins.lhCrop(1.8)}
+  letter-spacing: 0.2rem;
+  transform: skew(-5deg);
 `
 
 const Container: React.FC<ContainerProps> = props => {

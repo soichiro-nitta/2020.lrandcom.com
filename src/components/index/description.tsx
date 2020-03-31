@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import styles from '~/utils/styles'
+import { styles } from '~/utils/styles'
 import IncludeBr from '~/components/base/IncludeBr'
 
 type ContainerProps = {
