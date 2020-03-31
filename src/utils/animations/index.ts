@@ -11,6 +11,8 @@ import strokeDasharray from '~/utils/animations/strokeDasharray'
 import strokeDashoffset from '~/utils/animations/strokeDashoffset'
 import strokeOpacity from '~/utils/animations/strokeOpacity'
 import fillOpacity from '~/utils/animations/fillOpacity'
+import boxShadow from '~/utils/animations/boxShadow'
+import backgroundColor from '~/utils/animations/backgroundColor'
 
 export default {
   set,
@@ -25,5 +27,7 @@ export default {
   strokeDasharray,
   strokeDashoffset,
   strokeOpacity,
-  fillOpacity
+  fillOpacity,
+  boxShadow,
+  backgroundColor
 }

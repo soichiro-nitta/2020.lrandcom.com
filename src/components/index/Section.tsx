@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import { styles } from '~/utils/styles'
 import Heading1 from '~/components/base/Heading1'
 import Description from '~/components/index/description'
+import Button from '~/components/base/Button'
 
 type ContainerProps = {
   className: string
   title: string
   description: string
+  link?: string
+  button?: string
   src: string
 }
 type ComponentProps = {} & ContainerProps
@@ -18,6 +21,7 @@ const Component: React.FC<ComponentProps> = props => (
       <div className="contents">
         <Heading1 className="title">{props.title}</Heading1>
         <Description className="description">{props.description}</Description>
+        <Button className="button">{props.button}</Button>
       </div>
       <div className="video">
         <video src={props.src} preload="none" autoPlay muted playsInline loop />
@@ -38,6 +42,9 @@ const StyledComponent = styled(Component)`
     width: 30vw;
   }
   > * > * > .description {
+    margin-top: 4.5rem;
+  }
+  > * > * > .button {
     margin-top: 4.5rem;
   }
   > * > .video {

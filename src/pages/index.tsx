@@ -23,12 +23,14 @@ const Component: React.FC<ComponentProps> = props => (
         className="section"
         title={config.index.writing.title}
         description={config.index.writing.description}
+        button={config.index.writing.button}
         src={config.index.writing.src}
       />
       <Section
         className="section"
         title={config.index.website.title}
         description={config.index.website.description}
+        button={config.index.website.button}
         src={config.index.website.src}
       />
       <Section

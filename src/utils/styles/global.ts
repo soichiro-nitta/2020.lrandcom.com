@@ -80,6 +80,7 @@ export default createGlobalStyle`
     background: transparent;
   }
   button {
+    padding: 0;
     border: none;
     background: none;
   }
