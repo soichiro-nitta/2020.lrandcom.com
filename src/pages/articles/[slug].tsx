@@ -36,9 +36,16 @@ const _renderArticle = (props): React.ReactElement => {
         />
       )
       break
-    // case 'Chic':
-    //   return <Chic className="chic" pages={props.pages} date={props.date} />
-    //   break
+    case 'Chic':
+      return (
+        <Chic
+          className="chic"
+          blocks={props.blocks}
+          date={props.date}
+          title={props.title}
+        />
+      )
+      break
     // case 'Classic':
     //   return (
     //     <Classic pages={props.pages} date={props.date} className="classic" />

@@ -76,20 +76,23 @@ const _createPages = (title: string, blocks: BlockTypes[]): PageTypes[] => {
   const last = blocks.length - 1
   blocks.forEach((block, index) => {
     switch (block.value.type) {
-      case 'sub_header':
+      case 'sub_header': {
         pages.push(page)
         page = { title: '', image: '', blocks: [] }
         page.title = block.value.properties.title[0][0]
         break
-      case 'image':
+      }
+      case 'image': {
         page.image = getImagePath(
           block.value.format.display_source,
           block.value.id
         )
         break
-      default:
+      }
+      default: {
         page.blocks.push(block)
         break
+      }
     }
     if (index === last) pages.push(page)
   })

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import styles from '~/utils/styles'
 import { BlockTypes } from '~/types'
 import { textBlock } from '~/lib/notion/renderers'
+import { getImagePath } from '~/lib/blog-helpers'
 
 type ContainerProps = {
   className: string
@@ -30,6 +31,19 @@ const _renderBlock = (block: BlockTypes): React.ReactElement => {
           {textBlock(block.value.properties.title, true, block.value.id)}
         </div>
       )
+      break
+    }
+    case 'image': {
+      const path = getImagePath(
+        block.value.format.display_source,
+        block.value.id
+      )
+      return (
+        <div className="image">
+          <img src={path} />
+        </div>
+      )
+      break
     }
   }
 }
@@ -66,12 +80,12 @@ const StyledComponent = styled(Component)`
     border-left: 0.2rem solid white;
     opacity: 0.65;
   }
-  > .mask {
+  > .image {
     width: 100%;
     height: 23vw;
     overflow: hidden;
   }
-  > * > img {
+  > .image > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -79,7 +93,6 @@ const StyledComponent = styled(Component)`
 `
 
 const Container: React.FC<ContainerProps> = props => {
-  console.log(props.blocks)
   return <StyledComponent {...props} />
 }
 
