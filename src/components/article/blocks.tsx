@@ -1,14 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
 import styles from '~/utils/styles'
+import { BlockTypes } from '~/types'
+import { textBlock } from '~/lib/notion/renderers'
 
 type ContainerProps = {
   className: string
+  blocks: BlockTypes[]
 }
 type ComponentProps = {} & ContainerProps
 
+const _renderBlock = (block: BlockTypes): React.ReactElement => {
+  switch (block.value.type) {
+    case 'text': {
+      if (block.value.properties) {
+        return (
+          <div className="text">
+            {textBlock(block.value.properties.title, true, block.value.id)}
+          </div>
+        )
+      } else {
+        return <div className="break" />
+      }
+      break
+    }
+    case 'quote': {
+      return (
+        <div className="quote">
+          {textBlock(block.value.properties.title, true, block.value.id)}
+        </div>
+      )
+    }
+  }
+}
+
 const Component: React.FC<ComponentProps> = props => (
-  <div className={props.className}>{props.children}</div>
+  <div className={props.className}>
+    {props.blocks.map((block, index) => {
+      return <React.Fragment key={index}>{_renderBlock(block)}</React.Fragment>
+    })}
+  </div>
 )
 
 const StyledComponent = styled(Component)`
@@ -48,6 +79,7 @@ const StyledComponent = styled(Component)`
 `
 
 const Container: React.FC<ContainerProps> = props => {
+  console.log(props.blocks)
   return <StyledComponent {...props} />
 }
 

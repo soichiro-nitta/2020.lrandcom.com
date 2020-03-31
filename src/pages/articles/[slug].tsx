@@ -24,7 +24,7 @@ type ComponentProps = {
   className: string
 } & ContainerProps
 
-const _article = (props): React.ReactElement => {
+const _renderArticle = (props): React.ReactElement => {
   switch (props.display) {
     case 'Modern':
       return (
@@ -51,7 +51,7 @@ const _article = (props): React.ReactElement => {
 }
 
 const Component: React.FC<ComponentProps> = props => (
-  <div className={props.className}>{_article(props)}</div>
+  <div className={props.className}>{_renderArticle(props)}</div>
 )
 
 const StyledComponent = styled(Component)``

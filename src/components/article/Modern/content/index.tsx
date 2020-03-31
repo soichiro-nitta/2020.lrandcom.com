@@ -2,14 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import styles from '~/utils/styles'
 import Title from '~/components/article/title'
-import Body from '~/components/article/body'
+import Blocks from '~/components/article/blocks'
 import Author from '~/components/article/author'
 import Date from '~/components/article/date'
+import { BlockTypes } from '~/types'
 
 type ContainerProps = {
   className: string
   title: string
-  body: React.ReactElement[]
+  blocks: BlockTypes[]
   date: string
   index: number
 }
@@ -28,11 +29,7 @@ const Component: React.FC<ComponentProps> = props => (
             <Author className="author" />
           </>
         )}
-        <Body className="body">
-          {props.body.map((blockElement, index) => {
-            return <React.Fragment key={index}>{blockElement}</React.Fragment>
-          })}
-        </Body>
+        <Blocks className="blocks" blocks={props.blocks} />
       </div>
     </div>
   </div>

@@ -11,12 +11,12 @@ import Content from './content'
 import { functions } from '~/utils/functions'
 import useEffectAsync from '~/hooks/useEffectAsync'
 import { BlockTypes } from '~/types'
-import { textBlock } from '~/lib/notion/renderers'
+import { getImagePath } from '~/lib/blog-helpers'
 
 type PageTypes = {
   title: string
   image: string
-  body: React.ReactElement[]
+  blocks: BlockTypes[]
 }
 type ContainerProps = {
   className: string
@@ -39,7 +39,7 @@ const Component: React.FC<ComponentProps> = props => (
           <Content
             className="content"
             title={page.title}
-            body={page.body}
+            blocks={page.blocks}
             date={props.date}
             index={index}
           />
@@ -71,42 +71,25 @@ const _createPages = (title: string, blocks: BlockTypes[]): PageTypes[] => {
   let page: PageTypes = {
     title,
     image: '',
-    body: []
+    blocks: []
   }
   const last = blocks.length - 1
   blocks.forEach((block, index) => {
     switch (block.value.type) {
-      case 'sub_header': {
+      case 'sub_header':
         pages.push(page)
-        page = { title: '', image: '', body: [] }
+        page = { title: '', image: '', blocks: [] }
         page.title = block.value.properties.title[0][0]
         break
-      }
-      case 'image': {
-        page.image = `/api/asset?assetUrl=${encodeURIComponent(
-          block.value.format.display_source
-        )}&blockId=${block.value.id}`
-        break
-      }
-      case 'text': {
-        if (block.value.properties) {
-          page.body.push(
-            <div className="text">
-              {textBlock(block.value.properties.title, true, block.value.id)}
-            </div>
-          )
-        } else {
-          page.body.push(<div className="break" />)
-        }
-        break
-      }
-      case 'quote': {
-        page.body.push(
-          <div className="quote">
-            {textBlock(block.value.properties.title, true, block.value.id)}
-          </div>
+      case 'image':
+        page.image = getImagePath(
+          block.value.format.display_source,
+          block.value.id
         )
-      }
+        break
+      default:
+        page.blocks.push(block)
+        break
     }
     if (index === last) pages.push(page)
   })
