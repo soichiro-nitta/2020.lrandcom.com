@@ -30,7 +30,6 @@ const Component: React.FC<ComponentProps> = props => (
         className="section"
         title={config.index.website.title}
         description={config.index.website.description}
-        button={config.index.website.button}
         src={config.index.website.src}
       />
       <Section
