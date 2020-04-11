@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { StateTypes } from '~/store'
 import { increment, decrement, setCurrent } from '~/store/article'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import config from '~/utils/config'
+import { config } from '~/utils/config'
 
 type ContainerProps = {
   className: string

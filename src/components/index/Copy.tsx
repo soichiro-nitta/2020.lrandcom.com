@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Noise from '~/components/base/Noise'
 import { styles } from '~/utils/styles'
-import config from '~/utils/config'
+import { config } from '~/utils/config'
 import Heading1 from '~/components/base/Heading1'
 
 type ContainerProps = {

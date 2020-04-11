@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from '~/components/base/Img'
-import config from '~/utils/config'
+import { config } from '~/utils/config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ABlank from '~/components/base/ABlank'
 

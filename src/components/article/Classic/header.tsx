@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Heading2 from '~/components/base/Heading2'
 import { styles } from '~/utils/styles'
-import config from '~/utils/config'
+import { config } from '~/utils/config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type ContainerProps = {

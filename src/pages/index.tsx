@@ -7,7 +7,7 @@ import Copy from '~/components/index/Copy'
 import Section from '~/components/index/Section'
 import OurClient from '~/components/index/OurClient'
 import Contact from '~/components/index/Contact'
-import config from '~/utils/config'
+import { config } from '~/utils/config'
 
 type ContainerProps = {}
 type ComponentProps = {
