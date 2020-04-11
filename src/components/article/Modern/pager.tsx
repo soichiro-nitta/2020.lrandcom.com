@@ -19,19 +19,19 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="prev" onClick={props.prev}>
-      <FontAwesomeIcon className="left" icon={config.article.prev.icon} />
+      <FontAwesomeIcon className="left" icon={config.icons.arrowLeft} />
       <div className="prevCircle" />
       <div className="prevCircle" />
-      <span className="prevText">{config.article.prev.text}</span>
+      <span className="prevText">{config.article.prev}</span>
     </div>
     <div className="num">
       {props.currentNum} / {props.total}
     </div>
     <div className="next" onClick={props.next}>
-      <span className="nextText">{config.article.next.text}</span>
+      <span className="nextText">{config.article.next}</span>
       <div className="nextCircle1" />
       <div className="nextCircle2" />
-      <FontAwesomeIcon className="right" icon={config.article.next.icon} />
+      <FontAwesomeIcon className="right" icon={config.icons.arrowRight} />
     </div>
   </div>
 )

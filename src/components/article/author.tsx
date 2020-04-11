@@ -19,22 +19,22 @@ const Component: React.FC<ComponentProps> = props => (
     <ul>
       <li>
         <ABlank className="fb" href={config.url.facebook.natsume}>
-          <FontAwesomeIcon icon={config.article.author.icons.facebook} />
+          <FontAwesomeIcon icon={config.icons.facebook} />
         </ABlank>
       </li>
       <li>
         <ABlank className="tw" href={config.url.twitter}>
-          <FontAwesomeIcon icon={config.article.author.icons.twitter} />
+          <FontAwesomeIcon icon={config.icons.twitter} />
         </ABlank>
       </li>
       <li>
         <ABlank className="insta" href={config.url.instagram}>
-          <FontAwesomeIcon icon={config.article.author.icons.instagram} />
+          <FontAwesomeIcon icon={config.icons.instagram} />
         </ABlank>
       </li>
       <li>
         <ABlank className="yt" href={config.url.youtube}>
-          <FontAwesomeIcon icon={config.article.author.icons.youtube} />
+          <FontAwesomeIcon icon={config.icons.youtube} />
         </ABlank>
       </li>
     </ul>
