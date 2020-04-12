@@ -21,7 +21,7 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.9;
+    opacity: 0.3;
   }
   > .noise {
     position: absolute;

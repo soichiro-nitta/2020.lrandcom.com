@@ -4,7 +4,7 @@ import index from './home'
 import article from './article'
 import about from './about'
 import outline from './outline'
-import client from './client'
+import ourClient from './ourClient'
 
 export const config = {
   icons,
@@ -13,5 +13,5 @@ export const config = {
   article,
   about,
   outline,
-  client
+  ourClient
 }

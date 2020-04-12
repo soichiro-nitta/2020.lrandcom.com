@@ -6,6 +6,7 @@ import Logo from '~/components/about/Logo'
 import Lead from '~/components/about/lead'
 import Thumbnail from '~/components/about/Thumbnail'
 import Outline from '~/components/about/Outline'
+import OurClient from '~/components/about/OurClient'
 import { config } from '~/utils/config'
 
 type ContainerProps = {
@@ -19,6 +20,9 @@ const Component: React.FC<ComponentProps> = props => (
     <Lead className="lead">{config.about.lead.company}</Lead>
     <Thumbnail className="thumbnail" />
     <Outline className="outline" />
+    <div className="line" />
+    <OurClient className="ourClient" />
+    <div className="line" />
   </div>
 )
 
@@ -26,19 +30,29 @@ const StyledComponent = styled(Component)`
   > .logo {
     margin-top: 15.5rem;
     width: 100%;
-    height: 30rem;
   }
   > .lead {
-    margin: 6rem auto 0;
+    margin: 10rem auto 0;
     width: 70rem;
   }
   > .thumbnail {
-    margin: 6rem auto 0;
+    margin: 10rem auto 0;
     width: 100%;
     height: 50rem;
   }
   > .outline {
-    margin: 6rem auto 0;
+    margin: 10rem auto 0;
+    width: 70rem;
+  }
+  > .line {
+    margin: 10rem auto 0;
+    width: 100%;
+    height: 1px;
+    background: white;
+    opacity: 0.1;
+  }
+  > .ourClient {
+    margin: 10rem auto 0;
     width: 70rem;
   }
 `

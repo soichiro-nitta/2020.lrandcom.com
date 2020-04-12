@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Heading from '~/components/about/heading'
 import { config } from '~/utils/config'
+import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
@@ -15,7 +16,7 @@ const Component: React.FC<ComponentProps> = props => (
       {config.outline.map((row, index) => (
         <React.Fragment key={index}>
           <dl>
-            <dt>{row.head}：</dt>
+            <dt>{row.head}</dt>
             <dd>{row.data}</dd>
           </dl>
         </React.Fragment>
@@ -27,27 +28,29 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   display: flex;
   justify-content: space-between;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
   .heading {
     font-weight: bold;
   }
   .body {
-    width: 70%;
+    width: 78%;
+    opacity: 0.65;
   }
   > * > dl {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    opacity: 0.65;
   }
   > * > dl:not(:first-child) {
     margin-top: 3rem;
   }
   > * > * > dt {
-    opacity: 0.3;
+    opacity: 0.65;
   }
   > * > * > dd {
-    width: 30rem;
+    ${styles.mixins.lhCrop(2)};
+    width: 75%;
   }
 `
 

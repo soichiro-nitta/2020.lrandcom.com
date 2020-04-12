@@ -24,7 +24,7 @@ export default {
     src: 'https://lrandcom.kagoyacloud.com/static/film/pc.mp4'
   },
   ourClient: {
-    title: '主要取引先',
+    title: 'クライアント',
     description: '※ 敬称略、順不同'
   },
   contact: {
