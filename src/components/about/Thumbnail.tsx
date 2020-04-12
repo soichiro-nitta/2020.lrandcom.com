@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactSVG } from 'react-svg'
-import { styles } from '~/utils/styles'
+import { config } from '~/utils/config'
+import Noise from '~/components/base/Noise'
 
 type ContainerProps = {
   className: string
@@ -10,16 +10,25 @@ type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <ReactSVG className={props.className} src="/images/base/logo_full.svg" />
+    <img src={config.about.thumbnail} alt="" />
+    <Noise className="noise" />
   </div>
 )
 
 const StyledComponent = styled(Component)`
-  ${styles.mixins.flexCenter}
-  background: #000;
-  svg {
-    width: 35rem;
-    height: auto;
+  position: relative;
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+  }
+  > .noise {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 `
 

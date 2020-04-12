@@ -25,7 +25,7 @@ const Component: React.FC<ComponentProps> = props => (
       </a>
     </div>
     <Card className="card">
-      {config.index.contact.outline.map((row, index) => (
+      {config.outline.map((row, index) => (
         <React.Fragment key={index}>
           <dl>
             <dt>{row.head}：</dt>

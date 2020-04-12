@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactSVG } from 'react-svg'
+import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
@@ -8,10 +8,20 @@ type ContainerProps = {
 type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
-  <ReactSVG className={props.className} src="/images/base/logo.svg" />
+  <div className={props.className}>
+    <span>{props.children}</span>
+  </div>
 )
 
-const StyledComponent = styled(Component)``
+const StyledComponent = styled(Component)`
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  white-space: pre-wrap;
+  opacity: 0.65;
+  > span {
+    ${styles.mixins.lhCrop(2)}
+  }
+`
 
 const Container: React.FC<ContainerProps> = props => {
   return <StyledComponent {...props} />

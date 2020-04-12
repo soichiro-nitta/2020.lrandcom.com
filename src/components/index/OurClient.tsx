@@ -54,7 +54,7 @@ const StyledComponent = styled(Component)`
 `
 
 const Container: React.FC<ContainerProps> = props => {
-  const client = config.index.ourClient.client
+  const client = config.client
   const last = client.length - 1
   return <StyledComponent client={client} last={last} {...props} />
 }
