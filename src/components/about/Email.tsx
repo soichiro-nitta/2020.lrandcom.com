@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { config } from '~/utils/config'
+import { styles } from '~/utils/styles'
 import Noise from '~/components/base/Noise'
 
 type ContainerProps = {
@@ -10,25 +12,33 @@ type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <img src={config.about.thumbnail} alt="" />
     <Noise className="noise" />
+    <a href="mailto:hello@lrandcom.com">
+      <FontAwesomeIcon icon={config.icons.mail} />{' '}
+      <span>HELLO@LRANDCOM.COM</span>
+    </a>
   </div>
 )
 
 const StyledComponent = styled(Component)`
+  ${styles.mixins.flexCenter}
   position: relative;
-  > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
-  }
   > .noise {
-    position: absolute;
-    top: 0;
-    left: 0;
+    ${styles.mixins.absoluteCenter}
     width: 100%;
     height: 100%;
+  }
+  > a {
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+  }
+  > * > span {
+    ${styles.mixins.logoStyle}
+    display: inline-block;
+    margin-left: 5rem;
+    font-size: 5rem;
+    letter-spacing: 1rem;
   }
 `
 

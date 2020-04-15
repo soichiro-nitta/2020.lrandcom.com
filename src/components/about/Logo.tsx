@@ -12,23 +12,20 @@ type ComponentProps = {} & ContainerProps
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <Noise className="noise" />
-    <ReactSVG className={props.className} src="/images/base/logo_full.svg" />
+    <ReactSVG src="/images/base/logo_full.svg" />
   </div>
 )
 
 const StyledComponent = styled(Component)`
-  ${styles.mixins.flexCenter}
   position: relative;
-  padding: 7.5rem;
-  .noise {
-    position: absolute;
-    top: 0;
-    left: 0;
+  > .noise {
+    ${styles.mixins.absoluteCenter}
     width: 100%;
     height: 100%;
   }
   svg {
-    width: 55rem;
+    ${styles.mixins.absoluteCenter}
+    width: 60rem;
     height: auto;
   }
 `

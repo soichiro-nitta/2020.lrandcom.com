@@ -8,5 +8,6 @@ export default {
   thumbnail: '/images/about/thumbnail.png',
   ourClient: {
     title: 'クライアント'
-  }
+  },
+  button: '詳しくはこちらから'
 }
