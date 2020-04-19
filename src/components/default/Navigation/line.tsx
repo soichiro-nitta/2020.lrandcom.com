@@ -21,7 +21,7 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   background: white;
-  opacity: 0.1;
+  opacity: 1;
   transform: scaleX(0);
 `
 
@@ -39,8 +39,13 @@ const Container: React.FC<ContainerProps> = props => {
         if (humberger && !navigation.opened) {
           await functions.delay(1)
           animations.scaleX(refs.root.current, 1, 1, 'InOut')
+          animations.opacity(refs.root.current, 0.1, 1, 'InOut')
         } else if (!humberger && navigation.opened) {
-          animations.scaleX(refs.root.current, 0, 1, 'InOut')
+          await functions.delay(2)
+          animations.set(refs.root.current, {
+            scaleX: 0,
+            opacity: 1
+          })
         }
       }
     },
