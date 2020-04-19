@@ -2,96 +2,12 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import store from '~/store'
 import { AppProps } from 'next/app'
-import { GlobalStyle } from '~/utils/styles'
-import Humberger from '~/components/_app/Humberger'
-import Slug from '~/components/_app/Slug'
-import Noise from '~/components/base/Noise'
-import UpperLeft from '~/components/_app/UpperLeft'
-// import LowerLeft from '~/components/_app/LowerLeft'
-import Navigation from '~/components/_app/Navigation'
-import styled from 'styled-components'
+import Layout from '~/layouts/default'
 
-type ContainerProps = AppProps
-type ComponentProps = {
-  className: string
-} & ContainerProps
-
-const Component: React.FC<ComponentProps> = props => (
-  <>
-    <GlobalStyle />
-    <Provider store={store}>
-      <div className={props.className}>
-        <Noise className="noise" />
-        <div id="page">
-          <props.Component {...props.pageProps} />
-        </div>
-        <Slug className="slug" />
-        <UpperLeft className="upperLeft" />
-        {/* <LowerLeft className="lowerLeft" /> */}
-        <Navigation className="navigation" />
-        <Humberger className="humberger" />
-      </div>
-    </Provider>
-  </>
+const _App: React.FC<AppProps> = props => (
+  <Provider store={store}>
+    <Layout {...props} />
+  </Provider>
 )
 
-const StyledComponent = styled(Component)`
-  width: 100%;
-  height: 100%;
-  > .noise {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-  > #page {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: scroll;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -ms-overflow-style: none; /* IE, Edge 対応 */
-    scrollbar-width: none; /* Firefox 対応 */
-  }
-  > #page:-webkit-scrollbar {
-    /* Chrome, Safari 対応 */
-    display: none;
-  }
-  > .upperLeft {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-  > .slug {
-    position: fixed;
-    top: 6rem;
-    width: 100%;
-    height: 3.5rem;
-  }
-  /* > .lowerLeft {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  } */
-  > .navigation {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-  > .humberger {
-    position: fixed;
-    top: 0;
-    right: 0;
-  }
-`
-
-const Container: React.FC<ContainerProps> = props => {
-  return <StyledComponent className="app" {...props} />
-}
-
-export default Container
+export default _App

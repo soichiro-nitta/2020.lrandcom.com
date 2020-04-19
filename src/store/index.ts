@@ -3,11 +3,15 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import header from './header'
 import article from './article'
 import navigation from './navigation'
+import media from './media'
+import window from './window'
 
 const reducer = combineReducers({
   article,
   header,
-  navigation
+  navigation,
+  media,
+  window
 })
 
 export type StateTypes = ReturnType<typeof reducer>
