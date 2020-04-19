@@ -12,6 +12,7 @@ import {
   openNavigation,
   closeNavigation
 } from '~/store/navigation'
+import Line from '~/components/default/Navigation/line'
 
 type ContainerProps = {
   className: string
@@ -27,6 +28,7 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className} ref={props.refs.root}>
     <div className="inner" ref={props.refs.inner}>
       Nav
+      <Line className="line" />
     </div>
   </div>
 )
@@ -36,9 +38,15 @@ const StyledComponent = styled(Component)`
   overflow: hidden;
   .inner {
     ${styles.mixins.flexCenter}
+    position: relative;
     width: 100%;
     height: 100%;
     background: black;
+  }
+  .line {
+    ${styles.mixins.absoluteCenter}
+    width: 100%;
+    height: 1px;
   }
 `
 
