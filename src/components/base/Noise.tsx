@@ -13,51 +13,40 @@ const Component: React.FC<ComponentProps> = props => (
 )
 
 const StyledComponent = styled(Component)`
-  position: relative;
-
-  .inner {
-    content: '';
-    z-index: 100;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/images/base/noise.png');
-    animation: 0.3s infinite noise;
-  }
-
-  @keyframes noise {
-    0%,
-    100% {
-      background-position: 0 0;
+  background: url('/images/base/noise.png');
+  background-size: 500px 500px;
+  animation: 250ms steps(10, end) 0s infinite alternate-reverse none running
+    noise-animation;
+  @keyframes noise-animation {
+    0% {
+      background-position: 0% 0%;
     }
     10% {
-      background-position: -5% -10%;
+      background-position: -5% -5%;
     }
     20% {
-      background-position: -15% 5%;
+      background-position: -10% 5%;
     }
     30% {
-      background-position: 7% -25%;
+      background-position: 5% -10%;
     }
     40% {
-      background-position: 20% 25%;
+      background-position: -5% 15%;
     }
     50% {
-      background-position: -25% 10%;
+      background-position: -10% 5%;
     }
     60% {
-      background-position: 15% 5%;
+      background-position: 5% 5%;
     }
     70% {
-      background-position: 0% 15%;
+      background-position: 0% 10%;
     }
     80% {
-      background-position: 25% 35%;
+      background-position: -5% -5%;
     }
     90% {
-      background-position: -10% 10%;
+      background-position: 10% 5%;
     }
   }
 `
