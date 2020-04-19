@@ -16,7 +16,6 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
-  white-space: pre-wrap;
   opacity: 0.65;
   > span {
     ${styles.mixins.lhCrop(2)}

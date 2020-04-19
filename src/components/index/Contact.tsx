@@ -28,7 +28,7 @@ const Component: React.FC<ComponentProps> = props => (
       {config.outline.map((row, index) => (
         <React.Fragment key={index}>
           <dl>
-            <dt>{row.head}：</dt>
+            <dt>{row.head}</dt>
             <dd>{row.data}</dd>
           </dl>
         </React.Fragment>
@@ -70,10 +70,10 @@ const StyledComponent = styled(Component)`
     margin-top: 3rem;
   }
   > * > * > dt {
-    opacity: 0.3;
+    opacity: 0.65;
   }
   > * > * > dd {
-    width: 30rem;
+    width: 70%;
   }
 `
 

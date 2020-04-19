@@ -5,5 +5,9 @@ export default {
     recruit:
       '多極的な視点で物事を考えられるライターを常に募集しています。キャリアや経験はハシゴではなくジャングルジム。常識とは異なった視点で、ライティングを通じ、未来の解像度を上げていって下さい。読書好き、旅行好き、運動好きであればパーフェクト!'
   },
-  thumbnail: '/images/about/thumbnail.png'
+  thumbnail: '/images/about/thumbnail.png',
+  ourClient: {
+    title: 'クライアント'
+  },
+  button: '詳しくはこちらから'
 }

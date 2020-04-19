@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { styles } from '~/utils/styles'
-import Heading1 from '~/components/base/Heading1'
+import Heading from '~/components/about/heading'
 import { config } from '~/utils/config'
-import Description from '~/components/index/description'
-import Card from '~/components/index/card'
+import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
@@ -13,13 +11,8 @@ type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <div className="head">
-      <Heading1 className="title">{config.index.ourClient.title}</Heading1>
-      <Description className="description">
-        {config.index.ourClient.description}
-      </Description>
-    </div>
-    <Card className="card">
+    <Heading className="heading">{config.about.ourClient.title}</Heading>
+    <div className="body">
       {config.ourClient.map((companyName, index) => (
         <React.Fragment key={index}>
           <span className="companyName">{companyName}</span>
@@ -28,25 +21,28 @@ const Component: React.FC<ComponentProps> = props => (
           )}
         </React.Fragment>
       ))}
-    </Card>
+    </div>
   </div>
 )
 
 const StyledComponent = styled(Component)`
-  ${styles.mixins.flexCenter};
-  > * > .description {
-    margin-top: 4.5rem;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  .heading {
+    font-weight: bold;
   }
-  > .card {
+  .body {
     ${styles.mixins.lhCrop(3)};
-    margin-left: 7.5vw;
-    width: 37.5vw;
+    width: 78%;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
   }
-  > .card > .companyName {
+  > * > .companyName {
     opacity: 0.65;
   }
-  > .card > .slash {
+  > * > .slash {
     letter-spacing: 0.5rem;
     opacity: 0.1;
   }

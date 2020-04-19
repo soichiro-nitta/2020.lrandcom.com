@@ -6,7 +6,10 @@ import Logo from '~/components/about/Logo'
 import Lead from '~/components/about/lead'
 import Thumbnail from '~/components/about/Thumbnail'
 import Outline from '~/components/about/Outline'
+import OurClient from '~/components/about/OurClient'
+import Email from '~/components/about/Email'
 import { config } from '~/utils/config'
+import Button from '~/components/base/Button'
 
 type ContainerProps = {
   className: string
@@ -15,31 +18,38 @@ type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <Logo className="logo" />
-    <Lead className="lead">{config.about.lead.company}</Lead>
-    <Thumbnail className="thumbnail" />
-    <Outline className="outline" />
+    <Logo className="thumbnail" />
+    <Lead className="wrapper">{config.about.lead.company}</Lead>
+    <Thumbnail className="margin thumbnail" />
+    <Outline className="wrapper" />
+    <div className="margin line" />
+    <OurClient className="wrapper" />
+    <Email className="margin thumbnail" />
+    <Lead className="wrapper">{config.about.lead.recruit}</Lead>
+    <div className="wrapper">
+      <Button className="button">{config.about.button}</Button>
+    </div>
   </div>
 )
 
 const StyledComponent = styled(Component)`
-  > .logo {
-    margin-top: 15.5rem;
-    width: 100%;
-    height: 30rem;
+  padding: 15.5rem 0;
+  > .margin {
+    margin-top: 7rem;
   }
-  > .lead {
-    margin: 6rem auto 0;
+  > .wrapper {
+    margin: 7rem auto 0;
     width: 70rem;
   }
   > .thumbnail {
-    margin: 6rem auto 0;
     width: 100%;
-    height: 50rem;
+    height: 43rem;
   }
-  > .outline {
-    margin: 6rem auto 0;
-    width: 70rem;
+  > .line {
+    width: 100%;
+    height: 1px;
+    background: white;
+    opacity: 0.1;
   }
 `
 
