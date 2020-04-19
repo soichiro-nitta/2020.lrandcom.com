@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { styles } from '~/utils/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { setHumberger } from '~/store/header'
 import { StateTypes } from '~/store'
+import animations from '~/utils/animations'
+import { functions } from '~/utils/functions'
+import useEffectAsync from '~/hooks/useEffectAsync'
 
 type ContainerProps = {
   className: string
 }
 type ComponentProps = {
+  refs: {
+    line1: React.MutableRefObject<HTMLDivElement | null>
+    line2: React.MutableRefObject<HTMLDivElement | null>
+    line3: React.MutableRefObject<HTMLDivElement | null>
+  }
   toggleMenu: () => void
 } & ContainerProps
 
@@ -16,9 +24,9 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className} onClick={props.toggleMenu}>
     <div className="wrapper">
       <div className="lines">
-        <div className="line1" />
-        <div className="line2" />
-        <div className="line3" />
+        <div className="line1" ref={props.refs.line1} />
+        <div className="line2" ref={props.refs.line2} />
+        <div className="line3" ref={props.refs.line3} />
       </div>
     </div>
   </div>
@@ -62,11 +70,35 @@ const Container: React.FC<ContainerProps> = props => {
   const isPlaying = useSelector(
     (state: StateTypes) => state.navigation.isPlaying
   )
-  const toggleMenu = (): void => {
+  const refs = {
+    line1: useRef<HTMLDivElement>(null),
+    line2: useRef<HTMLDivElement>(null),
+    line3: useRef<HTMLDivElement>(null)
+  }
+  const toggleMenu = async (): Promise<void> => {
     if (isPlaying) return
+    if (refs.line1.current && refs.line2.current && refs.line3.current) {
+      if (humberger) {
+        animations.rotation(refs.line1.current, '0deg', 1, 'InOut')
+        animations.y(refs.line1.current, '0', 1, 'InOut')
+        animations.rotation(refs.line3.current, '0deg', 1, 'InOut')
+        animations.y(refs.line3.current, '0', 1, 'InOut')
+        animations.scaleX(refs.line2.current, 2, 0.5, 'In')
+        await functions.delay(0.5)
+        animations.scaleX(refs.line2.current, 1, 0.5, 'Out')
+      } else {
+        animations.rotation(refs.line1.current, '45deg', 1, 'InOut')
+        animations.y(refs.line1.current, '0.75rem', 1, 'InOut')
+        animations.rotation(refs.line3.current, '-45deg', 1, 'InOut')
+        animations.y(refs.line3.current, '-0.75rem', 1, 'InOut')
+        animations.scaleX(refs.line2.current, 2, 0.5, 'In')
+        await functions.delay(0.5)
+        animations.scaleX(refs.line2.current, 0, 0.5, 'Out')
+      }
+    }
     dispatch(setHumberger(!humberger))
   }
-  return <StyledComponent toggleMenu={toggleMenu} {...props} />
+  return <StyledComponent refs={refs} toggleMenu={toggleMenu} {...props} />
 }
 
 export default Container
