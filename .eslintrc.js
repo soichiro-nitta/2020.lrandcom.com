@@ -14,17 +14,20 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
     'prettier/react',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'prettier/@typescript-eslint',
   ],
-  plugins: ['react', 'prettier', '@typescript-eslint'],
+  plugins: ['react', 'react-hooks', 'prettier', '@typescript-eslint'],
   // add your custom rules here
   rules: {
     'prettier/prettier': 'error',
     'react/prop-types': 0,
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'react/self-closing-comp': [
       'error',
       {
