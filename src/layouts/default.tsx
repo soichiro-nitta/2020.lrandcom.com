@@ -29,7 +29,7 @@ const Component: React.FC<ComponentProps> = props => (
         <Slug className="slug" />
         <UpperLeft className="upperLeft" />
         {/* <LowerLeft className="lowerLeft" /> */}
-        {/* <Navigation className="navigation" /> */}
+        <Navigation className="navigation" />
         <Humberger className="humberger" />
       </div>
     </Provider>
@@ -82,7 +82,7 @@ const StyledComponent = styled(Component)`
     position: fixed;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 0%;
   }
   > .humberger {
     position: fixed;

@@ -29,6 +29,11 @@ const slice = createSlice({
   }
 })
 
-export const { startNavAnimation, completeNavAnimation } = slice.actions
+export const {
+  startNavAnimation,
+  completeNavAnimation,
+  openNavigation,
+  closeNavigation
+} = slice.actions
 
 export default slice.reducer

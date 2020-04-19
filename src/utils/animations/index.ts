@@ -2,6 +2,7 @@ import set from '~/utils/animations/set'
 import x from '~/utils/animations/x'
 import y from '~/utils/animations/y'
 import width from '~/utils/animations/width'
+import height from './height'
 import color from '~/utils/animations/color'
 import scale from '~/utils/animations/scale'
 import scaleX from '~/utils/animations/scaleX'
@@ -19,6 +20,7 @@ export default {
   x,
   y,
   width,
+  height,
   color,
   scale,
   scaleX,
