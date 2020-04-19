@@ -13,7 +13,9 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   ${styles.mixins.flexCenter}
-  background: rgba(255, 0, 0, 0.3);
+  display: none;
+  height: 0;
+  background: black;
 `
 
 const Container: React.FC<ContainerProps> = props => {

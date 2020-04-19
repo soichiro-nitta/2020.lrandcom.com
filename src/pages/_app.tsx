@@ -8,7 +8,7 @@ import Slug from '~/components/_app/Slug'
 import Noise from '~/components/base/Noise'
 import UpperLeft from '~/components/_app/UpperLeft'
 // import LowerLeft from '~/components/_app/LowerLeft'
-// import Navigation from '~/components/_app/Navigation'
+import Navigation from '~/components/_app/Navigation'
 import styled from 'styled-components'
 
 type ContainerProps = AppProps
@@ -28,7 +28,7 @@ const Component: React.FC<ComponentProps> = props => (
         <Slug className="slug" />
         <UpperLeft className="upperLeft" />
         {/* <LowerLeft className="lowerLeft" /> */}
-        {/* <Navigation className="navigation" /> */}
+        <Navigation className="navigation" />
         <Humberger className="humberger" />
       </div>
     </Provider>
@@ -77,12 +77,12 @@ const StyledComponent = styled(Component)`
     bottom: 0;
     left: 0;
   } */
-  /* > .navigation {
+  > .navigation {
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
-  } */
+  }
   > .humberger {
     position: fixed;
     top: 0;
