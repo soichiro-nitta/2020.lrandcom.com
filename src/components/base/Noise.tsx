@@ -55,7 +55,7 @@ const Container: React.FC<ContainerProps> = props => {
           makeNoise(context)
           requestAnimationFrame(loop)
         }
-        loop()
+        // loop()
       }
     }
   }, [])
