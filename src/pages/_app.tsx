@@ -7,7 +7,8 @@ import Humberger from '~/components/_app/Humberger'
 import Slug from '~/components/_app/Slug'
 import Noise from '~/components/base/Noise'
 import UpperLeft from '~/components/_app/UpperLeft'
-import LowerLeft from '~/components/_app/LowerLeft'
+// import LowerLeft from '~/components/_app/LowerLeft'
+// import Navigation from '~/components/_app/Navigation'
 import styled from 'styled-components'
 
 type ContainerProps = AppProps
@@ -24,18 +25,11 @@ const Component: React.FC<ComponentProps> = props => (
         <div id="page">
           <props.Component {...props.pageProps} />
         </div>
-        <div className="slugWrapper">
-          <Slug className="slug" />
-        </div>
-        <div className="upperLeftWrapper">
-          <UpperLeft className="upperLeft" />
-        </div>
-        <div className="humbergerWrapper">
-          <Humberger className="humberger" />
-        </div>
-        <div className="lowerLeftWrapper">
-          <LowerLeft className="lowerLeft" />
-        </div>
+        <Slug className="slug" />
+        <UpperLeft className="upperLeft" />
+        {/* <LowerLeft className="lowerLeft" /> */}
+        {/* <Navigation className="navigation" /> */}
+        <Humberger className="humberger" />
       </div>
     </Provider>
   </>
@@ -57,9 +51,7 @@ const StyledComponent = styled(Component)`
     height: 100%;
     overflow-x: scroll;
     overflow-y: scroll;
-    /* scroll-snap-type: both; */
     -webkit-overflow-scrolling: touch;
-    /* overflow: hidden; */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -ms-overflow-style: none; /* IE, Edge 対応 */
@@ -69,44 +61,32 @@ const StyledComponent = styled(Component)`
     /* Chrome, Safari 対応 */
     display: none;
   }
-  > .upperLeftWrapper {
-    display: flex;
-    align-items: center;
+  > .upperLeft {
     position: fixed;
-    top: 6rem;
-    left: 6rem;
-    height: 3.5rem;
+    top: 0;
+    left: 0;
   }
-  > .slugWrapper {
-    display: flex;
-    align-items: center;
+  > .slug {
     position: fixed;
     top: 6rem;
     width: 100%;
     height: 3.5rem;
   }
-  > * > .slug {
-    margin: 0 auto;
-  }
-  > .humbergerWrapper {
-    display: flex;
-    align-items: center;
+  /* > .lowerLeft {
     position: fixed;
-    top: 6rem;
-    right: 6rem;
-    height: 3.5rem;
-  }
-  > * > .humberger {
-    width: 4rem;
-    height: 1.65rem;
-  }
-  > .lowerLeftWrapper {
-    display: flex;
-    align-items: center;
+    bottom: 0;
+    left: 0;
+  } */
+  /* > .navigation {
     position: fixed;
-    bottom: 6rem;
-    left: 6rem;
-    height: 3.5rem;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  } */
+  > .humberger {
+    position: fixed;
+    top: 0;
+    right: 0;
   }
 `
 

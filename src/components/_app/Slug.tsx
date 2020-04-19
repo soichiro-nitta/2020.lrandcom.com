@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { StateTypes } from '~/store'
+import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
@@ -15,6 +16,7 @@ const Component: React.FC<ComponentProps> = props => (
 )
 
 const StyledComponent = styled(Component)`
+  ${styles.mixins.flexCenter}
   font-size: 2rem;
   font-family: din-condensed;
   letter-spacing: 0.5rem;
