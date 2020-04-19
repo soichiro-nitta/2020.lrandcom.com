@@ -89,12 +89,14 @@ const Container: React.FC<ContainerProps> = props => {
 
   useEffect(() => {
     const page = document.getElementById('page')
-    const onwheel = (e): void => {
-      page.scrollLeft += e.deltaY
-    }
-    window.addEventListener('wheel', onwheel)
-    return (): void => {
-      window.removeEventListener('wheel', onwheel)
+    if (page) {
+      const onwheel = (e: MouseWheelEvent): void => {
+        page.scrollLeft += e.deltaY
+      }
+      window.addEventListener('wheel', onwheel)
+      return (): void => {
+        window.removeEventListener('wheel', onwheel)
+      }
     }
   }, [])
 

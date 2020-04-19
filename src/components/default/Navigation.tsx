@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { styles } from '~/utils/styles'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,11 +7,17 @@ import { StateTypes } from '~/store'
 type ContainerProps = {
   className: string
 }
-type ComponentProps = {} & ContainerProps
+type ComponentProps = {
+  refs: {
+    inner: React.MutableRefObject<HTMLDivElement | null>
+  }
+} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <div className="inner">Nav</div>
+    <div className="inner" ref={props.refs.inner}>
+      Nav
+    </div>
   </div>
 )
 
@@ -31,6 +37,15 @@ const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   const humberger = useSelector((state: StateTypes) => state.header.humberger)
   const navigation = useSelector((state: StateTypes) => state.navigation)
+  const refs = {
+    inner: useRef<HTMLDivElement>(null)
+  }
+  const windowHeight = useSelector((state: StateTypes) => state.window.height)
+
+  useEffect(() => {
+    refs.inner.current.style.height = `${windowHeight}px`
+  })
+
   useEffect(() => {
     if (humberger && !navigation.opened) {
       console.log('op')
@@ -38,7 +53,7 @@ const Container: React.FC<ContainerProps> = props => {
       console.log('ed')
     }
   }, [dispatch, humberger, navigation.opened])
-  return <StyledComponent {...props} />
+  return <StyledComponent refs={refs} {...props} />
 }
 
 export default Container

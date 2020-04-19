@@ -8,8 +8,8 @@ type ContainerProps = {
 }
 type ComponentProps = {
   refs: {
-    button: React.MutableRefObject<HTMLButtonElement>
-    text: React.MutableRefObject<HTMLDivElement>
+    button: React.MutableRefObject<HTMLButtonElement | null>
+    text: React.MutableRefObject<HTMLSpanElement | null>
   }
   over: () => void
   out: () => void
@@ -40,33 +40,36 @@ const StyledComponent = styled(Component)`
 
 const Container: React.FC<ContainerProps> = props => {
   const refs = {
-    button: useRef(null),
-    background: useRef(null),
-    text: useRef(null)
+    button: useRef<HTMLButtonElement>(null),
+    text: useRef<HTMLSpanElement>(null)
   }
 
   const over = (): void => {
     // if (('touchstart' == e.type && L) || ('mouseover' == e.type && !L)) return // PCのタッチと、モバイルのマウスオーバーはリターン
-    animations.backgroundColor(refs.button.current, 'white', 0.3, 'Out')
-    animations.color(refs.text.current, 'black', 0.3, 'Out')
-    animations.boxShadow(
-      refs.button.current,
-      '0px 0px 50px rgba(255,255,255,.5)',
-      0.2,
-      'Out'
-    )
+    if (refs.button.current && refs.text.current) {
+      animations.backgroundColor(refs.button.current, 'white', 0.3, 'Out')
+      animations.color(refs.text.current, 'black', 0.3, 'Out')
+      animations.boxShadow(
+        refs.button.current,
+        '0px 0px 50px rgba(255,255,255,.5)',
+        0.2,
+        'Out'
+      )
+    }
   }
 
   const out = (): void => {
     // if (('touchend' == e.type && L) || ('mouseout' == e.type && !L)) return // PCのタッチと、モバイルのマウスオーバーはリターン
-    animations.backgroundColor(refs.button.current, 'transparent', 0.3, 'Out')
-    animations.color(refs.text.current, 'white', 0.3, 'Out')
-    animations.boxShadow(
-      refs.button.current,
-      '0px 0px 0px rgba(255,255,255,.5)',
-      0.2,
-      'Out'
-    )
+    if (refs.button.current && refs.text.current) {
+      animations.backgroundColor(refs.button.current, 'transparent', 0.3, 'Out')
+      animations.color(refs.text.current, 'white', 0.3, 'Out')
+      animations.boxShadow(
+        refs.button.current,
+        '0px 0px 0px rgba(255,255,255,.5)',
+        0.2,
+        'Out'
+      )
+    }
   }
   return <StyledComponent refs={refs} over={over} out={out} {...props} />
 }
