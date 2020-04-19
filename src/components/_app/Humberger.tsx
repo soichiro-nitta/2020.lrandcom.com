@@ -59,8 +59,11 @@ const StyledComponent = styled(Component)`
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   const humberger = useSelector((state: StateTypes) => state.header.humberger)
+  const isPlaying = useSelector(
+    (state: StateTypes) => state.navigation.isPlaying
+  )
   const toggleMenu = (): void => {
-    console.log('toggle')
+    if (isPlaying) return
     dispatch(setHumberger(!humberger))
   }
   return <StyledComponent toggleMenu={toggleMenu} {...props} />
