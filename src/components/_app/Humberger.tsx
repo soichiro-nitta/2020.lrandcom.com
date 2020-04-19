@@ -23,6 +23,7 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   padding: 6rem;
+  cursor: pointer;
   > .wrapper {
     ${styles.mixins.flexCenter}
     width: 4rem;
