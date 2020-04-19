@@ -25,7 +25,7 @@ const StyledComponent = styled(Component)`
   }
   svg {
     ${styles.mixins.absoluteCenter}
-    width: 60rem;
+    width: 55rem;
     height: auto;
   }
 `
