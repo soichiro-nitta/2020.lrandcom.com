@@ -39,24 +39,24 @@ const Component: React.FC<ComponentProps> = props => (
       </li>
       <li>
         <div className="text">
-          <Heading2 className="heading2">お問い合わせ・会社概要</Heading2>
+          <Heading2 className="heading2">記事を読む</Heading2>
         </div>
         <div className="text face" ref={props.refs.text2}>
-          <Link href="/about">
+          <Link href="/articles">
             <a onClick={props.close}>
-              <Heading2 className="heading2">お問い合わせ・会社概要</Heading2>
+              <Heading2 className="heading2">記事を読む</Heading2>
             </a>
           </Link>
         </div>
       </li>
       <li>
         <div className="text">
-          <Heading2 className="heading2">記事を読む</Heading2>
+          <Heading2 className="heading2">お問い合わせ・会社概要</Heading2>
         </div>
         <div className="text face" ref={props.refs.text3}>
-          <Link href="/articles">
+          <Link href="/about">
             <a onClick={props.close}>
-              <Heading2 className="heading2">記事を読む</Heading2>
+              <Heading2 className="heading2">お問い合わせ・会社概要</Heading2>
             </a>
           </Link>
         </div>

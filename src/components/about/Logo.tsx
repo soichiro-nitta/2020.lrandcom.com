@@ -18,6 +18,7 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   position: relative;
+  background: #131313;
   > .noise {
     ${styles.mixins.absoluteCenter}
     width: 100%;
