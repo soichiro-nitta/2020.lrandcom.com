@@ -26,10 +26,10 @@ const Component: React.FC<ComponentProps> = props => (
         <div id="page">
           <props.Component {...props.pageProps} />
         </div>
-        <Navigation className="navigation" />
         <Slug className="slug" />
         <UpperLeft className="upperLeft" />
         {/* <LowerLeft className="lowerLeft" /> */}
+        <Navigation className="navigation" />
         <Humberger className="humberger" />
       </div>
     </Provider>

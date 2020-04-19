@@ -48,7 +48,6 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 0.15rem;
     background: white;
-    opacity: 0.5;
   }
   > * > * > .line2 {
     margin-top: 0.6rem;
@@ -61,7 +60,6 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 0.15rem;
     background: white;
-    opacity: 0.5;
   }
 `
 const Container: React.FC<ContainerProps> = props => {
@@ -77,27 +75,32 @@ const Container: React.FC<ContainerProps> = props => {
   }
   const toggleMenu = async (): Promise<void> => {
     if (isPlaying) return
-    if (refs.line1.current && refs.line2.current && refs.line3.current) {
-      if (humberger) {
-        animations.rotation(refs.line1.current, '0deg', 1, 'InOut')
-        animations.y(refs.line1.current, '0', 1, 'InOut')
-        animations.rotation(refs.line3.current, '0deg', 1, 'InOut')
-        animations.y(refs.line3.current, '0', 1, 'InOut')
-        animations.scaleX(refs.line2.current, 2, 0.5, 'In')
-        await functions.delay(0.5)
-        animations.scaleX(refs.line2.current, 1, 0.5, 'Out')
-      } else {
-        animations.rotation(refs.line1.current, '45deg', 1, 'InOut')
-        animations.y(refs.line1.current, '0.75rem', 1, 'InOut')
-        animations.rotation(refs.line3.current, '-45deg', 1, 'InOut')
-        animations.y(refs.line3.current, '-0.75rem', 1, 'InOut')
-        animations.scaleX(refs.line2.current, 2, 0.5, 'In')
-        await functions.delay(0.5)
-        animations.scaleX(refs.line2.current, 0, 0.5, 'Out')
-      }
-    }
     dispatch(setHumberger(!humberger))
   }
+  useEffectAsync({
+    effect: async () => {
+      if (refs.line1.current && refs.line2.current && refs.line3.current) {
+        if (humberger) {
+          animations.rotation(refs.line1.current, '45deg', 1, 'InOut')
+          animations.y(refs.line1.current, '0.75rem', 1, 'InOut')
+          animations.rotation(refs.line3.current, '-45deg', 1, 'InOut')
+          animations.y(refs.line3.current, '-0.75rem', 1, 'InOut')
+          animations.scaleX(refs.line2.current, 2, 0.5, 'In')
+          await functions.delay(0.5)
+          animations.scaleX(refs.line2.current, 0, 0.5, 'Out')
+        } else {
+          animations.rotation(refs.line1.current, '0deg', 1, 'InOut')
+          animations.y(refs.line1.current, '0', 1, 'InOut')
+          animations.rotation(refs.line3.current, '0deg', 1, 'InOut')
+          animations.y(refs.line3.current, '0', 1, 'InOut')
+          animations.scaleX(refs.line2.current, 2, 0.5, 'In')
+          await functions.delay(0.5)
+          animations.scaleX(refs.line2.current, 1, 0.5, 'Out')
+        }
+      }
+    },
+    deps: [humberger]
+  })
   return <StyledComponent refs={refs} toggleMenu={toggleMenu} {...props} />
 }
 

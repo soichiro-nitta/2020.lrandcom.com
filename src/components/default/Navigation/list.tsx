@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { StateTypes } from '~/store'
 import { functions } from '~/utils/functions'
 import animations from '~/utils/animations'
+import Link from 'next/link'
+import { setHumberger } from '~/store/header'
 
 type ContainerProps = {
   className: string
@@ -17,7 +19,7 @@ type ComponentProps = {
     text2: React.MutableRefObject<HTMLDivElement | null>
     text3: React.MutableRefObject<HTMLDivElement | null>
   }
-  // hover: ({ target }: React.MouseEvent) => void
+  close: () => void
 } & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
@@ -28,7 +30,11 @@ const Component: React.FC<ComponentProps> = props => (
           <Heading2 className="heading2">トップページ</Heading2>
         </div>
         <div className="text face" ref={props.refs.text1}>
-          <Heading2 className="heading2">トップページ</Heading2>
+          <Link href="/">
+            <a onClick={props.close}>
+              <Heading2 className="heading2">トップページ</Heading2>
+            </a>
+          </Link>
         </div>
       </li>
       <li>
@@ -36,7 +42,11 @@ const Component: React.FC<ComponentProps> = props => (
           <Heading2 className="heading2">お問い合わせ・会社概要</Heading2>
         </div>
         <div className="text face" ref={props.refs.text2}>
-          <Heading2 className="heading2">お問い合わせ・会社概要</Heading2>
+          <Link href="/about">
+            <a onClick={props.close}>
+              <Heading2 className="heading2">お問い合わせ・会社概要</Heading2>
+            </a>
+          </Link>
         </div>
       </li>
       <li>
@@ -44,7 +54,11 @@ const Component: React.FC<ComponentProps> = props => (
           <Heading2 className="heading2">記事を読む</Heading2>
         </div>
         <div className="text face" ref={props.refs.text3}>
-          <Heading2 className="heading2">記事を読む</Heading2>
+          <Link href="/articles">
+            <a onClick={props.close}>
+              <Heading2 className="heading2">記事を読む</Heading2>
+            </a>
+          </Link>
         </div>
       </li>
     </ul>
@@ -78,6 +92,9 @@ const StyledComponent = styled(Component)`
   > * > * > * > .heading2 {
     font-size: 3rem;
   }
+  > * > * > * > * > .heading2 {
+    font-size: 3rem;
+  }
 `
 
 const Container: React.FC<ContainerProps> = props => {
@@ -88,6 +105,9 @@ const Container: React.FC<ContainerProps> = props => {
     text1: useRef<HTMLDivElement>(null),
     text2: useRef<HTMLDivElement>(null),
     text3: useRef<HTMLDivElement>(null)
+  }
+  const close = (): void => {
+    dispatch(setHumberger(false))
   }
   // const hover = ({ target }: React.MouseEvent): void => {
   //   if (refs.text1.current && refs.text2.current && refs.text3.current) {
@@ -131,7 +151,7 @@ const Container: React.FC<ContainerProps> = props => {
     ]
   })
 
-  return <StyledComponent refs={refs} {...props} />
+  return <StyledComponent refs={refs} close={close} {...props} />
 }
 
 export default Container
