@@ -63,14 +63,14 @@ const Container: React.FC<ContainerProps> = props => {
         if (humberger && !navigation.opened) {
           dispatch(startNavAnimation())
           refs.root.current.style.display = 'block'
-          animations.height(refs.root.current, '100%', 2, 'InOut')
-          await functions.delay(2)
+          animations.height(refs.root.current, '100%', 1.5, 'InOut')
+          await functions.delay(1.5)
           dispatch(completeNavAnimation())
           dispatch(openNavigation())
         } else if (!humberger && navigation.opened) {
           dispatch(startNavAnimation())
-          animations.height(refs.root.current, '0%', 2, 'InOut')
-          await functions.delay(2)
+          animations.height(refs.root.current, '0%', 1.5, 'InOut')
+          await functions.delay(1.5)
           dispatch(completeNavAnimation())
           dispatch(closeNavigation())
           refs.root.current.style.display = 'none'
