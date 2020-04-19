@@ -27,7 +27,7 @@ export default createGlobalStyle`
     height: 100%;
     overflow: hidden;
     color: white;
-    background: #1f1f1f;
+    background: #171717;
     /* background: linear-gradient(48.1519deg, rgb(0, 0, 0) 3.83696%, rgb(24, 24, 24) 73.2572%); */
     line-height: 1;
     letter-spacing: 0;
