@@ -1,66 +1,69 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 type ContainerProps = {
   className: string
 }
-type ComponentProps = {
-  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>
-} & ContainerProps
+type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
-  <canvas className={props.className} ref={props.canvasRef} />
+  <div className={props.className}>
+    <div className="inner" />
+  </div>
 )
 
 const StyledComponent = styled(Component)`
-  opacity: 0.3;
+  position: relative;
+
+  .inner {
+    content: '';
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/base/noise.png');
+    animation: 0.3s infinite noise;
+  }
+
+  @keyframes noise {
+    0%,
+    100% {
+      background-position: 0 0;
+    }
+    10% {
+      background-position: -5% -10%;
+    }
+    20% {
+      background-position: -15% 5%;
+    }
+    30% {
+      background-position: 7% -25%;
+    }
+    40% {
+      background-position: 20% 25%;
+    }
+    50% {
+      background-position: -25% 10%;
+    }
+    60% {
+      background-position: 15% 5%;
+    }
+    70% {
+      background-position: 0% 15%;
+    }
+    80% {
+      background-position: 25% 35%;
+    }
+    90% {
+      background-position: -10% 10%;
+    }
+  }
 `
 
 const Container: React.FC<ContainerProps> = props => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (canvas) {
-      const context = canvas.getContext('2d')
-      if (context) {
-        const resize = (): void => {
-          canvas.width = window.innerWidth
-          canvas.height = window.innerHeight
-        }
-        resize()
-        window.onresize = resize
-
-        const makeNoise = (context: CanvasRenderingContext2D): void => {
-          const width = context.canvas.width
-          const height = context.canvas.height
-          const imgData = context.createImageData(width, height)
-          const buffer32 = new Uint32Array(imgData.data.buffer)
-          const len = buffer32.length
-          let i = 0
-          for (i; i < len; ) {
-            buffer32[i++] = ((255 * Math.random()) | 0) << 24
-          }
-          context.putImageData(imgData, 0, 0)
-        }
-
-        let toggle = true
-        const loop = (): void => {
-          // toggle to get 30 FPS instead of 60 FPS
-          toggle = !toggle
-          if (toggle) {
-            requestAnimationFrame(loop)
-            return
-          }
-          makeNoise(context)
-          requestAnimationFrame(loop)
-        }
-        // loop()
-      }
-    }
-  }, [])
-
-  return <StyledComponent canvasRef={canvasRef} {...props} />
+  return <StyledComponent {...props} />
 }
 
 export default Container
