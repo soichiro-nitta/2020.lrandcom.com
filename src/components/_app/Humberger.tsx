@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { styles } from '~/utils/styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { setHumberger } from '~/store/header'
+import { StateTypes } from '~/store'
 
 type ContainerProps = {
   className: string
@@ -53,10 +56,12 @@ const StyledComponent = styled(Component)`
     opacity: 0.5;
   }
 `
-
 const Container: React.FC<ContainerProps> = props => {
+  const dispatch = useDispatch()
+  const humberger = useSelector((state: StateTypes) => state.header.humberger)
   const toggleMenu = (): void => {
     console.log('toggle')
+    dispatch(setHumberger(!humberger))
   }
   return <StyledComponent toggleMenu={toggleMenu} {...props} />
 }

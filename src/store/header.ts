@@ -8,6 +8,7 @@ type UpperLeft = {
 type State = {
   upperLeft: UpperLeft
   slug: string
+  humberger: boolean
 }
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
     to: '',
     text: ''
   },
-  slug: ''
+  slug: '',
+  humberger: false
 }
 
 const slice = createSlice({
@@ -28,10 +30,13 @@ const slice = createSlice({
     },
     setSlug: (state: State, action: PayloadAction<string>): State => {
       return { ...state, slug: action.payload }
+    },
+    setHumberger: (state: State, action: PayloadAction<boolean>): State => {
+      return { ...state, humberger: action.payload }
     }
   }
 })
 
-export const { setSlug, setUpperLeft } = slice.actions
+export const { setSlug, setUpperLeft, setHumberger } = slice.actions
 
 export default slice.reducer
