@@ -13,6 +13,7 @@ import {
   closeNavigation
 } from '~/store/navigation'
 import Line from '~/components/default/Navigation/line'
+import List from '~/components/default/Navigation/list'
 
 type ContainerProps = {
   className: string
@@ -27,8 +28,8 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className} ref={props.refs.root}>
     <div className="inner" ref={props.refs.inner}>
-      Nav
       <Line className="line" />
+      <List className="list" />
     </div>
   </div>
 )
@@ -47,6 +48,11 @@ const StyledComponent = styled(Component)`
     ${styles.mixins.absoluteCenter}
     width: 100%;
     height: 1px;
+  }
+  .list {
+    ${styles.mixins.absoluteCenter}
+    width: 70%;
+    height: 30rem;
   }
 `
 
