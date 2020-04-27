@@ -4,6 +4,20 @@ export default {
     font-family: din-condensed;
     letter-spacing: 0.5rem;
     transform: scaleY(0.7) skew(-5deg);
+    &:before {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+      margin-top: -0.3rem;
+    }
+    &:after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+      margin-bottom: -0.3rem;
+    }
   `,
   relative: `
     position: relative;
