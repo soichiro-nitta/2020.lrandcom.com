@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import animations from '~/utils/animations'
+import { animations } from '~/utils/animations'
 import { styles } from '~/utils/styles'
 
 type ContainerProps = {

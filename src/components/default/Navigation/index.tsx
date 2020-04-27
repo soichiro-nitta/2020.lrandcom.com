@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { styles } from '~/utils/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { StateTypes } from '~/store'
-import animations from '~/utils/animations'
-import useEffectAsync from '~/hooks/useEffectAsync'
+import { animations } from '~/utils/animations'
+import { useEffectAsync } from '~/hooks/useEffectAsync'
 import { functions } from '~/utils/functions'
 import {
   startNavAnimation,

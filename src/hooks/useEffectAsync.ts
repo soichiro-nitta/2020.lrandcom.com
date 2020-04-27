@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, DependencyList } from 'react'
 
-const useEffectAsync = (params: {
+export const useEffectAsync = (params: {
   effect: () => void
   cleanup?: () => void
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  deps?: readonly any[]
+  deps: DependencyList
 }): void => {
   const { effect, deps, cleanup } = params
   useEffect(() => {
@@ -12,5 +12,3 @@ const useEffectAsync = (params: {
     return cleanup
   }, deps)
 }
-
-export default useEffectAsync

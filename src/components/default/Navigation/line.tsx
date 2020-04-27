@@ -2,8 +2,8 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { StateTypes } from '~/store'
-import animations from '~/utils/animations'
-import useEffectAsync from '~/hooks/useEffectAsync'
+import { animations } from '~/utils/animations'
+import { useEffectAsync } from '~/hooks/useEffectAsync'
 import { functions } from '~/utils/functions'
 
 type ContainerProps = {

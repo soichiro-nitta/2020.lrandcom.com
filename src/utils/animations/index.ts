@@ -15,7 +15,7 @@ import fillOpacity from '~/utils/animations/fillOpacity'
 import boxShadow from '~/utils/animations/boxShadow'
 import backgroundColor from '~/utils/animations/backgroundColor'
 
-export default {
+export const animations = {
   set,
   x,
   y,

@@ -4,9 +4,9 @@ import { styles } from '~/utils/styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { setHumberger } from '~/store/header'
 import { StateTypes } from '~/store'
-import animations from '~/utils/animations'
+import { animations } from '~/utils/animations'
 import { functions } from '~/utils/functions'
-import useEffectAsync from '~/hooks/useEffectAsync'
+import { useEffectAsync } from '~/hooks/useEffectAsync'
 
 type ContainerProps = {
   className: string
