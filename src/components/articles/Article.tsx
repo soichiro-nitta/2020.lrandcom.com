@@ -22,7 +22,7 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className} ref={props.refs.root}>
     {props.display && (
-      <Link href={`/articles/${props.article.slug}`}>
+      <Link href="/articles/[slug]" as={`/articles/${props.article.slug}`}>
         <a>
           <div className="thumbnail">
             <img src={props.article.thumbnail.url} alt="" />
