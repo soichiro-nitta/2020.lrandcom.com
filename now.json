@@ -1,1 +1,7 @@
-{"build":{"env":{"NOTION_TOKEN":"@notion-token","BLOG_INDEX_ID":"@blog-index-id"}},"env":{"NOTION_TOKEN":"@notion-token","BLOG_INDEX_ID":"@blog-index-id"}}
+{
+  "build": {
+    "env": {
+      "MICROCMS_KEY": "@microcms_key"
+    }
+  }
+}
