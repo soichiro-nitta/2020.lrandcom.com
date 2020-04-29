@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import * as React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
@@ -5,6 +6,7 @@ import { setSlug, setUpperLeft } from '~/store/header'
 import { ArticleTypes } from '~/types'
 import { api } from '~/api'
 import Article from '~/components/articles/Article'
+import { GetStaticProps } from 'next'
 
 type ContainerProps = {
   articles: ArticleTypes[]
@@ -45,18 +47,12 @@ const Container: React.FC<ContainerProps> = props => {
 
 export default Container
 
-// eslint-disable-next-line @typescript-eslint/camelcase
-export const getStaticProps = async (): Promise<{
-  props: ContainerProps
-  unstable_revalidate: number
-}> => {
+export const getStaticProps: GetStaticProps = async () => {
   const articles = await api.getArticles()
-
   return {
     props: {
       articles
     },
-    // eslint-disable-next-line @typescript-eslint/camelcase
     unstable_revalidate: 10
   }
 }
