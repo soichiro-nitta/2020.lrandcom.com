@@ -3,6 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { api } from '~/api'
+import { useDispatch } from 'react-redux'
+import { setSlug } from '~/store/header'
 
 type ContainerProps = { id: string }
 type ComponentProps = { className: string } & ContainerProps
@@ -14,7 +16,8 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)``
 
 const Container: React.FC<ContainerProps> = props => {
-  console.log({ id: props.id })
+  const dispatch = useDispatch()
+  dispatch(setSlug(props.id.toUpperCase()))
   return <StyledComponent className="article" {...props} />
 }
 
@@ -22,10 +25,8 @@ export default Container
 
 export const getStaticProps: GetStaticProps = async context => {
   const id = context.params?.id
-  // const articles = await api.getArticles()
-  // const article = articles.filter(article => {
-  //   article.id === slug
-  // })
+  const article = await api.getArticle({ id: (id as string) || '' })
+  console.log(article)
   return {
     props: {
       id: id || ''
