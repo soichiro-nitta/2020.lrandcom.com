@@ -18,7 +18,7 @@ type Props = {
 const Component: React.FC<Props> = props => (
   <div className={props.className}>
     {props.articles.map(article => (
-      <Article className="article" article={article} key={article.slug} />
+      <Article className="article" article={article} key={article.id} />
     ))}
   </div>
 )

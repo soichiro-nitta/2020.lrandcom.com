@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { ArticleTypes } from '~/types'
 import { functions } from '~/utils/functions'
@@ -22,7 +22,7 @@ type ComponentProps = {
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className} ref={props.refs.root}>
     {props.display && (
-      <Link href="/articles/[slug]" as={`/articles/${props.article.slug}`}>
+      <Link href="/articles/[id]" as={`/articles/${props.article.id}`}>
         <a>
           <div className="thumbnail">
             <img src={props.article.thumbnail.url} alt="" />

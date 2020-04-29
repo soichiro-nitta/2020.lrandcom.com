@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { api } from '~/api'
 
-type ContainerProps = { slug: string }
+type ContainerProps = { id: string }
 type ComponentProps = { className: string } & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
@@ -14,17 +14,21 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)``
 
 const Container: React.FC<ContainerProps> = props => {
-  console.log(props.slug)
+  console.log({ id: props.id })
   return <StyledComponent className="article" {...props} />
 }
 
 export default Container
 
 export const getStaticProps: GetStaticProps = async context => {
-  const slug = context.params?.slug
+  const id = context.params?.id
+  // const articles = await api.getArticles()
+  // const article = articles.filter(article => {
+  //   article.id === slug
+  // })
   return {
     props: {
-      slug: slug || ''
+      id: id || ''
     },
     unstable_revalidate: 10
   }
@@ -33,7 +37,7 @@ export const getStaticProps: GetStaticProps = async context => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await api.getArticles()
   const paths = articles.map(article => {
-    return `/articles/${article.slug}`
+    return `/articles/${article.id}`
   })
   return { paths, fallback: false }
 }

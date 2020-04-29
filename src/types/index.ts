@@ -7,6 +7,5 @@ export type ArticleTypes = {
     url: string
   }
   publishedAt: string
-  slug: string
   body: string
 }
