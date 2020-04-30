@@ -51,6 +51,7 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   ${styles.mixins.flexCenter};
   position: relative;
+  overflow: hidden;
   > .video {
     position: relative;
     width: 75rem;
