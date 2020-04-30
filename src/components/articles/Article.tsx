@@ -63,6 +63,9 @@ const StyledComponent = styled(Component)`
       font-size: 1.2rem;
       font-weight: bold;
       letter-spacing: 0.2rem;
+      ${styles.media.sp} {
+        font-size: 1.4rem;
+      }
     }
     .publishedAt {
       margin-top: 2rem;
@@ -71,6 +74,9 @@ const StyledComponent = styled(Component)`
       line-height: 1;
       letter-spacing: 0.2rem;
       opacity: 0.4;
+      ${styles.media.sp} {
+        font-size: 1.2rem;
+      }
     }
   }
 `

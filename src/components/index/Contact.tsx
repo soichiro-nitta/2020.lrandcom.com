@@ -63,7 +63,6 @@ const StyledComponent = styled(Component)`
       font-size: 1.4rem;
       letter-spacing: 0.1rem;
       white-space: pre-wrap;
-      opacity: 0.65;
       ${styles.media.sp} {
         margin-top: 3rem;
       }
