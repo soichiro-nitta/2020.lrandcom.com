@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
@@ -14,14 +15,36 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     {props.splitted.map((sentence, index) => (
       <React.Fragment key={index}>
-        <div>{sentence}</div>
-        {index !== props.last && <br />}
+        <p>{sentence}</p>
+        {index !== props.last && (
+          <>
+            <div className="br" />
+          </>
+        )}
       </React.Fragment>
     ))}
   </div>
 )
 
-const StyledComponent = styled(Component)``
+const StyledComponent = styled(Component)`
+  > p {
+    ${styles.mixins.lhCrop(1.6)}
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    white-space: pre-wrap;
+    opacity: 0.65;
+    ${styles.media.sp} {
+      ${styles.mixins.lhCrop(2)}
+      font-size: 1.6rem;
+    }
+  }
+  > .br {
+    height: calc(1.4rem * 1.6);
+    ${styles.media.sp} {
+      height: calc(1.6rem * 2);
+    }
+  }
+`
 
 const Container: React.FC<ContainerProps> = props => {
   const splitted = props.text.split('\n')

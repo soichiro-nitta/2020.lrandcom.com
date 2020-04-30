@@ -1,9 +1,8 @@
 import GlobalStyle from './global'
 import mixins from './mixins'
+import sizes from './sizes'
+import media from './media'
 
-const breakpoint = 767
-const sp = `@media (max-width: ${breakpoint}px)`
-
-export const styles = { mixins, breakpoint, sp }
+export const styles = { mixins, sizes, media }
 
 export { GlobalStyle }

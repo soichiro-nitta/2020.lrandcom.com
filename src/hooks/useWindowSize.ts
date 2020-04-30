@@ -10,7 +10,7 @@ export const useWindowSize = (): void => {
     dispatch(
       setWindowSize({ width: window.innerWidth, height: window.innerHeight })
     )
-    if (window.innerWidth <= styles.breakpoint) {
+    if (window.innerWidth <= styles.sizes.breakpoint) {
       dispatch(setSp(true))
     } else {
       dispatch(setSp(false))

@@ -2,41 +2,49 @@ import React from 'react'
 import styled from 'styled-components'
 import Noise from '~/components/base/Noise'
 import { styles } from '~/utils/styles'
-import { config } from '~/utils/config'
-import Heading1 from '~/components/base/Heading1'
+import { useSelector } from 'react-redux'
+import { StateTypes } from '~/store'
 
 type ContainerProps = {
   className: string
 }
-type ComponentProps = {} & ContainerProps
+type ComponentProps = {
+  sp: boolean
+} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="video">
-      {/* <img
-        src="https://i.gyazo.com/6eed0ba0543e17fe0d23de6c21b39ca2.png"
-        alt=""
-        srcSet=""
-      /> */}
-      <video
-        src="https://lrandcom.kagoyacloud.com/static/index/pc.mp4"
-        preload="none"
-        autoPlay
-        muted
-        playsInline
-        loop
-      />
+      {(props.sp && (
+        <video
+          src="https://lrandcom.kagoyacloud.com/static/index/mobile.mp4"
+          preload="none"
+          autoPlay
+          muted
+          playsInline
+          loop
+        />
+      )) || (
+        <video
+          src="https://lrandcom.kagoyacloud.com/static/index/pc.mp4"
+          preload="none"
+          autoPlay
+          muted
+          playsInline
+          loop
+        />
+      )}
       <Noise className="noise" />
     </div>
-    <Heading1 className="title">
-      <div>
-        {config.index.copy.split('\n').map((sentence, index) => (
-          <React.Fragment key={index}>
-            <div>{sentence}</div>
-          </React.Fragment>
-        ))}
-      </div>
-    </Heading1>
+    <div className="title">
+      {(props.sp && (
+        <>
+          商業的な匂いがするものは、
+          <br />
+          すべて消し去れ！
+        </>
+      )) || <>商業的な匂いがするものは、すべて消し去れ！</>}
+    </div>
   </div>
 )
 
@@ -47,13 +55,16 @@ const StyledComponent = styled(Component)`
     position: relative;
     width: 75rem;
     height: 37.5rem;
-  }
-  > * > video,
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
+    ${styles.media.sp} {
+      width: 100%;
+      height: 47.5rem;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+    }
   }
   > * > .noise {
     position: absolute;
@@ -63,18 +74,28 @@ const StyledComponent = styled(Component)`
     height: 100%;
   }
   > .title {
+    ${styles.mixins.lhCrop(1.8)}
     ${styles.mixins.flexCenter};
     position: absolute;
-    top: 0;
+    top: -0.3rem;
     width: 100%;
     height: 100%;
     text-align: center;
+    font-size: 4.2rem;
+    font-weight: bold;
     line-height: 1;
+    letter-spacing: 0.5rem;
+    transform: skew(-5deg);
+    ${styles.media.sp} {
+      font-size: 2.6rem;
+      line-height: 1.8;
+    }
   }
 `
 
 const Container: React.FC<ContainerProps> = props => {
-  return <StyledComponent {...props} />
+  const sp = useSelector((state: StateTypes) => state.media.sp)
+  return <StyledComponent sp={sp} {...props} />
 }
 
 export default Container

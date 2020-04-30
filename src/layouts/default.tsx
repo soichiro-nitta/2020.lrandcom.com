@@ -1,6 +1,6 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import store from '~/store'
+import { Provider, useSelector } from 'react-redux'
+import store, { StateTypes } from '~/store'
 import { AppProps } from 'next/app'
 import { GlobalStyle } from '~/utils/styles'
 import Slug from '~/components/default/Slug'
@@ -10,22 +10,30 @@ import UpperLeft from '~/components/default/UpperLeft'
 import Navigation from '~/components/default/Navigation'
 import styled from 'styled-components'
 import { useWindowSize } from '~/hooks/useWindowSize'
+import Head from 'next/head'
 
 type ContainerProps = AppProps
 type ComponentProps = {
   className: string
+  sp: boolean
 } & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <>
     <GlobalStyle />
     <Provider store={store}>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
+        />
+      </Head>
       <div className={props.className}>
         <Noise className="noise" />
         <div id="page">
           <props.Component {...props.pageProps} />
         </div>
-        <Slug className="slug" />
+        {!props.sp && <Slug className="slug" />}
         <UpperLeft className="upperLeft" />
         {/* <LowerLeft className="lowerLeft" /> */}
         <Navigation className="navigation" />
@@ -90,7 +98,8 @@ const StyledComponent = styled(Component)`
 
 const Container: React.FC<ContainerProps> = props => {
   useWindowSize()
-  return <StyledComponent className="default" {...props} />
+  const sp = useSelector((state: StateTypes) => state.media.sp)
+  return <StyledComponent className="default" sp={sp} {...props} />
 }
 
 export default Container

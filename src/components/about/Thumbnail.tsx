@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { config } from '~/utils/config'
 import Noise from '~/components/base/Noise'
 
 type ContainerProps = {
@@ -10,7 +9,8 @@ type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <img src={config.about.thumbnail} alt="" />
+    <img src="/images/about/thumbnail.png" alt="" />
+
     <Noise className="noise" />
   </div>
 )

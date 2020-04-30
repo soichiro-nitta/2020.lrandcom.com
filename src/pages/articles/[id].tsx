@@ -53,6 +53,7 @@ const StyledComponent = styled(Component)`
     img {
       margin: 0.75rem;
       width: 100%;
+      opacity: 0.9;
     }
     a {
       text-decoration: underline;

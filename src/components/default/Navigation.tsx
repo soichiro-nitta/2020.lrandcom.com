@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
@@ -31,6 +32,9 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   padding: 6rem;
+  ${styles.media.sp} {
+    padding: 3rem;
+  }
   > ul {
     display: flex;
     align-items: center;
@@ -39,7 +43,10 @@ const StyledComponent = styled(Component)`
       margin-left: 6rem;
       font-size: 1.2rem;
       letter-spacing: 0.1rem;
-      text-decoration: underline;
+      /* text-decoration: underline; */
+      ${styles.media.sp} {
+        margin-left: 3rem;
+      }
     }
   }
 `

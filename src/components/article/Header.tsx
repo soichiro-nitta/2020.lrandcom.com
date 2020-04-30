@@ -31,13 +31,12 @@ const Component: React.FC<ComponentProps> = props => (
 )
 
 const StyledComponent = styled(Component)`
-  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   > .thumbnail {
     position: relative;
-    margin: 15.5rem 6rem;
+    margin: 15.5rem 6rem 0;
     width: calc(100% - 12rem);
     height: calc(100% - 31rem);
   }
@@ -73,11 +72,6 @@ const StyledComponent = styled(Component)`
   }
   > .scroll {
     ${styles.mixins.flexCenter}
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
     width: 100%;
     height: 15.5rem;
     font-size: 2.5rem;

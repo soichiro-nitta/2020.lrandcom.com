@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import media from './media'
 
 export default createGlobalStyle`
   *,
@@ -18,6 +19,9 @@ export default createGlobalStyle`
     width: 100%;
     height: 100%;
     font-size: 0.725vw;
+    ${media.sp} {
+      font-size: 2.1vw;
+    }
   }
   body {
     position: relative;
@@ -25,6 +29,9 @@ export default createGlobalStyle`
     padding: 0;
     width: 100%;
     height: 100%;
+    min-height: 100vh;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
     overflow: hidden;
     color: white;
     background: #161618;

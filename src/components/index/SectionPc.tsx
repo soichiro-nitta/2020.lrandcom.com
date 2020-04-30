@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { styles } from '~/utils/styles'
-import Heading1 from '~/components/base/Heading1'
-import Description from '~/components/index/description'
 import Button from '~/components/base/Button'
+import IncludeBr from '~/components/base/IncludeBr'
 
 type ContainerProps = {
   className: string
@@ -19,8 +18,8 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="inner">
       <div className="contents">
-        <Heading1 className="title">{props.title}</Heading1>
-        <Description className="description">{props.description}</Description>
+        <div className="title">{props.title}</div>
+        <IncludeBr className="description" text={props.description} />
         {props.button && <Button className="button">{props.button}</Button>}
       </div>
       <div className="video">
@@ -40,9 +39,17 @@ const StyledComponent = styled(Component)`
   }
   > * > .contents {
     width: 30vw;
-  }
-  > * > * > .description {
-    margin-top: 4.5rem;
+    .title {
+      font-size: 4.2rem;
+      font-weight: bold;
+      line-height: 1;
+      letter-spacing: 0.5rem;
+      transform: skew(-5deg);
+    }
+    .description {
+      ${styles.mixins.lhCrop(1.6)}
+      margin-top: 4.5rem;
+    }
   }
   > * > * > .button {
     margin-top: 4.5rem;

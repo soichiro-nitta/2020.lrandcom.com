@@ -13,9 +13,9 @@ type ComponentProps = {} & ContainerProps
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="thumb">
-      <Img className="img" src={config.article.author.src} />
+      <Img className="img" src="/images/article/natsume.jpg" />
     </div>
-    <div className="name">{config.article.author.name}</div>
+    <div className="name">著者：夏目 力</div>
     <ul>
       <li>
         <ABlank className="fb" href={config.url.facebook.natsume}>

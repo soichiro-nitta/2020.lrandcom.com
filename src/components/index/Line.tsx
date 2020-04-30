@@ -21,7 +21,7 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 100%;
     background: white;
-    opacity: 0.1;
+    opacity: 0.05;
   }
   > .gauge {
     position: absolute;
@@ -29,7 +29,7 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 100%;
     background: white;
-    opacity: 0.1;
+    opacity: 0.05;
     transform: scaleX(0);
     transform-origin: center left;
   }

@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { styles } from '~/utils/styles'
-import Heading1 from '~/components/base/Heading1'
 import { config } from '~/utils/config'
-import Description from '~/components/index/description'
 import Card from '~/components/index/card'
 
 type ContainerProps = {
@@ -14,10 +12,8 @@ type ComponentProps = {} & ContainerProps
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="head">
-      <Heading1 className="title">{config.index.ourClient.title}</Heading1>
-      <Description className="description">
-        {config.index.ourClient.description}
-      </Description>
+      <div className="title">クライアント</div>
+      <div className="description">※ 敬称略、順不同</div>
     </div>
     <Card className="card">
       {config.ourClient.map((companyName, index) => (
@@ -34,21 +30,48 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   ${styles.mixins.flexCenter};
-  > * > .description {
-    margin-top: 4.5rem;
-    width: 100%;
+  ${styles.media.sp} {
+    display: block;
+  }
+  > .head {
+    .title {
+      font-size: 4.2rem;
+      font-weight: bold;
+      line-height: 1;
+      letter-spacing: 0.5rem;
+      transform: skew(-5deg);
+      ${styles.media.sp} {
+        font-size: 2.6rem;
+      }
+    }
+    .description {
+      margin-top: 4.5rem;
+      width: 100%;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      white-space: pre-wrap;
+      opacity: 0.65;
+      ${styles.media.sp} {
+        margin-top: 3rem;
+        font-size: 1.6rem;
+      }
+    }
   }
   > .card {
     ${styles.mixins.lhCrop(3)};
     margin-left: 7.5vw;
     width: 37.5vw;
-  }
-  > .card > .companyName {
-    opacity: 0.65;
-  }
-  > .card > .slash {
-    letter-spacing: 0.5rem;
-    opacity: 0.1;
+    ${styles.media.sp} {
+      margin: 3rem 0 0;
+      width: 100%;
+    }
+    .companyName {
+      opacity: 0.65;
+    }
+    .slash {
+      letter-spacing: 0.5rem;
+      opacity: 0.1;
+    }
   }
 `
 

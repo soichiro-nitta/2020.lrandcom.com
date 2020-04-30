@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { styles } from '~/utils/styles'
 
 type ContainerProps = {
   className: string
@@ -16,6 +17,10 @@ const StyledComponent = styled(Component)`
   letter-spacing: 0.1rem;
   background: #1c1c1e;
   border: 1px solid #222224;
+  ${styles.media.sp} {
+    padding: 3rem;
+    font-size: 1.4rem;
+  }
 `
 
 const Container: React.FC<ContainerProps> = props => {

@@ -11,7 +11,7 @@ type ComponentProps = {} & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <Heading className="heading">{config.about.ourClient.title}</Heading>
+    <Heading className="heading">クライアント</Heading>
     <div className="body">
       {config.ourClient.map((companyName, index) => (
         <React.Fragment key={index}>
