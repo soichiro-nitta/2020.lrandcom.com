@@ -45,7 +45,7 @@ const StyledComponent = styled(Component)`
     display: block;
     .thumbnail {
       width: 100%;
-      height: 23rem;
+      height: 24rem;
       overflow: hidden;
       opacity: 0.8;
       img {

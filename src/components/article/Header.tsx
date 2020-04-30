@@ -1,14 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import Heading2 from '~/components/base/Heading2'
 import { styles } from '~/utils/styles'
 import { config } from '~/utils/config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Author from '~/components/article/Author'
+import { functions } from '~/utils/functions'
 
 type ContainerProps = {
   className: string
   title: string
   thumbnail: string
+  publishedAt: string
 }
 type ComponentProps = {} & ContainerProps
 
@@ -16,7 +18,11 @@ const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="thumbnail">
       <img src={props.thumbnail} />
-      <Heading2 className="title">{props.title}</Heading2>
+      <div className="cover">
+        <div className="publishedAt">{functions.date(props.publishedAt)}</div>
+        <div className="title">{props.title}</div>
+        <Author className="author" />
+      </div>
     </div>
     <div className="scroll">
       <FontAwesomeIcon icon={config.icons.arrowDown} />
@@ -31,24 +37,39 @@ const StyledComponent = styled(Component)`
   overflow: hidden;
   > .thumbnail {
     position: relative;
-    margin: 15.5rem;
-    width: calc(100% - 31rem);
+    margin: 15.5rem 6rem;
+    width: calc(100% - 12rem);
     height: calc(100% - 31rem);
   }
   > .thumbnail > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.4;
   }
-  > .thumbnail > .title {
+  > .thumbnail > .cover {
     ${styles.mixins.flexCenter}
-    ${styles.mixins.flexCenter}
+    flex-direction: column;
     position: absolute;
     top: 0;
-    padding: 10%;
+    padding: 15%;
     width: 100%;
     height: 100%;
+    .publishedAt {
+      ${styles.mixins.logoStyle}
+    }
+    .title {
+      ${styles.mixins.lhCrop(1.8)}
+      margin-top: 6rem;
+      font-size: 2.8rem;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing: 0.2rem;
+      transform: skew(-5deg);
+    }
+    .author {
+      margin-top: 6rem;
+    }
   }
   > .scroll {
     ${styles.mixins.flexCenter}

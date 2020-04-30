@@ -29,7 +29,7 @@ const StyledComponent = styled(Component)`
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 16rem auto;
-  width: 75%;
+  width: calc(100% - 15.7rem * 2);
   > .article:not(:nth-child(1)):not(:nth-child(2)) {
     margin-top: 10rem;
   }
