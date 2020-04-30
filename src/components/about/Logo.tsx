@@ -28,6 +28,9 @@ const StyledComponent = styled(Component)`
     ${styles.mixins.absoluteCenter}
     width: 55rem;
     height: auto;
+    ${styles.media.sp} {
+      width: 32.5rem;
+    }
   }
 `
 

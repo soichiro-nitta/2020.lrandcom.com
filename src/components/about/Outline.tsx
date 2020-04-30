@@ -30,12 +30,19 @@ const StyledComponent = styled(Component)`
   justify-content: space-between;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
+  ${styles.media.sp} {
+    display: block;
+  }
   .heading {
     font-weight: bold;
   }
   .body {
     width: 78%;
     opacity: 0.65;
+    ${styles.media.sp} {
+      margin-top: 3rem;
+      width: 100%;
+    }
   }
   > * > dl {
     width: 100%;
@@ -51,6 +58,9 @@ const StyledComponent = styled(Component)`
   > * > * > dd {
     ${styles.mixins.lhCrop(2)};
     width: 75%;
+    ${styles.media.sp} {
+      width: 70%;
+    }
   }
 `
 

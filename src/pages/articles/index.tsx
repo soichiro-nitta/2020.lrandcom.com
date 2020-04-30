@@ -27,6 +27,12 @@ const Component: React.FC<Props> = props => (
         <Article className="article" article={article} key={article.id} />
       </>
     ))}
+    {props.sp && (
+      <>
+        <div className="divider" />
+        <div className="divider" />
+      </>
+    )}
   </div>
 )
 

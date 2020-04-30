@@ -33,6 +33,9 @@ const StyledComponent = styled(Component)`
     display: flex;
     align-items: center;
     font-size: 3rem;
+    ${styles.media.sp} {
+      font-size: 2rem;
+    }
   }
   > * > span {
     ${styles.mixins.logoStyle}
@@ -40,6 +43,11 @@ const StyledComponent = styled(Component)`
     margin-left: 5rem;
     font-size: 5rem;
     letter-spacing: 1rem;
+    ${styles.media.sp} {
+      margin-left: 2rem;
+      font-size: 2.6rem;
+      letter-spacing: 0.5rem;
+    }
   }
 `
 

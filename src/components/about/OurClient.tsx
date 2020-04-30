@@ -30,6 +30,9 @@ const StyledComponent = styled(Component)`
   justify-content: space-between;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
+  ${styles.media.sp} {
+    display: block;
+  }
   .heading {
     font-weight: bold;
   }
@@ -38,6 +41,10 @@ const StyledComponent = styled(Component)`
     width: 78%;
     font-size: 1.4rem;
     letter-spacing: 0.1rem;
+    ${styles.media.sp} {
+      margin-top: 3rem;
+      width: 100%;
+    }
   }
   > * > .companyName {
     opacity: 0.65;

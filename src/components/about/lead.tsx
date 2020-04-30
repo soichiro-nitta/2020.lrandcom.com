@@ -17,6 +17,9 @@ const StyledComponent = styled(Component)`
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
   opacity: 0.65;
+  ${styles.media.sp} {
+    font-size: 1.4rem;
+  }
   > span {
     ${styles.mixins.lhCrop(2)}
   }
