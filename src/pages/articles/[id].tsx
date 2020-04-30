@@ -8,7 +8,6 @@ import { setSlug } from '~/store/header'
 import { ArticleTypes } from '~/types'
 import { functions } from '~/utils/functions'
 import { styles } from '~/utils/styles'
-import Author from '~/components/article/author'
 import { usePageScroll } from '~/hooks/usePageScroll'
 
 type ContainerProps = ArticleTypes
@@ -21,7 +20,6 @@ const Component: React.FC<ComponentProps> = props => (
       <div className="divider" />
     </div>
     <div className="title">{props.title}</div>
-    <Author className="author" />
     <div className="thumbnail">
       <img src={props.thumbnail.url} alt="" />
     </div>
