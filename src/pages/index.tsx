@@ -8,6 +8,7 @@ import Section from '~/components/index/Section'
 import OurClient from '~/components/index/OurClient'
 import Contact from '~/components/index/Contact'
 import { config } from '~/utils/config'
+import { usePageScroll } from '~/hooks/usePageScroll'
 
 type ContainerProps = {}
 type ComponentProps = {
@@ -86,6 +87,7 @@ const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setSlug('LEADING & COMPANY'))
   dispatch(setUpperLeft({ type: 'logo', to: '/', text: '' }))
+  usePageScroll()
 
   useEffect(() => {
     const page = document.getElementById('page')

@@ -7,6 +7,7 @@ import { ArticleTypes } from '~/types'
 import { api } from '~/api'
 import Article from '~/components/articles/Article'
 import { GetStaticProps } from 'next'
+import { usePageScroll } from '~/hooks/usePageScroll'
 
 type ContainerProps = {
   articles: ArticleTypes[]
@@ -40,8 +41,7 @@ const StyledComponent = styled(Component)`
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setSlug('ARTICLES'))
-  dispatch(setUpperLeft({ type: 'back', to: '/', text: 'ホームに戻る' }))
-
+  usePageScroll()
   return <StyledComponent className="articles" {...props} />
 }
 

@@ -1,13 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import header from './header'
-import navigation from './navigation'
 import media from './media'
 import window from './window'
 
 const reducer = combineReducers({
   header,
-  navigation,
   media,
   window
 })

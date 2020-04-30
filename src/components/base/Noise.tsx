@@ -14,7 +14,8 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   background: url('/images/base/noise.png');
-  background-size: 500px 500px;
+  background-size: 320px 320px;
+  opacity: 0.5;
   animation: 250ms steps(10, end) 0s infinite alternate-reverse none running
     noise-animation;
   @keyframes noise-animation {

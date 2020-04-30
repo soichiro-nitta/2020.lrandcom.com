@@ -9,6 +9,7 @@ import { ArticleTypes } from '~/types'
 import { functions } from '~/utils/functions'
 import { styles } from '~/utils/styles'
 import Author from '~/components/article/author'
+import { usePageScroll } from '~/hooks/usePageScroll'
 
 type ContainerProps = ArticleTypes
 type ComponentProps = { className: string } & ContainerProps
@@ -107,6 +108,7 @@ const StyledComponent = styled(Component)`
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setSlug(props.id.toUpperCase()))
+  usePageScroll()
   return <StyledComponent className="article" {...props} />
 }
 

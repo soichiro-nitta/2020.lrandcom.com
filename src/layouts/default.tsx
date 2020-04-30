@@ -1,9 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 import { Provider } from 'react-redux'
 import store from '~/store'
 import { AppProps } from 'next/app'
 import { GlobalStyle } from '~/utils/styles'
-import Humberger from '~/components/default/Humberger'
 import Slug from '~/components/default/Slug'
 import Noise from '~/components/base/Noise'
 import UpperLeft from '~/components/default/UpperLeft'
@@ -30,7 +29,6 @@ const Component: React.FC<ComponentProps> = props => (
         <UpperLeft className="upperLeft" />
         {/* <LowerLeft className="lowerLeft" /> */}
         <Navigation className="navigation" />
-        <Humberger className="humberger" />
       </div>
     </Provider>
   </>
@@ -70,7 +68,7 @@ const StyledComponent = styled(Component)`
   > .slug {
     position: fixed;
     top: 6rem;
-    width: 100%;
+    left: 15.5rem;
     height: 3.5rem;
   }
   /* > .lowerLeft {
@@ -81,8 +79,7 @@ const StyledComponent = styled(Component)`
   > .navigation {
     position: fixed;
     top: 0;
-    width: 100%;
-    height: 0%;
+    right: 0;
   }
   > .humberger {
     position: fixed;
