@@ -35,7 +35,6 @@ const StyledComponent = styled(Component)`
     opacity: 0.65;
     ${styles.media.sp} {
       ${styles.mixins.lhCrop(2)}
-      font-size: 1.6rem;
     }
   }
   > .br {

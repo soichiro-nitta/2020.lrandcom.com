@@ -66,7 +66,6 @@ const StyledComponent = styled(Component)`
       opacity: 0.65;
       ${styles.media.sp} {
         margin-top: 3rem;
-        font-size: 1.6rem;
       }
     }
   }

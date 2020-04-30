@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
-import { setSlug, setUpperLeft } from '~/store/header'
+import { setSlug } from '~/store/header'
 import { ArticleTypes } from '~/types'
 import { api } from '~/api'
 import Article from '~/components/articles/Article'
