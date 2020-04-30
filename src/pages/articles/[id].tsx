@@ -22,10 +22,6 @@ const Component: React.FC<ComponentProps> = props => (
       thumbnail={props.thumbnail.url}
       publishedAt={props.publishedAt}
     />
-    {/* <div className="title">{props.title}</div>
-    <div className="thumbnail">
-      <img src={props.thumbnail.url} alt="" />
-    </div> */}
     <div className="body" dangerouslySetInnerHTML={{ __html: props.body }} />
   </div>
 )
@@ -33,6 +29,9 @@ const Component: React.FC<ComponentProps> = props => (
 const StyledComponent = styled(Component)`
   margin: 0 auto;
   padding-bottom: 15.5rem;
+  ${styles.media.sp} {
+    padding-bottom: 9.5rem;
+  }
   > .header {
     width: 100%;
   }
@@ -40,18 +39,22 @@ const StyledComponent = styled(Component)`
     display: flex;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
     p {
       ${styles.mixins.lhCrop(2)}
       margin: 0 auto;
       width: 65rem;
       font-size: 1.6rem;
       letter-spacing: 0.1rem;
+      ${styles.media.sp} {
+        width: calc(100% - 6rem);
+      }
     }
     span {
       opacity: 0.65;
     }
     img {
-      margin: 0.75rem;
+      margin: 0.75rem 0;
       width: 100%;
       opacity: 0.9;
     }

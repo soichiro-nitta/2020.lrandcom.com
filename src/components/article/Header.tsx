@@ -34,11 +34,19 @@ const StyledComponent = styled(Component)`
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  ${styles.media.sp} {
+    height: auto;
+  }
   > .thumbnail {
     position: relative;
-    margin: 15.5rem 6rem 0;
-    width: calc(100% - 12rem);
+    margin-top: 15.5rem;
+    width: 100%;
     height: calc(100% - 31rem);
+    overflow: hidden;
+    ${styles.media.sp} {
+      margin-top: 9.5rem;
+      height: 47.5rem;
+    }
   }
   > .thumbnail > img {
     width: 100%;
@@ -54,6 +62,9 @@ const StyledComponent = styled(Component)`
     padding: 15%;
     width: 100%;
     height: 100%;
+    ${styles.media.sp} {
+      padding: 10%;
+    }
     .publishedAt {
       ${styles.mixins.logoStyle}
     }
@@ -65,6 +76,10 @@ const StyledComponent = styled(Component)`
       text-align: center;
       letter-spacing: 0.2rem;
       transform: skew(-5deg);
+      ${styles.media.sp} {
+        margin-top: 6rem;
+        font-size: 2rem;
+      }
     }
     .author {
       margin-top: 6rem;
@@ -75,6 +90,9 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 15.5rem;
     font-size: 2.5rem;
+    ${styles.media.sp} {
+      height: 9.5rem;
+    }
   }
 `
 
