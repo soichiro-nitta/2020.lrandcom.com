@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider, useSelector } from 'react-redux'
 import store, { StateTypes } from '~/store'
 import { AppProps } from 'next/app'
-import { GlobalStyle } from '~/utils/styles'
+import { GlobalStyle, styles } from '~/utils/styles'
 import Slug from '~/components/default/Slug'
 import Noise from '~/components/base/Noise'
 import UpperLeft from '~/components/default/UpperLeft'
@@ -32,6 +32,12 @@ const Component: React.FC<ComponentProps> = props => (
         <Noise className="noise" />
         <div id="page">
           <props.Component {...props.pageProps} />
+        </div>
+        <div className="faderTop">
+          <div className="fade" />
+        </div>
+        <div className="faderBottom">
+          <div className="fade" />
         </div>
         {!props.sp && <Slug className="slug" />}
         <UpperLeft className="upperLeft" />
@@ -93,6 +99,52 @@ const StyledComponent = styled(Component)`
     position: fixed;
     top: 0;
     right: 0;
+  }
+  > .faderTop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    pointer-events: none;
+    .fade {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 31rem;
+      background: linear-gradient(
+        180deg,
+        rgba(23, 23, 25, 0.75),
+        rgba(0, 0, 0, 0)
+      );
+      ${styles.media.sp} {
+        height: 19rem;
+      }
+    }
+  }
+  > .faderBottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    pointer-events: none;
+    .fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 31rem;
+      background: linear-gradient(
+        0deg,
+        rgba(23, 23, 25, 0.75),
+        rgba(0, 0, 0, 0)
+      );
+      ${styles.media.sp} {
+        height: 19rem;
+      }
+    }
   }
 `
 
