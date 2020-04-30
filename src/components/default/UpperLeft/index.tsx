@@ -24,7 +24,7 @@ const Component: React.FC<ComponentProps> = props => (
 
 const StyledComponent = styled(Component)`
   padding: 6rem;
-  > .logo * > svg {
+  > .logo svg {
     width: auto;
     height: 3.5rem;
     vertical-align: middle;

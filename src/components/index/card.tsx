@@ -14,8 +14,8 @@ const StyledComponent = styled(Component)`
   padding: 5rem;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
-  background: #1c1c1c;
-  border: 1px solid #191919;
+  background: #1c1c1e;
+  border: 1px solid #222224;
 `
 
 const Container: React.FC<ContainerProps> = props => {

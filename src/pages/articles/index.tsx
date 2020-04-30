@@ -40,7 +40,7 @@ const StyledComponent = styled(Component)`
 
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
-  dispatch(setSlug('ARTICLES'))
+  dispatch(setSlug('/ARTICLES'))
   usePageScroll()
   return <StyledComponent className="articles" {...props} />
 }

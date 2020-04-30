@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
-import { setSlug, setUpperLeft } from '~/store/header'
+import { setSlug } from '~/store/header'
 import Logo from '~/components/about/Logo'
 import Lead from '~/components/about/lead'
 import Thumbnail from '~/components/about/Thumbnail'
@@ -10,6 +10,7 @@ import OurClient from '~/components/about/OurClient'
 import Email from '~/components/about/Email'
 import { config } from '~/utils/config'
 import Button from '~/components/base/Button'
+import { usePageScroll } from '~/hooks/usePageScroll'
 
 type ContainerProps = {
   className: string
@@ -56,7 +57,8 @@ const StyledComponent = styled(Component)`
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
   dispatch(setSlug('/ABOUT'))
-  dispatch(setUpperLeft({ type: 'back', to: '/', text: 'ホームに戻る' }))
+  // dispatch(setUpperLeft({ type: 'back', to: '/', text: 'ホームに戻る' }))
+  usePageScroll()
   return <StyledComponent {...props} />
 }
 

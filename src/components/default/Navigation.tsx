@@ -38,6 +38,7 @@ const StyledComponent = styled(Component)`
     li {
       margin-left: 6rem;
       font-size: 1.2rem;
+      letter-spacing: 0.1rem;
       text-decoration: underline;
     }
   }

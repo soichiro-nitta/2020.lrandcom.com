@@ -107,7 +107,7 @@ const StyledComponent = styled(Component)`
 
 const Container: React.FC<ContainerProps> = props => {
   const dispatch = useDispatch()
-  dispatch(setSlug(props.id.toUpperCase()))
+  dispatch(setSlug(`/${props.id.toUpperCase()}`))
   usePageScroll()
   return <StyledComponent className="article" {...props} />
 }

@@ -68,7 +68,7 @@ const StyledComponent = styled(Component)`
   > .slug {
     position: fixed;
     top: 6rem;
-    left: 15.5rem;
+    left: 15.7rem;
     height: 3.5rem;
   }
   /* > .lowerLeft {
