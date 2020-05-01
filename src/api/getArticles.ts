@@ -5,7 +5,7 @@ export default async (): Promise<ArticleTypes[]> => {
   // const { totalCount } = await request.get('/articles?limit=0', {
   //   headers: { 'X-API-KEY': process.env.MICROCMS_KEY }
   // })
-  const totalCount = 100
+  const totalCount = 275
   const { contents } = await request.get(`/articles?limit=${totalCount}`, {
     headers: { 'X-API-KEY': process.env.MICROCMS_KEY }
   })
