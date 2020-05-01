@@ -25,6 +25,18 @@ export const getServerSideProps: GetServerSideProps = async context => {
       })
       context.res.end()
       break
+    case 'the_hardest_working_man_on_Social_media_says_btob_is_much_more_sexy_than_btoc_on_sns':
+      context.res.writeHead(302, {
+        Location: '/articles/btob_is_much_more_sexy_than_btoc_on_sns'
+      })
+      context.res.end()
+      break
+    case 'onw_eyes':
+      context.res.writeHead(302, {
+        Location: '/articles/own_eyes'
+      })
+      context.res.end()
+      break
     default:
       context.res.writeHead(302, {
         Location: `/articles/${context.params?.id}`
