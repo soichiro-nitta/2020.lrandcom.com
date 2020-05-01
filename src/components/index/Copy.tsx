@@ -4,6 +4,7 @@ import Noise from '~/components/base/Noise'
 import { styles } from '~/utils/styles'
 import { useSelector } from 'react-redux'
 import { StateTypes } from '~/store'
+import Video from '~/components/base/Video'
 
 type ContainerProps = {
   className: string
@@ -14,24 +15,16 @@ type ComponentProps = {
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
-    <div className="video">
+    <div className="videoWrapper">
       {(props.sp && (
-        <video
+        <Video
+          className="video"
           src="https://lrandcom.kagoyacloud.com/static/index/mobile.mp4"
-          preload="none"
-          autoPlay
-          muted
-          playsInline
-          loop
         />
       )) || (
-        <video
+        <Video
+          className="video"
           src="https://lrandcom.kagoyacloud.com/static/index/pc.mp4"
-          preload="none"
-          autoPlay
-          muted
-          playsInline
-          loop
         />
       )}
       <Noise className="noise" />
@@ -52,27 +45,22 @@ const StyledComponent = styled(Component)`
   ${styles.mixins.flexCenter};
   position: relative;
   overflow: hidden;
-  > .video {
+  > .videoWrapper {
     position: relative;
     width: 75rem;
     height: 37.5rem;
+    opacity: 0.7;
     ${styles.media.sp} {
       width: 100%;
       height: 47.5rem;
     }
-    video {
+    > .noise {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      opacity: 0.7;
     }
-  }
-  > * > .noise {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
   }
   > .title {
     ${styles.mixins.lhCrop(1.8)}

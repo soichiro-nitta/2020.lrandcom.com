@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from '~/components/base/Button'
 import IncludeBr from '~/components/base/IncludeBr'
+import Video from '~/components/base/Video'
 
 type ContainerProps = {
   className: string
@@ -16,8 +17,8 @@ type ComponentProps = {} & ContainerProps
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
     <div className="title">{props.title}</div>
-    <div className="video">
-      <video src={props.src} preload="none" autoPlay muted playsInline loop />
+    <div className="videoWrapper">
+      <Video className="video" src={props.src} />
     </div>
     <IncludeBr className="description" text={props.description} />
     {props.button && <Button className="button">{props.button}</Button>}
@@ -32,16 +33,12 @@ const StyledComponent = styled(Component)`
     letter-spacing: 0.5rem;
     transform: skew(-5deg);
   }
-  > .video {
+  > .videoWrapper {
     margin-top: 3rem;
     width: 100%;
     height: 45rem;
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-    }
+    opacity: 0.9;
+    overflow: hidden;
   }
   > .description {
     margin-top: 3rem;
