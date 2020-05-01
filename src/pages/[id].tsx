@@ -18,8 +18,20 @@ const Container: React.FC<ContainerProps> = props => {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  context.res.writeHead(302, { Location: `/articles/${context.params?.id}` })
-  context.res.end()
+  switch (context.params?.id) {
+    case 'facebook_former_executive_learning_programming_guarantee_life_time_work':
+      context.res.writeHead(302, {
+        Location: '/articles/learning_programming'
+      })
+      context.res.end()
+      break
+    default:
+      context.res.writeHead(302, {
+        Location: `/articles/${context.params?.id}`
+      })
+      context.res.end()
+      break
+  }
   return {
     props: {}
   }
