@@ -115,7 +115,7 @@ const StyledComponent = styled(Component)`
       height: 31rem;
       background: linear-gradient(
         180deg,
-        rgba(23, 23, 25, 0.75),
+        rgba(23, 23, 25, 0.5),
         rgba(0, 0, 0, 0)
       );
       ${styles.media.sp} {
@@ -138,7 +138,7 @@ const StyledComponent = styled(Component)`
       height: 31rem;
       background: linear-gradient(
         0deg,
-        rgba(23, 23, 25, 0.75),
+        rgba(23, 23, 25, 0.5),
         rgba(0, 0, 0, 0)
       );
       ${styles.media.sp} {
