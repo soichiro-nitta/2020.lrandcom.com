@@ -43,7 +43,7 @@ const StyledComponent = styled(Component)`
     p {
       ${styles.mixins.lhCrop(2)}
       margin: 0 auto;
-      width: 65rem;
+      width: 60rem;
       font-size: 1.6rem;
       letter-spacing: 0.1rem;
       ${styles.media.sp} {
