@@ -22,10 +22,10 @@ type Props = {
 const Component: React.FC<Props> = props => (
   <div className={props.className}>
     {props.articles.map(article => (
-      <>
+      <React.Fragment key={article.id}>
         {props.sp && <div className="divider" />}
-        <Article className="article" article={article} key={article.id} />
-      </>
+        <Article className="article" article={article} />
+      </React.Fragment>
     ))}
     {props.sp && (
       <>
