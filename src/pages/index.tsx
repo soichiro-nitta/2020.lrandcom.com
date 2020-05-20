@@ -168,7 +168,12 @@ const Container: React.FC<ContainerProps> = props => {
     }
   }, [sp])
 
-  return <StyledComponent className="index" sp={sp} {...props} />
+  const _props = {
+    className: 'index',
+    sp,
+    ...props
+  }
+  return <StyledComponent {..._props} />
 }
 
 export default Container
