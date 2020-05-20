@@ -31,9 +31,9 @@ export const getServerSideProps: GetServerSideProps = async context => {
       })
       context.res.end()
       break
-    case 'onw_eyes':
+    case 'marissa-mayer+':
       context.res.writeHead(302, {
-        Location: '/articles/own_eyes'
+        Location: '/articles/marissa-mayer'
       })
       context.res.end()
       break
