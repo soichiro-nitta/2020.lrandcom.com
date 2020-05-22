@@ -10,8 +10,6 @@ import UpperLeft from '~/components/default/UpperLeft'
 import Navigation from '~/components/default/Navigation'
 import styled from 'styled-components'
 import { useWindowSize } from '~/hooks/useWindowSize'
-import Head from '~/components/base/Head'
-import { config } from '~/utils/config'
 
 type ContainerProps = AppProps
 type ComponentProps = {
@@ -23,11 +21,6 @@ const Component: React.FC<ComponentProps> = props => (
   <>
     <GlobalStyle />
     <Provider store={store}>
-      <Head
-        title="リーディング＆カンパニー株式会社"
-        image={`${config.url.production}/images/base/ogp.png`}
-        type="website"
-      />
       <div className={props.className}>
         <Noise className="noise" />
         <div id="page">

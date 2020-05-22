@@ -12,6 +12,8 @@ import Button from '~/components/base/Button'
 import { usePageScroll } from '~/hooks/usePageScroll'
 import { styles } from '~/utils/styles'
 import { StateTypes } from '~/store'
+import { config } from '~/utils/config'
+import Head from '~/components/base/Head'
 
 type ContainerProps = {
   className: string
@@ -22,6 +24,11 @@ type ComponentProps = {
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
+    <Head
+      title="サービス・会社概要 / リーディング＆カンパニー株式会社"
+      image={`${config.url.production}/images/base/ogp.png`}
+      type="website"
+    />
     <Logo className="logo" />
     <div className="margin line" />
     <Lead className="wrapper">

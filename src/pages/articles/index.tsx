@@ -10,6 +10,8 @@ import { GetStaticProps } from 'next'
 import { usePageScroll } from '~/hooks/usePageScroll'
 import { styles } from '~/utils/styles'
 import { StateTypes } from '~/store'
+import Head from '~/components/base/Head'
+import { config } from '~/utils/config'
 
 type ContainerProps = {
   articles: ArticleTypes[]
@@ -21,6 +23,11 @@ type Props = {
 
 const Component: React.FC<Props> = props => (
   <div className={props.className}>
+    <Head
+      title="記事を読む / リーディング＆カンパニー株式会社"
+      image={`${config.url.production}/images/base/ogp.png`}
+      type="website"
+    />
     {props.articles.map(article => (
       <React.Fragment key={article.id}>
         {props.sp && <div className="divider" />}

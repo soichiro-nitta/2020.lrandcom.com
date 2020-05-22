@@ -12,6 +12,7 @@ import { config } from '~/utils/config'
 import { usePageScroll } from '~/hooks/usePageScroll'
 import { StateTypes } from '~/store'
 import { styles } from '~/utils/styles'
+import Head from '~/components/base/Head'
 
 type ContainerProps = {}
 type ComponentProps = {
@@ -21,6 +22,11 @@ type ComponentProps = {
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
+    <Head
+      title="リーディング＆カンパニー株式会社"
+      image={`${config.url.production}/images/base/ogp.png`}
+      type="website"
+    />
     {!props.sp && <Line className="line" />}
     <div className="contents">
       <Copy className="copy" />
