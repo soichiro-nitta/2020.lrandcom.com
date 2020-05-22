@@ -11,6 +11,7 @@ import Navigation from '~/components/default/Navigation'
 import styled from 'styled-components'
 import { useWindowSize } from '~/hooks/useWindowSize'
 import Head from '~/components/base/Head'
+import { config } from '~/utils/config'
 
 type ContainerProps = AppProps
 type ComponentProps = {
@@ -24,7 +25,7 @@ const Component: React.FC<ComponentProps> = props => (
     <Provider store={store}>
       <Head
         title="リーディング＆カンパニー株式会社"
-        image="/images/base/ogp.png"
+        image={`${config.url.production}/images/base/ogp.png`}
       />
       <div className={props.className}>
         <Noise className="noise" />
