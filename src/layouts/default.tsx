@@ -10,7 +10,7 @@ import UpperLeft from '~/components/default/UpperLeft'
 import Navigation from '~/components/default/Navigation'
 import styled from 'styled-components'
 import { useWindowSize } from '~/hooks/useWindowSize'
-import Head from 'next/head'
+import Head from '~/components/base/Head'
 
 type ContainerProps = AppProps
 type ComponentProps = {
@@ -22,15 +22,10 @@ const Component: React.FC<ComponentProps> = props => (
   <>
     <GlobalStyle />
     <Provider store={store}>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
-        />
-        <link rel="icon" type="image/x-icon" href="/images/base/favicon.png" />
-        <link rel="apple-touch-icon" href="/images/base/apple-touch-icon.png" />
-        <meta property="og:image" content="/images/base/ogp.png" />
-      </Head>
+      <Head
+        title="リーディング＆カンパニー株式会社"
+        image="/images/base/ogp.png"
+      />
       <div className={props.className}>
         <Noise className="noise" />
         <div id="page">
