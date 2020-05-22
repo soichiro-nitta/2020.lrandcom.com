@@ -27,6 +27,7 @@ const Component: React.FC<ComponentProps> = props => (
           name="viewport"
           content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
         />
+        <meta property="og:image" content="/images/base/ogp.png" />
       </Head>
       <div className={props.className}>
         <Noise className="noise" />
