@@ -42,19 +42,16 @@ const StyledComponent = styled(Component)`
     width: 100%;
   }
   > .body {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    margin: 0 auto;
+    width: 60rem;
     overflow: hidden;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    ${styles.media.sp} {
+      width: calc(100% - 6rem);
+    }
     p {
       ${styles.mixins.lhCrop(2)}
-      margin: 0 auto;
-      width: 60rem;
-      font-size: 1.6rem;
-      letter-spacing: 0.1rem;
-      ${styles.media.sp} {
-        width: calc(100% - 6rem);
-      }
     }
     span {
       opacity: 0.65;
