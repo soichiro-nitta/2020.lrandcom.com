@@ -52,6 +52,7 @@ const StyledComponent = styled(Component)`
     }
     p {
       ${styles.mixins.lhCrop(2)}
+      overflow: hidden;
     }
     span {
       opacity: 0.65;
@@ -63,6 +64,15 @@ const StyledComponent = styled(Component)`
     }
     a {
       text-decoration: underline;
+    }
+    blockquote {
+      ${styles.mixins.lhCrop(2)}
+      display: block;
+      margin: 0;
+      padding: 3rem;
+      font-size: 1.4rem;
+      background: #1c1c1e;
+      border: 1px solid #222224;
     }
   }
 `
