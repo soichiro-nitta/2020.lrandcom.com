@@ -27,6 +27,7 @@ const Component: React.FC<ComponentProps> = props => (
           name="viewport"
           content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
         />
+        <link rel="icon" type="image/x-icon" href="/images/base/favicon.png" />
         <meta property="og:image" content="/images/base/ogp.png" />
       </Head>
       <div className={props.className}>
