@@ -26,6 +26,7 @@ const Component: React.FC<ComponentProps> = props => (
       <Head
         title="リーディング＆カンパニー株式会社"
         image={`${config.url.production}/images/base/ogp.png`}
+        type="website"
       />
       <div className={props.className}>
         <Noise className="noise" />

@@ -5,8 +5,9 @@ import { config } from '~/utils/config'
 
 type ComponentProps = {
   title: string
-  description?: string
   image: string
+  type: string
+  description?: string
 }
 
 const Component: React.FC<ComponentProps> = props => (
@@ -20,6 +21,7 @@ const Component: React.FC<ComponentProps> = props => (
       property="og:url"
       content={`${config.url.production}${useRouter().asPath}`}
     />
+    <meta property="og:type" content={props.type} />
     <meta property="og:site_name" content="リーディング＆カンパニー株式会社" />
     <meta property="og:title" content={props.title} />
     <meta property="og:description" content={props.description} />

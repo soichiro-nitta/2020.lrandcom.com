@@ -20,6 +20,7 @@ const Component: React.FC<ComponentProps> = props => (
     <Head
       title={`${props.title} / リーディング＆カンパニー株式会社`}
       image={props.thumbnail.url}
+      type="article"
     />
     <Header
       className="header"
