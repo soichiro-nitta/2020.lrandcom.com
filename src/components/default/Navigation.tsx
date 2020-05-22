@@ -23,7 +23,7 @@ const Component: React.FC<ComponentProps> = props => (
       </li>
       <li>
         <Link href="/about">
-          <a>お問い合わせ・会社概要</a>
+          <a>サービス・会社概要</a>
         </Link>
       </li>
     </ul>
