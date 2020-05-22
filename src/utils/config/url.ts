@@ -1,4 +1,5 @@
 export default {
+  production: 'https://lrandcom.com',
   facebook: {
     natsume: 'https://www.facebook.com/chikara4',
     lc: 'https://www.facebook.com/15ahead/'
