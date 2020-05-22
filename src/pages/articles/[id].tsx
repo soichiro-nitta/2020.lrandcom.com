@@ -10,12 +10,17 @@ import { ArticleTypes } from '~/types'
 import { styles } from '~/utils/styles'
 import { usePageScroll } from '~/hooks/usePageScroll'
 import Header from '~/components/article/Header'
+import Head from '~/components/base/Head'
 
 type ContainerProps = ArticleTypes
 type ComponentProps = { className: string } & ContainerProps
 
 const Component: React.FC<ComponentProps> = props => (
   <div className={props.className}>
+    <Head
+      title={`${props.title} / リーディング＆カンパニー株式会社`}
+      image={props.thumbnail.url}
+    />
     <Header
       className="header"
       title={props.title}
