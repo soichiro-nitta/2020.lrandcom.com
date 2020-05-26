@@ -215,7 +215,7 @@ const StyledComponent = styled(Component)`
     width: 100%;
     height: 1px;
     background: white;
-    opacity: 0.05;
+    opacity: 0.03;
   }
 `
 
