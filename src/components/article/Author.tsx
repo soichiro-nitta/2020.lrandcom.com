@@ -15,10 +15,12 @@ const Component: React.FC<ComponentProps> = props => (
     <div className="thumb">
       <Img className="img" src="/images/article/natsume.jpg" />
     </div>
-    <div className="name">著者：夏目 力</div>
+    <a className="name" href={config.url.facebook.natsume}>
+      著者：夏目 力
+    </a>
     <ul>
       <li>
-        <ABlank className="fb" href={config.url.facebook.natsume}>
+        <ABlank className="fb" href="https://www.facebook.com/15ahead/">
           <FontAwesomeIcon icon={config.icons.facebook} />
         </ABlank>
       </li>
@@ -61,6 +63,7 @@ const StyledComponent = styled(Component)`
     font-size: 1.4rem;
     line-height: 1;
     letter-spacing: 0.4rem;
+    text-decoration: underline;
   }
   > ul {
     display: flex;
