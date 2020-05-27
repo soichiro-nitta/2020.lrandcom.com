@@ -15,9 +15,9 @@ const Component: React.FC<ComponentProps> = props => (
     <div className="thumb">
       <Img className="img" src="/images/article/natsume.jpg" />
     </div>
-    <a className="name" href={config.url.facebook.natsume}>
+    <ABlank className="name" href={config.url.facebook.natsume}>
       著者：夏目 力
-    </a>
+    </ABlank>
     <ul>
       <li>
         <ABlank className="fb" href="https://www.facebook.com/15ahead/">
