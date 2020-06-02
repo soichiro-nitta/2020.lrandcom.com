@@ -8,4 +8,5 @@ export type ArticleTypes = {
   }
   publishedAt: string
   body: string
+  hide: boolean
 }
