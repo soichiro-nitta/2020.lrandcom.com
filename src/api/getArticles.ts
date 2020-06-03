@@ -8,8 +8,5 @@ export default async (): Promise<ArticleTypes[]> => {
   const { contents } = await request.get(`/articles?limit=${totalCount}`, {
     headers: { 'X-API-KEY': process.env.MICROCMS_KEY }
   })
-  const filtered = contents.filter((content: ArticleTypes) => {
-    return content.hide === false
-  })
-  return filtered
+  return contents
 }

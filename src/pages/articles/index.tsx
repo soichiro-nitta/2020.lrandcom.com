@@ -95,9 +95,12 @@ export default Container
 
 export const getStaticProps: GetStaticProps = async () => {
   const articles = await api.getArticles()
+  const filtered = articles.filter((article: ArticleTypes) => {
+    return article.hide === false
+  })
   return {
     props: {
-      articles
+      articles: filtered
     },
     unstable_revalidate: 10
   }
