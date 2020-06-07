@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Button from '~/components/base/Button'
 import IncludeBr from '~/components/base/IncludeBr'
 import Video from '~/components/base/Video'
+import Link from 'next/link'
 
 type ContainerProps = {
   className: string
@@ -21,7 +22,13 @@ const Component: React.FC<ComponentProps> = props => (
       <Video className="video" src={props.src} />
     </div>
     <IncludeBr className="description" text={props.description} />
-    {props.button && <Button className="button">{props.button}</Button>}
+    {props.button && (
+      <Link href={props.link || ''}>
+        <a>
+          <Button className="button">{props.button}</Button>
+        </a>
+      </Link>
+    )}
   </div>
 )
 
@@ -43,8 +50,10 @@ const StyledComponent = styled(Component)`
   > .description {
     margin-top: 3rem;
   }
-  > .button {
-    margin-top: 3rem;
+  > a {
+    > .button {
+      margin-top: 3rem;
+    }
   }
 `
 
