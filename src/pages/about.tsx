@@ -79,6 +79,9 @@ const Component: React.FC<ComponentProps> = props => (
         <br />
         <br />
         リーディング＆カンパニーでは、記事の作り方から、リサーチの仕方、そして、面白い視点の見つけ方まで、日々実践的に使っている方法をもとにマーケティング・PR人材の育成をサポート致します。
+        <br />
+        <br />
+        Coming Soon.
       </div>
     </div>
     <div className="margin line" />
@@ -100,6 +103,9 @@ const Component: React.FC<ComponentProps> = props => (
         <br />
         <br />
         リーディング＆カンパニーでは、機能的でスピードの速いウェブサイトを理想とし、デザインとエンジニアリングを両立することで、コードを書きながらデザインをしていきます。
+        <br />
+        <br />
+        Coming Soon.
       </div>
     </div>
     <div className="margin line" />
@@ -115,6 +121,9 @@ const Component: React.FC<ComponentProps> = props => (
         <br />
         <br />
         リーディング＆カンパニーでは、プロとアマチュアの両方の視点から物事を考え、動画を制作していきます。
+        <br />
+        <br />
+        Coming Soon.
       </div>
     </div>
     <div className="margin line" />
@@ -137,10 +146,10 @@ const Component: React.FC<ComponentProps> = props => (
       <h2>キャリア</h2>
       <div className="text marginTop">
         多極的な視点で物事を考えられるライターを常に募集しています。キャリアや経験はハシゴではなくジャングルジム。常識とは異なった視点で、ライティングを通じ、未来の解像度を上げていって下さい。読書好き、旅行好き、運動好きであればパーフェクト!
+        <br />
+        <br />
+        Coming Soon.
       </div>
-    </div>
-    <div className="wrapper">
-      <Button className="button">詳しくはこちらから</Button>
     </div>
     <div className="margin line" />
     <div className="margin line" />
@@ -154,10 +163,10 @@ const Component: React.FC<ComponentProps> = props => (
         <br />
         <br />
         こちらのコミュニティでは、ZOOMを通じた勉強会やリアルイベントの交流会を定期的に行っています。
+        <br />
+        <br />
+        Coming Soon.
       </div>
-    </div>
-    <div className="wrapper">
-      <Button className="button">詳しくはこちらから</Button>
     </div>
     <div className="margin line" />
     <div className="margin line" />
