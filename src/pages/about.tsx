@@ -14,6 +14,7 @@ import { styles } from '~/utils/styles'
 import { StateTypes } from '~/store'
 import { config } from '~/utils/config'
 import Head from '~/components/base/Head'
+import Link from 'next/link'
 
 type ContainerProps = {
   className: string
@@ -56,6 +57,11 @@ const Component: React.FC<ComponentProps> = props => (
         <br />
         リーディング＆カンパニーでは、企業が伝えたいメッセージを汲み取り、大量のリサーチと取材を繰り返しながら、一般の方々に分かりやすく伝わる記事コンテンツを作成していきます。
       </div>
+      <Link href="/articles/create_contents">
+        <a className="marginTop">
+          <Button className="button">詳しくはこちらから</Button>
+        </a>
+      </Link>
     </div>
     <div className="margin line" />
     <div className="margin line" />
@@ -197,6 +203,9 @@ const StyledComponent = styled(Component)`
       ${styles.media.sp} {
         margin-top: 3rem;
       }
+    }
+    > a {
+      display: inline-block;
     }
   }
   > .logo {
