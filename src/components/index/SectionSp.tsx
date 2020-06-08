@@ -9,7 +9,10 @@ type ContainerProps = {
   className: string
   title: string
   description: string
-  link?: string
+  link?: {
+    href: string
+    as: string
+  }
   button?: string
   src: string
 }
@@ -23,7 +26,7 @@ const Component: React.FC<ComponentProps> = props => (
     </div>
     <IncludeBr className="description" text={props.description} />
     {props.button && (
-      <Link href={props.link || ''}>
+      <Link href={props.link?.href || ''} as={props.link?.as || ''}>
         <a>
           <Button className="button">{props.button}</Button>
         </a>

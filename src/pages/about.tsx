@@ -57,7 +57,7 @@ const Component: React.FC<ComponentProps> = props => (
         <br />
         リーディング＆カンパニーでは、企業が伝えたいメッセージを汲み取り、大量のリサーチと取材を繰り返しながら、一般の方々に分かりやすく伝わる記事コンテンツを作成していきます。
       </div>
-      <Link href="/articles/create_contents">
+      <Link href="/articles/[id]" as="/articles/create_contents">
         <a className="marginTop">
           <Button className="button">詳しくはこちらから</Button>
         </a>

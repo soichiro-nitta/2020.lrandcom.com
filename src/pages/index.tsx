@@ -38,7 +38,10 @@ const Component: React.FC<ComponentProps> = props => (
             title={config.index.writing.title}
             description={config.index.writing.description}
             button={config.index.writing.button}
-            link="/articles/create_contents"
+            link={{
+              href: '/articles/[id]',
+              as: '/articles/create_contents'
+            }}
             src={`${config.index.writing.src}/mobile.mp4`}
           />
           <div className="divider" />
@@ -68,7 +71,10 @@ const Component: React.FC<ComponentProps> = props => (
             description={config.index.writing.description}
             button={config.index.writing.button}
             src={`${config.index.writing.src}/pc.mp4`}
-            link="/articles/create_contents"
+            link={{
+              href: '/articles/[id]',
+              as: '/articles/create_contents'
+            }}
           />
           <SectionPc
             className="section"
