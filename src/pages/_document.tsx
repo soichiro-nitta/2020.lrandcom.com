@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { GA_TRACKING_ID } from '~/lib/gtag'
@@ -8,11 +9,11 @@ type Props = {
 }
 
 class MyDocument extends Document<Props> {
-  static getInitialProps({ renderPage }) {
+  static getInitialProps({ renderPage }: any) {
     // Step 1: Create an instance of ServerStyleSheet
     const sheet = new ServerStyleSheet()
     // Step 2: Retrieve styles from components in the page
-    const page = renderPage(App => props =>
+    const page = renderPage((App: any) => (props: any) =>
       sheet.collectStyles(<App {...props} />)
     )
     // Step 3: Extract the styles as <style> tags
